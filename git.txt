@@ -38,8 +38,11 @@ Tras hacer commit de cambios nuevos, podemos subirlos al repositorio remoto:
 Para añadir la dirección de un repositorio remoto a origin, lo podemos hacer así:
 ---git remote add origin https://github.com/user/repo.git
 
+Eliminar remote origin
+--git remote remove origin
 
-
+eliminar session git
+---rm -f .git/index.lock
 
 Ramas en git
 
@@ -65,4 +68,4 @@ rama en la que nos encontremos.
 
 
 
-escribir git remote -vpara ver qué / dónde se configuran los controles remotos. Si cometió un error antes, puede escribir git remote rm originpara borrarlo e intentarlo de nuevo.
+escribir git remote -v para ver qué / dónde se configuran los controles remotos. Si cometió un error antes, puede escribir git remote rm originpara borrarlo e intentarlo de nuevo.
