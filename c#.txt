@@ -1,0 +1,114 @@
+--conexion
+private SqlConnection cn = new SqlConnection("Data Source = .; Initial Catalog = colegio;Integrated Security=true;User=sa; Password=root");
+
+          public SqlConnection OpenConexion()
+          {
+              if (cn.State == System.Data.ConnectionState.Closed)
+                  cn.Open();
+              return cn;
+          }
+
+          public SqlConnection ClosedConexion()
+          {
+              if (cn.State == System.Data.ConnectionState.Open)
+                  cn.Close();
+              return cn;
+          }
+
+
+
+
+
+
+
+
+capadatos
+---create
+ public void Create(Alumno items)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cn.OpenConexion();
+            cmd.CommandText = "addAlumno";
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@nombre", items.Nombre);
+            cmd.Parameters.AddWithValue("@apellidos", items.Apellidos);
+            cmd.Parameters.AddWithValue("@telefono", items.Telefono);
+            cmd.ExecuteNonQuery();
+            cn.ClosedConexion();
+
+
+        }
+
+
+
+
+
+
+---update
+
+    public void Update(Alumno items)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cn.OpenConexion();
+            cmd.CommandText = "editAlumno";
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@nombre", items.Nombre);
+            cmd.Parameters.AddWithValue("@apellidos", items.Apellidos);
+            cmd.Parameters.AddWithValue("@telefono", items.Telefono);
+            cmd.Parameters.AddWithValue("@id", items.IdAlumno);
+            cmd.ExecuteNonQuery();
+            cn.ClosedConexion();
+        }
+
+
+--buscar
+
+  public Alumno Buscar(Alumno items)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cn.OpenConexion();
+            cmd.CommandText = "sharedAlumno";
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", items.IdAlumno);
+            Alumno a = new Alumno();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if(dr.Read())
+
+            {
+              
+                a.IdAlumno = Convert.ToInt32(dr[0]);
+                a.Nombre = dr[1].ToString();
+                a.Apellidos = dr[2].ToString();
+                a.Telefono = dr[3].ToString();
+               
+            }
+            cn.ClosedConexion();
+            return a;
+        }
+
+
+--listar
+
+public List<Alumno> Listar()
+        {
+            SqlCommand cmd = new SqlCommand();
+            List<Alumno> lista = new List<Alumno>();
+            cmd.Connection = cn.OpenConexion();
+            cmd.CommandText = "listarAlumnos";
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+
+            {
+                Alumno a = new Alumno();
+                a.IdAlumno = Convert.ToInt32(dr[0]);
+                a.Nombre = dr[1].ToString();
+                a.Apellidos = dr[2].ToString();
+                a.Telefono = dr[3].ToString();
+                lista.Add(a);
+            }
+            cn.ClosedConexion();
+            return lista;
+
+        }

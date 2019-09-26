@@ -1,0 +1,14 @@
+
+solo numeros de:
+/\[0-9]/g;
+/\d{3}/
+regex.exec(this.value);
+
+Número  		Expresión regular	       Formato
+900900900		/^\d{9}$/	                9 cifras seguidas
+900-900-900		/^\d{3}-\d{3}-\d{3}$/		9 cifras agrupadas de 3 en 3 y separadas por guiones
+900 900900		/^\d{3}\s\d{6}$/		9 cifras, las 3 primeras separadas por un espacio
+900 90 09 00		/^\d{3}\s\d{2}\s\d{2}\s\d{2}$/	9 cifras, las 3 primeras separadas por un espacio, las siguientes agrupadas de 2 en 2
+(900) 900900		/^\(\d{3}\)\s\d{6}$/		9 cifras, las 3 primeras encerradas por paréntesis y un espacio de separación respecto del resto
++34 900900900		/^\+\d{2,3}\s\d{9}$/		Prefijo internacional (+ seguido de 2 o 3 cifras), espacio en blanco y 9 cifras consecutivas
+https://uniwebsidad.com/libros/javascript/capitulo-7/validacion

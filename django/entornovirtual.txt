@@ -1,0 +1,18 @@
+isntalar
+pip install virtualenv
+
+crear
+virtualenv nombre_de_tu_entorno
+virtualenv nombre_de_tu_entorno -p python3
+
+intalar django
+pip install django
+
+
+o con python
+python -m venv entvirt
+
+
+
+--para conectarse a bd pgsql
+pip install psycopg2

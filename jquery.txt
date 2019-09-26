@@ -1,0 +1,54 @@
+CARGAR ARCHIVOS DE OTRO LADO
+-----------------------------
+$(document).ready(function() {   
+
+cargarDatos();
+
+});
+
+function cargarDatos() {
+	$("#texto").load("texto.php");
+}
+
+CAPTURAR ID DE DATATABLE
+-------------------------
+
+  <td><a href="javascript:eliminar('<%=c.getId()%>')"><button>X</button></a></td>
+function eliminar(id){
+            alert(id);}
+
+
+
+
+CAPTURAR ID DEL BOTON
+-------------
+id=$(".btnDelete").attr('id');
+var btn= $(this).val();//valor del btn
+
+
+
+
+
+CAPTURAR VALOR DE HREF
+-----------
+var href= $(this).attr('href');
+
+
+
+  var items=$(this);
+       var idpro=items.parent().find("#idArticulo").text();
+       //retrocedes uno al padre y find busca con el id
+
+
+
+$("#imgD").attr("src",res.img);//asignar valor d imagen con json desde javascript
+
+
+
+var formData = new FormData($('#formAd')[0]);  //enviar imagens x ajax
+
+
+
+
+
+$('.images').addClass('col-md-6'); == agregar una clase

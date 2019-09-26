@@ -1,0 +1,11 @@
+$.ajax({
+	headers: {
+          'X-CSRFToken':token 
+             },
+		url: 'activar/'+id,
+		type: 'POST',
+		data: data,
+		success:function(rs){
+		alert(rs)
+		}
+	});

@@ -1,0 +1,52 @@
+  
+cargar lista a alertdialo
+---------------------------
+AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Seleccione");
+        alert.setItems(opciones, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if(opciones[i].equals("Editar")){
+                    Toast.makeText(getApplicationContext(),"editar : ",Toast.LENGTH_LONG).show();
+
+                }else if(opciones[i].equals("Eliminar")){
+                    Toast.makeText(getApplicationContext(),"eliminar : ",Toast.LENGTH_LONG).show();
+
+                }else{
+
+                }
+            }
+        });
+
+
+        alert.show();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+patalla completa dialog
+---------------------------
+ final Dialog dialog = new Dialog(this);
+        dialog.setTitle("nuevo registro");
+        dialog.setContentView(R.layout.dialogadd);
+        WindowManager.LayoutParams lm= new WindowManager.LayoutParams();
+        lm.copyFrom(dialog.getWindow().getAttributes());
+        lm.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lm.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        dialog.show();
+        dialog.getWindow().setAttributes(lm);

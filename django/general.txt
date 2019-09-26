@@ -1,0 +1,14 @@
+--crear un proyecto
+ django-admin startproject mysite
+
+--app
+python manage.py startapp Apps
+
+--migrations crear
+python manage.py makemigrations app
+
+--migrations run
+python manage.py migrate app
+
+--run
+python manage.py runserver 127.0.0.1:5000

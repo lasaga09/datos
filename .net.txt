@@ -1,0 +1,8 @@
+Viewbag = pasar valor de controlador a las vistas
+Viewbag.variable = valor
+
+-------------------
+
+
+comentarios = @**@
+---------------------

@@ -1,0 +1,242 @@
+lmyElemento.classList.add('nombreclase'); = añadir clase
+myElemento.classList.remove('nombreclase'); =eliminar una clase
+myElemento.classList.contains('nombreclase'); = verificar si un elemento tiene clase
+  var id=this.getAttribute("idcate"); === capturar el atributo de html
+
+
+//ajax javascript
+var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     console.log(this.responseText)
+    }
+  };
+  xhttp.open("GET", "debito/"+id, true);
+  xhttp.send();
+
+
+--------------------------------------------
+
+//solo numero posivitos(input)
+ var val = this.value;
+  this.value = val.replace(/\D|\-/,'');
+
+
+//eliminar espacios en blanco de una cadena 
+a="la casa azul";
+b=a.replace(/ /g, "");
+
+---imprimir--
+var ficha = document.getElementById("sectorqr");
+	  var ventimp = window.open(' ', 'popimpr');
+	  ventimp.document.write( ficha.innerHTML );
+	  ventimp.document.close();
+	  ventimp.print( );
+	  ventimp.close();
+
+
+-- limitar caracteres input
+placa.addEventListener("input",function(){
+	 if (this.value.length > 7) 
+     this.value = this.value.slice(0,7);
+})
+
+
+//solo numeros
+ var val = this.value;
+  this.value = val.replace(/\D|\-/,'');
+
+//solo numero y texto
+ var val = this.value;
+  this.value = val.replace(/\D\W|\-/,'');
+
+--------------------
+expreciones regulares
+--------------------------
+*espacios en blanco(no permitir)
+var regex = /[^+\d]/g;
+
+
+//convierte en cadena un objeto array
+JSON.stringify(array)
+
+---convertir cadena de string a json 
+ var obj = JSON.parse(rs);
+
+
+
+//foreach
+rs.forEach( function(valor) {
+		console.log(valor['nombre']);
+		});
+
+
+//Convierte la primera letra en mayuscula
+	var s=this.value.replace(/\b[a-z]/g,c=>c.toUpperCase());
+	this.value=s;
+
+---mayuscula todo--
+toUpperCase()
+
+
+
+
+--bloquer navegacion de atras de los navegadores
+function NoBack(){
+history.go(1)
+}
+<body OnLoad="NoBack();">
+
+
+
+
+
+
+
+---validar input correo--
+  var texto = document.getElementById("correo").value;
+  var regex =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+ if (!regex.test(texto)) {
+
+      mens.innerHTML = "Correo invalido";
+      document.getElementById("btnSave").disabled = true;
+     
+  } else {
+    document.getElementById("emailvalidate").innerHTML = "";
+      document.getElementById("btnSave").disabled = false;
+  }
+
+
+
+--desabilitar boton --
+  document.getElementById("btnSave").disabled = false;
+
+
+--fetch --
+var numero = 2;
+const url='https://pokeapi.co/api/v2/pokemon/'+numero;
+fetch(url)
+.then(rs => rs.json())
+.then(data => {
+	console.log(data);
+});
+
+
+
+
+----split
+var datos = rs.split('|');
+:separa cadena de string
+
+
+
+
+
+
+//comprovar un objeto vacio
+Object.keys(obj).length === 0
+
+
+///asignar imagen a img
+        document.getElementById("imgshowup").src='ruta';
+
+
+
+//cargar imagen para visualizar
+
+function init() {
+  var inputFile = document.getElementById('imagen');
+  inputFile.addEventListener('change', mostrarImagen, false);
+}
+
+function mostrarImagen(event) {
+  var file = event.target.files[0];
+  var reader = new FileReader();
+  reader.onload = function(event) {
+    var img = document.getElementById('imgshow');
+    img.src= event.target.result;
+  }
+  reader.readAsDataURL(file);
+}
+
+window.addEventListener('load', init, false);
+
+
+--reset--
+document.getElementById("frmadd").reset();
+
+
+---guardar valores seleccinads en grupo de checkbox
+var siSeleccionado=new Array();
+	var noSeleccionado=new Array();
+	var checkboxs = document.querySelectorAll('input[name="uno"]').forEach( function(e) {
+		if(e.checked){
+				siSeleccionado.push(e.value);
+
+		}else{
+		
+		}
+	});
+
+
+
+
+
+
+---config modal de bootstrap
+        $(this).modal({
+		backdrop:'static',
+		keyboard:false
+
+	});
+	$(this).modal('show');
+
+
+
+
+
+
+----item detalle generado
+
+
+var fila='';
+
+subtotal[cont]=(Math.round((cantidad*precio) * 100 )/100);
+
+total=total+ subtotal[cont];
+
+			
+			fila+='<tr class="selected" id="fila'+cont+'">';
+			fila+='<td><button type="button" class="btn btn-danger" onclick="eliminarItem('+cont+')";><i class="fa fa-times-circle " aria-			hidden="true"></i></button></td>';
+			fila+='<td><input type="hidden" name="equipo[]" value="'+equipo+'-'+marca+'-'+modelo+'"><i>'+equipo+'-'+marca+'-'+modelo+'</i></td>';
+			fila+='<td><input type="hidden" name="descripcion[]" value="'+descripcion+'"><i>'+descripcion+'</i></td>';
+			fila+='<td hidden ><input type="hidden" name="marca[]" value="'+idmarca+'"></td>';
+			fila+='<td><input type="text" hidden  class="widthInput" name="fallas[]" value="'+siSeleccionado+'">'+siSeleccionado+'</td>';
+			fila+='<td><input type="number" hidden class="widthInput"  name="cantidad[]" value="'+cantidad+'">'+cantidad+'</td>';
+			fila+='<td><input type="number" hidden class="widthInput" name="precio[]" value="'+precio+'">'+precio+'</td>';
+			fila+='<td><input type="number" hidden name="subtotal[]" value="'+subtotal[cont]+'">'+subtotal[cont]+'</td>';
+			
+			fila+='</tr>';
+			cont++;
+			limpiar();
+
+$("#total").html('Total : S/. '+total);
+$("#detalles").append(fila);
+$("#total_total").val(total);
+
+function eliminarItem(cont){
+total=total-subtotal[cont];
+$("#total_total").val(total);
+$("#total").html('Total : S/. '+total);
+$("#fila" + cont).remove();
+
+}
+
+
+
+-- links
+
+expresiones regulares
+https://uniwebsidad.com/libros/javascript/capitulo-7/validacion
+
+https://regexr.com/

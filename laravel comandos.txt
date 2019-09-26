@@ -1,0 +1,189 @@
+php artisan migrate:reset -elimina las migraciones en forma inversa(elimina los datos de la bd)
+php artisan migrate -> migracion
+php artisan migrate:refresh ->actualiza la migracion(elimina los datos de la bd)
+php artisan make:migration nombre->crea una migracion
+php artisan migrate:rollback ->regresa a la ultima migracion realizada
+
+php artisan make:seeder nombreSeeder -> crear datos 
+php artisan db:seed ->ejecutar los seed
+
+php artisan make:model nombredelmodelo->crear un modelo
+php artisan make:model nombredelmodelo -m  ->crear un modelo y migracion simultaneo
+php artisan make:controller nombredelcontrolador->crear un controlador
+php artisan make:controller nombrecontrolador --resource ->crea un controlador resource 
+
+
+composer dump-autoload->cargar tinker
+php aritsan tinker->entrar a tinker
+
+
+php artisan route:list ->para saver las rutas definidas
+
+
+
+---save img
+
+ if($request->hasFile('imagen')){
+            $file=$request->file('imagen');
+            $name=time().$file->getClientOriginalName();
+            $file->move(public_path().'/imagenes/',$name);
+
+        }else{
+
+           $name='';
+         }
+	 $producto->imagen=$name;
+         $producto->save();
+
+
+---delete
+$datos = $producto::find($id);
+         $file_path = public_path().'/imagenes/'.$datos->imagen;
+        \File::delete($file_path);
+        $datos->delete();
+        return 'Producto eliminado';
+
+
+--save multiple
+      	$equipo=$request->equipo;
+        $marca=$request->marca;
+        $cont=0;/*contador para el bucle*/
+
+        /*condicion para el array de detalles que viene po request*/
+        while($cont < count($marca)){
+           $datos = new DetalleReparacion();
+           $datos->id_reparacion=$reparacion->idreparacion;
+           $datos->equipo=$equipo[$cont];
+           $datos->id_marca=$marca[$cont];
+           $datos->save();
+           $cont=$cont+1;
+	}
+
+
+
+
+
+fk
+---
+   $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
+      ->references('id')->on('users')
+      ->onDelete('cascade');
+
+
+--------------------------------------------------
+eliminar un archivo :
+ $ruta = public_path('imgqr/'.$vehiculo->placa.'.svg');
+        unlink($ruta);
+--------------------------
+
+formas de a href resource
+<a href="{{route('Trainers.show',['id'=>$item->id])}}
+
+
+
+
+
+
+
+session(['key' => 'value']); ==== almacenar datos a una session
+    $value = session('key'); =========recuperar ssession
+$request->session()->all();  ===recuperar toda la sessio
+
+
+$request->session()->forget('key'); ===elimina una session
+
+$request->session()->flush();  ====0elilmina todas las sessionea
+
+
+
+inner join---orm eloquent
+   $rol = Usuario::select('roles.rol')
+                          ->join('roles', 'roles.idrol', '=', 'usuarios.id_rol')
+                          ->where('id_rol',$value->id_rol)
+                          ->get();
+
+
+-------inner join 3 tablas
+$datos = Usuario::select('usuarios.idusuario','usuarios.nombre','usuarios.usuario','roles.rol','sedes.nombre as sede')
+                          ->join('roles', 'roles.idrol', '=', 'usuarios.id_rol')
+                          ->join('sedes', 'sedes.idsede', '=', 'usuarios.id_sede')
+
+
+
+
+
+----db...
+$sede = DB::select('SELECT s.nombre from sedes s INNER join usuarios on s.idsede=usuarios.id_sede where id_sede ='.$value->id_sede);
+
+
+$sede = DB::table('sedes')->get();
+
+----Trigger---
+stok
+
+DELIMITER $$
+  CREATE TRIGGER nombretrigger AFTER 
+    INSERT ON salida
+     FOR EACH ROW 
+
+   BEGIN
+     UPDATE productos SET stock = stock - NEW.cantidad 
+     WHERE productos.idproductos = NEW.id_producto;
+    END;$$
+
+
+
+innerjoin ingreso a producto
+SELECT i.idingreso, i.cantidad, p.nombre FROM   ingreso i inner join  productos p on i.id_producto=p.idproductos;
+
+---inner join dos 3 tablas
+SELECT r.rol ,u.nombre, s.nombre from roles r 
+INNER join usuarios u on r.idrol=u.id_rol
+INNER join sedes s on s.idsede=u.id_sede
+
+
+
+//uso de ajax
+$.ajax({
+	
+	type: 'POST',
+	headers: {
+        'X-CSRF-TOKEN':token
+    },
+	url:'/Cliente' ,
+	data: {token: 'token'},
+	success:function(rs){
+		alert(rs)
+	}
+})
+
+
+
+
+
+//queris where
+  $datos = Cliente::find($id);
+   /*$datos = Cliente::where('idcliente', $request->id)->get();*/
+	
+
+
+//obtener el ultimo id registrado
+ $ultimoid=Compra::orderby('idcompras','DESC')->take(1)->get();
+
+
+
+----required
+
+        $compra = request()->validate([
+            'proveedor'=>'required'
+            
+        ],[
+        'proveedor.required'=>'campo obligatorio'  
+    
+        ]);
+
+
+
+---ruta absoluta
+{{asset('css/algo.css')}}

@@ -1,0 +1,4 @@
+//select
+ var rs = from u in db.usuarios
+           where u.usuario == user && u.pass == pass && u.idstado == 1
+           select u;

@@ -1,0 +1,6 @@
+url
+----- 
+Glide.with(context)
+                .load(alumo.getUrl())
+                .into(holder.img);
+

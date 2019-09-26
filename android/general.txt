@@ -1,0 +1,91 @@
+pasar variables de activity a otra
+-----------------------------------
+Intent inten = new Intent(getApplicationContext(),RecibirParametros.class);
+                inten.putExtra("dato",tpasar.getText().toString());
+                startActivity(inten);
+
+
+
+..........................................
+
+
+
+
+recibir variables de un activity
+-------------------------------
+ Bundle parametros = this.getIntent().getExtras();
+        if(parametros != null) {
+            String dato = parametros.getString("dato");
+            trecibe.setText(dato);
+        }
+.........................................
+
+
+
+WebWiew
+--------------------------------------------------
+ if(parametros != null) {
+            String page = parametros.getString("url");
+            web.setWebViewClient(new WebViewClient());
+            web.loadUrl("https://"+page);
+        }
+.........................................................
+
+
+
+sharedPrefereces
+----------------------------------
+guardar
+  SharedPreferences preferences = getSharedPreferences("datos", Context.MODE_PRIVATE);
+        ed.setText(preferences.getString("email",""));
+
+SharedPreferences pre = getSharedPreferences("datos",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pre.edit();
+        editor.putString("email",ed.getText().toString());
+        editor.commit();
+
+***************************
+   public void guardarconSharedP(){
+        SharedPreferences preferences = getSharedPreferences("agenda", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(tn.getText().toString(),td.getText().toString());
+        editor.commit();
+        Toast.makeText(getApplicationContext(),"datos guardados",Toast.LENGTH_LONG).show();
+    }
+
+ public void buscarSharedP(){
+        SharedPreferences preferences = getSharedPreferences("agenda", Context.MODE_PRIVATE);
+        String datos = preferences.getString(tn.getText().toString(),"");
+        if(datos.length()==0){
+            Toast.makeText(getApplicationContext(),"No se ha encontrado datos",Toast.LENGTH_LONG).show();
+        }else{
+          td.setText(datos);
+        }
+
+    }
+
+........................................................
+
+
+conflictos dependencia
+........................
+
+exclude group: 'com.android.support'
+
+
+
+
+
+
+
+personalizar dialog para contenido completo
+-------------------------------------------
+Dialog dialog = new Dialog(this);
+        dialog.setTitle("nuevo registro");
+        dialog.setContentView(R.layout.dialogadd);
+        WindowManager.LayoutParams lm= new WindowManager.LayoutParams();
+        lm.copyFrom(dialog.getWindow().getAttributes());
+        lm.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lm.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        dialog.show();
+        dialog.getWindow().setAttributes(lm);

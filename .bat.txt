@@ -1,0 +1,18 @@
+@echo off
+ 
+cd C:\xampp\
+start xampp-control.exe
+
+cd C:\xampp\htdocs\Proyecto\PeruInformatico
+PowerShell.exe php artisan serve
+
+exit
+
+
+
+
+@echo 
+
+start chrome.exe http://127.0.0.1:8000
+
+exit

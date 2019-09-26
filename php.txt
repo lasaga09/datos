@@ -1,0 +1,23 @@
+
+--consumir api rest--
+<<forma uno>>>
+$data = json_decode( file_get_contents('https://api.sunat.cloud/ruc/10722723576'), true );
+print_r($data);
+
+
+<<forma dos>>>
+$url = 'http://aplicaciones007.jne.gob.pe/srop_publico/Consulta/Afiliado/GetNombresCiudadano?DNI='.$ruc;
+	$dato = curl_init($url);
+	curl_setopt($dato,CURLOPT_RETURNTRANSFER, true);
+	$rs = curl_exec($dato);
+    echo $rs;
+
+
+
+---convierte una cadena de string en array por espacio
+
+// Ejemplo 1
+$pizza  = "porción1 porción2 porción3 porción4 porción5 porción6";
+$porciones = explode(" ", $pizza);
+echo $porciones[0]; // porción1
+echo $porciones[1]; // porción2

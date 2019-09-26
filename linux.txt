@@ -1,0 +1,25 @@
+descargar 
+: apt-get install nombredelprograma
+
+
+
+configuracion de metasploit
+sudo nano /var/www/mutillidae/config.inc
+<?php
+
+$dbhost = 'localhost';
+$dbuser = 'root';
+$dbpass='';
+$dbname = 'owasp10';
+
+?>
+
+
+links
+http://whois.domaintools.com/
+http://toolbar.netcraft.com/site_report?url=
+
+https://www.exploit-db.com/
+https://www.robtex.com/oldindex.html
+https://viewdns.info/reverseip/
+

@@ -1,0 +1,27 @@
+FK
+CONSTRAINT FK_usuarios FOREIGN KEY (idusuario)
+ REFERENCES usuarios(idusuario)
+
+ALTER TABLE Orders
+ADD FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+
+VARIAS FK
+ALTER TABLE Orders
+ADD CONSTRAINT FK_PersonOrder
+FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+
+---------------------------------------------------------------
+PROCEDURES
+
+create proc listado
+as
+select * from productos
+go
+
+create proc add
+@nombre varchar(50),
+as
+insert into producto values(@nombre)
+go
+
+

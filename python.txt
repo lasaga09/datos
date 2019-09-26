@@ -1,0 +1,90 @@
+tamaño de caracteres str
+-------------------------
+len()
+
+
+
+lista(array)
+---------
+datos = [] 
+append=add
+lista1.extend(lista2)=unir listas
+lista.insert(posicion,valor)== inserta 
+lista.pop(indice) == delete
+lista.clear() == elimina tdo la lista
+lista.remove(valor) == delete
+lista.reverse() == voltea la lista
+lista.sort() == ordena
+newlista = sorted(lista)
+
+
+
+
+conjunto
+......
+c = set()
+c.add(valor) == add
+c.discard(valor) == sacar
+c2 = c.copy() == copiar un conjunto
+c.clear() == elimina todo el conjunto
+
+
+disjunto:(distintos)
+c.isdisjoint(c2)
+
+concuerda:
+c.issubset(c2)
+
+contenedor:
+c.issuperset(c2)
+
+
+union:
+c.union(c2)
+
+update:
+c.update(c2)
+
+distintos:
+c.difference(c2)
+c.difference_update(c2)
+
+comunes:
+c.intersection(c2)
+c.intersection_update(c2)
+
+
+simetrica diferencia:
+c.symmetric_difference(c2)
+
+
+
+
+diccionarios:
+---------------------
+dato = {}
+dato['key']
+dato.get('key')
+dato.keys() == devuelve todos los keys
+dato.values() == devuelve todos los valores
+dato.items() == devuelve key y value
+dato.pop("key") == elimina
+dato.clear() == vacear diccionario
+
+
+
+
+
+cadenas
+---------
+"texto".upper() = tdo mayuscula
+"texto.lower() =  todo minuscula
+"texto".capitalize() = primer letra mayuscula
+"text".title()     =   primer de cada palabra mayuscula
+"texto".count('palabra') = cuenta cuantos hay
+"texto".split()   = separa las palabras en lista
+"    texto  ".strip() == borra espacios o caracter que deseas
+"Hola mundo".replace("o",0) == remplaza
+
+
+

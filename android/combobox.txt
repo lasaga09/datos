@@ -1,0 +1,8 @@
+ String [] opciones = {"Suma","Resta","Dividir","Multiplicar"};
+ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, opciones);
+spinner.setAdapter(adapter);
+
+String seleccion = spinner.getSelectedItem().toString();
+                if (seleccion.equals("Resta")){
+                    Toast.makeText(getApplicationContext(),"seleccinaste resta",Toast.LENGTH_LONG).show();
+                }

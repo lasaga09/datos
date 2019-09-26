@@ -1,0 +1,80 @@
+mexico al coad metro grifo resol  los brillantes nro 120 altura 2 de cdr mexico 
+----------------------------
+EN EL CONTENEDOR PRINCIPAL
+---------------------------
+
+--tamaño de las columns--
+grid-template-columns: 1fr 1fr 1fr |100px 100px 100px;
+
+---tamaño de las filas--
+grid-template-rows: 200px;
+
+---espaciado entre los elementos hijos---
+grid-gap: 10px;
+
+
+--minmax---
+grid-template-columns: minmax(300px,1fr) 1fr;
+grid-template-rows: minmax(100px, auto);
+
+
+----para responsive--
+grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+
+
+
+--repeat--
+grid-template-columns:400px repeat(4, 1fr);
+grid-template-rows: repeat(4, 1fr);
+
+
+--alinear contenido--
+justify-content:|normal|center|end|space-evenly|space-between|space-around;
+align-content: |normal|center|end|space-evenly|space-between|space-around;
+
+----alinacion vertical---
+align-items: auto;|start|center|end|strech|
+
+
+---alinacion horizontal--
+justify-items:auto;
+
+
+
+---llenar los elementos en blanco--
+grid-auto-flow:dense;
+-----------------------------------------
+
+EN LOS ELEMENTOS HIJOS
+--------------------
+
+--posicionar un elemento hijo donde quieres que enpieze y asta donde finalize--
+grid-column: 1/3;
+grid-row: 2/4;
+
+--espandir un elemento --
+grid-column: span 3;
+grid-row: 3 / span 2;
+
+
+----alinacion vertical---
+align-self;|start|center|end|strech|
+
+
+---alinacion horizontal--
+justify-self:auto;|start|center|end|strech|
+
+
+CREAR AREAS
+...EN EL CONTENEDOR..
+grid-template-areas: " header     header     header"
+		     "sidebar-1 contenido    sidebar-2"
+		     "sidebar-1 widgets      sidebar-2"
+		     "footer    footer        footer";
+
+....EN EL HIJO..
+----solo llamas el nombre del area de cada hijo--
+grid-area: sidebar-1;
+
+
