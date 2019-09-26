@@ -1,0 +1,59 @@
+var fila='';
+	var cont=0;
+
+	       fila+='<tr  id="fila'+cont+'">';
+	       fila+='<td><input  name="nombre[]" value="'+nombre+'"></td>';
+	       fila+='<td><input  name="dni[]" value="'+dni+'" ></td>';
+	       fila+='<td><input   name="sexo[]" value="'+sex+'"></td>';
+		
+			fila+='<td><button type="button"  onclick="eliminarItem('+cont+')">x</td>';
+			fila+='</tr>';
+			cont++;
+
+			$("#detalles").append(fila);
+			limpiar();
+
+
+
+		
+});
+
+function eliminarItem(cont){
+$("#fila" + cont).remove();
+
+}
+
+
+--laravel
+ if($request->hasFile('imagen')){
+            $file=$request->file('imagen');
+            $name=time().$file->getClientOriginalName();
+            $file->move(public_path().'/imagenes/',$name);
+
+        }else{
+
+           $name='';
+         }
+
+
+
+
+
+
+
+
+
+ /*guardamos en variables el detalle*/
+        $equipo=$request->equipo;
+        $marca=$request->marca;
+  
+        $subtotal=$request->subtotal;
+        $cont=0;/*contador para el bucle*/
+
+        /*condicion para el array de detalles que viene po request*/
+        while($cont < count($marca)){
+           $datos = new DetalleReparacion();
+           $datos->id_reparacion=$reparacion->idreparacion;
+        
+           $datos->save();
+           $cont=$cont+1;
