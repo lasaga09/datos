@@ -15,6 +15,18 @@ $dbname = 'owasp10';
 ?>
 
 
+
+---------------------------
+*instalar app
+permisos=sudo chmod +x app
+sudo ./nombredelprograma.run
+
+
+
+*correr xamp
+cd /opt/lampp
+sudo ./manager-linux-x64.run
+
 links
 http://whois.domaintools.com/
 http://toolbar.netcraft.com/site_report?url=
@@ -22,4 +34,71 @@ http://toolbar.netcraft.com/site_report?url=
 https://www.exploit-db.com/
 https://www.robtex.com/oldindex.html
 https://viewdns.info/reverseip/
+
+
+
+
+
+--kali--
+
+**crear fichero** 
+---------------------
+echo "texto" > nombre.txt
+touch nombrefichero
+-directorio
+mkdir nombrecarpeta
+
+
+
+**leer fichero**
+-------------------
+cat nombre.txt
+head-more-tail  head fichero|ruta -n 3
+locate  
+wherels nombreapp
+
+
+**copiar fichero**
+-------------------
+cp fichero.txt fichero2.txt
+
+
+
+
+**editar**
+nano fichero
+
+
+
+
+
+**eleminar fichero**
+------------------------
+rm nombrefichero
+-directorio
+rm -R nombrecarpeta
+
+
+**filtrar en busqueda de ficheros**
+----------------------------------
+ls -all|grep nombrefichero
+
+
+
+**permisos**
+***modificar permiso***
+chmod 000 nombrefichero
+
+
+
+*Saver que procesos esta corriendo*
+ps
+top (proceso completos)
+
+
+**matar un proceso**
+kill idps
+killall -9 python
+
+
 
