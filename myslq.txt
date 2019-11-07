@@ -9,7 +9,7 @@ DELIMITER $$
      UPDATE productos SET stock = stock - NEW.cantidad 
      WHERE productos.idproductos = NEW.id_producto;
     END;$$
-
+DELIMITER ;
 
 -----------------------------
 
@@ -63,12 +63,12 @@ Operador	Descripcion
 <	Menor Que
 <=	Menor o Igual Que
 IN ( )	Valores que Coinciden en una Lista
-NOT	Negar una Condición
+NOT	Negar una CondiciÃ³n
 BETWEEN	Valores en un Rango (incluye los extremos)
 IS NULL	Verifica si el Valor es NULL
 IS NOT NULL	Verifica si el Valor es diferente de NULL
-LIKE	Definir un patrón de búsqueda y utiliza % y _
-EXISTS	La condición se cumple si la subconsulta devuelve al menos una fila
+LIKE	Definir un patrÃ³n de bÃºsqueda y utiliza % y _
+EXISTS	La condiciÃ³n se cumple si la subconsulta devuelve al menos una fila
 
 
 
@@ -78,37 +78,37 @@ MySQL
 SELECT * FROM clientes WHERE nombre LIKE '%m%';
 1
 SELECT * FROM clientes WHERE nombre LIKE '%m%';
-En el código superior estamos buscando los clientes que contengan una ‘m’ en el nombre.
+En el cÃ³digo superior estamos buscando los clientes que contengan una â€˜mâ€™ en el nombre.
 
 MySQL
 SELECT * FROM clientes WHERE nombre LIKE 'M%';
 1
 SELECT * FROM clientes WHERE nombre LIKE 'M%';
-En el código superior estamos buscando los clientes cuyo nombre comienza por ‘M’.
+En el cÃ³digo superior estamos buscando los clientes cuyo nombre comienza por â€˜Mâ€™.
 
 MySQL
 SELECT * FROM clientes WHERE nombre LIKE '%a';
 1
 SELECT * FROM clientes WHERE nombre LIKE '%a';
-En el código superior estamos buscando los clientes cuyo nombre termina con ‘a’.
+En el cÃ³digo superior estamos buscando los clientes cuyo nombre termina con â€˜aâ€™.
 
 MySQL
 SELECT * FROM clientes WHERE nombre LIKE '_a%';
 1
 SELECT * FROM clientes WHERE nombre LIKE '_a%';
-En el código superior estamos buscando los clientes cuyo nombre tiene como segundo caracter la ‘a’.
+En el cÃ³digo superior estamos buscando los clientes cuyo nombre tiene como segundo caracter la â€˜aâ€™.
 
 MySQL
 SELECT * FROM clientes WHERE nombre LIKE '_______';
 1
 SELECT * FROM clientes WHERE nombre LIKE '_______';
-En el código superior estamos buscando los clientes cuyo nombre tiene 7 caracteres de longitud.
+En el cÃ³digo superior estamos buscando los clientes cuyo nombre tiene 7 caracteres de longitud.
 
 MySQL
 SELECT * FROM clientes WHERE nombre LIKE '%a%' or nombre LIKE '%r%' ;
 1
 SELECT * FROM clientes WHERE nombre LIKE '%a%' or nombre LIKE '%r%' ;
-En el código superior estamos buscando los clientes cuyo nombre tiene una ‘a’ y una ‘r’.
+En el cÃ³digo superior estamos buscando los clientes cuyo nombre tiene una â€˜aâ€™ y una â€˜râ€™.
 
 
 
