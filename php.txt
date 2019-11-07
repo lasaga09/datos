@@ -5,6 +5,55 @@ $data = json_decode( file_get_contents('https://api.sunat.cloud/ruc/10722723576'
 print_r($data);
 
 
+
+
+
+--get
+  $api = curl_init();
+  curl_setopt($api, CURLOPT_URL, "http://api.tvmaze.com/schedule/full");
+  curl_setopt($api, CURLOPT_HEADER, 0);            
+  curl_setopt($api, CURLOPT_RETURNTRANSFER, true);   
+  
+
+  $raw_data = curl_exec($api);
+  curl_close($api);
+  
+  
+  
+  --post
+  $data = ["task"=>$t];
+
+$data_string=json_encode($data);
+$ch = curl_init('http://localhost:8080/api');
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json',
+    'Content-Length: ' . strlen($data_string))
+);
+curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+
+//execute post
+$result = curl_exec($ch);
+
+//close connection
+curl_close($ch);
+
+echo $result;
+
+
+
+
+
+
+
+
+
+
+
+
 <<forma dos>>>
 $url = 'http://aplicaciones007.jne.gob.pe/srop_publico/Consulta/Afiliado/GetNombresCiudadano?DNI='.$ruc;
 	$dato = curl_init($url);
@@ -17,7 +66,7 @@ $url = 'http://aplicaciones007.jne.gob.pe/srop_publico/Consulta/Afiliado/GetNomb
 ---convierte una cadena de string en array por espacio
 
 // Ejemplo 1
-$pizza  = "porci髇1 porci髇2 porci髇3 porci髇4 porci髇5 porci髇6";
+$pizza  = "porci贸n1 porci贸n2 porci贸n3 porci贸n4 porci贸n5 porci贸n6";
 $porciones = explode(" ", $pizza);
-echo $porciones[0]; // porci髇1
-echo $porciones[1]; // porci髇2
+echo $porciones[0]; // porci贸n1
+echo $porciones[1]; // porci贸n2
