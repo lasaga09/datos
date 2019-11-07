@@ -35,6 +35,19 @@ FOR EACH ROW BEGIN
 END $$
 DELIMITER ;
 
+
+
+//procedure listar
+DELIMITER $$
+CREATE PROCEDURE sp_ubigeoDistrito(IN dis VARCHAR(250))
+BEGIN
+    SELECT * FROM  ubigeo WHERE  distrito LIKE CONCAT('%', dis , '%');
+END $$
+DELIMITER ;
+
+
+
+
 --------------------------------------------
 //innerjoin ingreso a producto
 SELECT i.idingreso, i.cantidad, p.nombre FROM   ingreso i inner join  productos p on i.id_producto=p.idproductos;
