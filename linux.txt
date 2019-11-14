@@ -102,3 +102,8 @@ killall -9 python
 
 
 
+
+
+{# comandos linux #}
+
+aqui va los comandos linux de prueba
