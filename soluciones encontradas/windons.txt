@@ -1,2 +1,7 @@
 --reproductor media (error de servidor)
 regsvr32 c:\windows\syswow64\jscript.dll
+
+
+
+---permisos para shell
+set-ExecutionPolicy Unrestricted
