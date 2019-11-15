@@ -9,8 +9,14 @@ intalar django
 pip install django
 
 
+
+
 o con python
 python -m venv entvirt
+
+
+--levantar env
+ .\env\Scripts\activate   
 
 
 
