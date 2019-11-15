@@ -20,6 +20,9 @@ php aritsan tinker->entrar a tinker
 php artisan route:list ->para saver las rutas definidas
 
 
+--schema
+ Schema::defaultStringLength(191);
+
 
 ---save img
 
