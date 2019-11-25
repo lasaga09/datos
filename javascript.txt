@@ -253,6 +253,13 @@ console.log(repetidos);
 
 
 
+----add elemento a un array--
+array.push(data);
+
+---add al inicio del array--
+array.unshift(data)
+
+
 
 
 -- links
