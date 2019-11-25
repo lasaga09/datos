@@ -46,6 +46,30 @@ END $$
 DELIMITER ;
 
 
+//eliminar registros de la tabla y resetear autoincrement
+DELIMITER $$
+CREATE PROCEDURE sp_EliminarRegistrosTabla(in pNombreTabla VARCHAR(50))
+BEGIN
+ 
+    SET SQL_SAFE_UPDATES = 0;
+    SET @SQL = CONCAT('DELETE FROM ', pNombreTabla);
+ 
+    PREPARE stmt FROM @SQL;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+ 
+    SET @SQL = CONCAT('ALTER TABLE ', pNombreTabla, ' AUTO_INCREMENT = 1');
+ 
+    PREPARE stmt FROM @SQL;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+ 
+    SET SQL_SAFE_UPDATES = 1;
+ 
+END $$
+DELIMITER;
+
+
 
 
 --------------------------------------------
