@@ -96,6 +96,48 @@ ps
 top (proceso completos)
 
 
+
+e---comandos linux--
+**crear archivos**
+cat > nombre.txt
+
+**ser usuario root**
+-su -
+
+**desbloquear la cuenta root**
+sudo passwd root
+
+**bloquear la cuenta root**
+sudo passwd -dl root
+
+
+**instalar paquetes netstat**
+$ sudo apt install net-tools
+
+**abrir carpeta desde terminal**
+nautilus rutadelcarpeta
+
+-posicionar en directerio anterior :   cd -
+-ruta donde estas : pwd
+
+sudo apt install nombreaplicacion -  Instalar aplicación.
+sudo apt-get remove nombreaplicacion -  Eliminar aplicación.
+sudo apt-get update -  Resincroniza las fuentes de los paquetes.
+sudo apt-get upgrade -  Actualiza las aplicaciones y paquetes instalados a su última versión.
+df:  Muestra el espacio libre en el disco duro.
+top:  Muestra los procesos que más CPU están consumiendo en tiempo real.
+
+
+---instalar xamp---
+sudo chmod +x xamp.run
+sudo ./xamp.run
+
+**levantar panel xamp**
+$ sudo /opt/lampp/manager-linux-x64.run
+**iniciar xamp terminal**
+$ sudo /opt/lampp/lampp start
+
+
 **matar un proceso**
 kill idps
 killall -9 python
