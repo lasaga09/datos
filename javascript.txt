@@ -261,6 +261,41 @@ array.unshift(data)
 
 
 
+--Guardar data en localStore--
+
+var datoslist=[];
+function addlist(id,code){
+	var newdata = {
+		id:id,
+		code:code
+	};
+	datoslist.push(newdata);
+	localstore(datoslist);
+
+}
+
+function getlist(){
+	var store = localStorage.getItem('listadata');
+	if(store == null){
+		datoslist =[];
+	}else{
+		datoslist = JSON.parse(store);
+	}
+	return datoslist;
+}
+
+function localstore(lista){
+localStorage.setItem('listadata',JSON.stringify(lista));
+}
+
+//eliminar un elemento de objeto
+delete(datoslist[i]['code']);
+
+
+
+
+
+
 
 -- links
 
