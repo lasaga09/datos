@@ -190,3 +190,17 @@ $.ajax({
 
 ---ruta absoluta
 {{asset('css/algo.css')}}
+
+
+
+---crear datos aleatorios con factory y seeder
+**factory(name,text,email,cellphone)
+   return [
+          'title' => $faker->name,
+        'description' => $faker->sentence(10,false)
+    
+    ];
+    
+    **seeder
+    en run del seedeer 
+       factory(Post::class)->times(100)->create();
