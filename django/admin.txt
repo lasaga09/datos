@@ -1,0 +1,15 @@
+from django.contrib import admin
+from .models import Autor,Libro
+
+admin.site.register(Autor)
+
+class LibroAdmin(admin.ModelAdmin):
+  search_fields = ['nombre']  
+	list_display = ('id','titulo','fecha_publicacion','autores',)
+
+	def autores(self, obj):
+		return "- ".join([str(p) for p in obj.autor_id.all()])
+
+
+
+admin.site.register(Libro,LibroAdmin)
