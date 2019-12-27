@@ -1,0 +1,49 @@
+*****forms****
+
+class AutorForm(forms.ModelForm):
+	class Meta:
+		model = Autor
+		fields = ['nombre','apellidos','nacionalidad','descripcion']
+		labels = {
+			'nombre': 'Nombre del autor',
+			'apellidos': 'Apellidos del autor',
+			'nacionalidad': 'Nacionalidad del autor',
+			'descripcion': 'Pequeña descripción',
+		}
+    
+    	widgets = {
+			'nombre': forms.TextInput(
+				attrs = {
+					'class':'form-control',
+					'placeholder':'Ingrese el nombre del autor',
+					'id': 'nombre'
+				}
+			),
+      
+      	'nacionalidad':forms.Select(
+				attrs = {
+					'class':'form-control',
+					'id':'nacionalidad'
+				}
+			),
+      
+      'descripcion': forms.Textarea(
+				attrs = {
+					'class':'form-control',
+					'placeholder': 'Ingrese una pequeña descripcion para el autor',
+					'id':'descripcion'
+				}
+			)
+      
+      'autor_id': forms.SelectMultiple(
+				attrs = {
+					'class':'form-control'
+				}
+			),
+			'fecha_publicacion': forms.SelectDateWidget(
+				attrs = {
+					'class': 'form-control'
+				}
+			)
+      
+      }
