@@ -1,0 +1,38 @@
+****vistas basadas en clases***
+from django.shortcuts import render,redirect
+from django.urls import reverse_lazy
+from django.core.paginator import Paginator
+from django.core.exceptions import ObjectDoesNotExist
+from django.views.generic import View,TemplateView,ListView,CreateView,UpdateView,DeleteView
+
+from django.urls import reverse_lazy
+from .forms import AutorForm,LibroForm
+from .models import Autor,Libro
+
+class Inicio(TemplateView):
+	template_name = 'index.html'
+
+class ListadoAutor(ListView):
+	model = Autor 
+	context_object_name = 'autores'
+	paginate_by = 5
+	template_name = 'libro/autor/listar_autor.html'
+	queryset = Autor.objects.filter(estado=True)
+
+class CrearAutor(CreateView):
+	model = Autor
+	form_class  = AutorForm
+	template_name = 'libro/autor/crear_autor.html'
+	success_url = reverse_lazy('libro:listar_autor')
+
+class ActualizarAutor(UpdateView):
+	model = Autor
+	form_class  = AutorForm
+	template_name = 'libro/autor/crear_autor.html'
+	success_url = reverse_lazy('libro:listar_autor')	
+
+class EliminarAutor(DeleteView):
+	model = Autor
+	template_name = 'libro/autor/eliminar_autor.html'
+	success_url = reverse_lazy('libro:listar_autor')
+		
