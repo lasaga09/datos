@@ -35,4 +35,28 @@ class EliminarAutor(DeleteView):
 	model = Autor
 	template_name = 'libro/autor/eliminar_autor.html'
 	success_url = reverse_lazy('libro:listar_autor')
+	
+	
+	
+********vistas basadas en funciones*********
+from django.shortcuts import render,get_object_or_404
+from .models import Post,Categoria
+from django.db.models import Q
+from django.core.paginator import Paginator
+
+def home(request):
+	buscar = request.GET.get("buscar")
+	posts = Post.objects.filter(estado = True)
+	if buscar:
+		posts=Post.objects.filter(Q(titulo__icontains = buscar)|Q(descripcion__icontains = buscar),estado = True).distinct()
+	paginator = Paginator(posts, 2)
+
+	page = request.GET.get('page')
+	posts = paginator.get_page(page)
+	return render(request,'index.html',{'posts':posts})
+
+def detallePost(request,slug):
+	post = get_object_or_404(Post,slug = slug)
+	return render(request,'post.html',{'detalle_post':post})
+
 		
