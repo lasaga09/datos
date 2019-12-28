@@ -3,3 +3,24 @@ position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    
+    
+    
+    **animar borde div***
+    .card:before{
+    content: "";
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 0;
+    bottom: 0;
+    right:0;/*de donde comienza*/
+    left:50%;
+    background:#222;
+    transition: all .3s;
+    
+}
+.card:hover:before{
+    width: 100%;
+    left:0;
+}
