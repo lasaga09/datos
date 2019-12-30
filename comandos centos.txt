@@ -1,0 +1,45 @@
+*********Centos****
+
+manegador de paquetes:
+-----------------------
+yum update => actualizar paquetes
+yum install nombrepaquete  => installar 
+
+listado de repositorios instalados:
+----------------------------------
+yum repolist
+
+
+
+add user:
+-----------
+useradd usuario
+passwd usuario
+
+
+ver archivos ocultos:
+-------------
+
+ls -la 
+
+poner propietario una carpeta:
+----------------------------------
+chown usuario:usuario carpeta
+
+chown -R usuario:usuario carpeta => subcarpetas pertene
+
+memoria :
+--------
+free -m
+
+
+apache:
+-----------
+service httpd status,stop,...
+
+
+apagar maquinavirtual:
+-----------------------
+reboot
+
+
