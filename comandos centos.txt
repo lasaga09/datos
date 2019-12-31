@@ -43,3 +43,16 @@ apagar maquinavirtual:
 reboot
 
 
+*******ubuntu******************
+habilitar usuario root:
+sudo -i
+passwd root
+
+Desabilitar:
+sudo passwd -dl root
+
+poner a root un usuario:
+usermod -aG sudo usuario
+
+
+
