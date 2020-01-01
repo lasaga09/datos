@@ -54,5 +54,38 @@ sudo passwd -dl root
 poner a root un usuario:
 usermod -aG sudo usuario
 
+**instar nginx**
+----------------------
+sevidor web
+
+
+
+apt-get install nginx
+apt-get install openssh-server
+configurar cortafuegos:
+ufw status
+ufw app list
+ufw allow openssh
+ufw allow 'Nginx HTTP'
+ufw allow 'Nginx HTTPS'
+ufw enable
+
+
+mysql:
+apt-get install mysql-serve
+
+php:
+apt-get install php-fpm php-mysql
+
+habilitar php nginx:
+etc/nginx/sites-available/default descomentar algunas lineas
+
+etc/nginx/sites-enable    testear la configurarion : nginx -t
+
+sudo systemctl reload nginx :recargar
+
+
+
+
 
 
