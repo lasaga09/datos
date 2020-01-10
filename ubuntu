@@ -1,0 +1,8 @@
+***add subdominios*******+
+sudo nano /etc/apache2/sites-avalaible/000-default.conf
+#Subdominio cursos.escueladigital.pe
+<VirtualHost *:80>
+  ServerName cursos.escueladigital.pe
+  DocumentRoot /var/www/html/edcursos
+</VirtualHost>
+sudo service apache2 restart
