@@ -6,3 +6,8 @@ sudo nano /etc/apache2/sites-avalaible/000-default.conf
   DocumentRoot /var/www/html/edcursos
 </VirtualHost>
 sudo service apache2 restart
+
+
+******permisos carpeta ********
+
+sudo chown www-data:www-data -R carpeta
