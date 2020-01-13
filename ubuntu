@@ -11,3 +11,6 @@ sudo service apache2 restart
 ******permisos carpeta ********
 
 sudo chown www-data:www-data -R carpeta
+
+******sudo**
+sudo nano /etc/sudoers
