@@ -14,3 +14,6 @@ sudo chown www-data:www-data -R carpeta
 
 ******sudo**
 sudo nano /etc/sudoers
+
+***acceso remoto mysq***
+nano /etc/mysql/mysql.conf.d/mysqld.cnf
