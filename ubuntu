@@ -17,3 +17,16 @@ sudo nano /etc/sudoers
 
 ***acceso remoto mysq***
 nano /etc/mysql/mysql.conf.d/mysqld.cnf
+
+***laravel**
+composer install
+sudo chown -R www-data: storage
+sudo chmod -R 755 storage
+
+****config laravel****
+en virtualhost etc/apache2/sites-enabled/000-default.conf
+<Directory /var/www/html/sites/test/public>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+</Directory>
