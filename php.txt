@@ -70,3 +70,17 @@ $pizza  = "porción1 porción2 porción3 porción4 porción5 porción6";
 $porciones = explode(" ", $pizza);
 echo $porciones[0]; // porción1
 echo $porciones[1]; // porción2
+
+
+
+****fichero*******
+
+		if (file_exists("mensajeError.txt")){
+			$archivo = fopen("mensajeError.txt", "a");
+			fwrite($archivo," ".$datosConvertidos);
+			fclose($archivo);
+		}else{
+			$archivo = fopen("mensajeError.txt", "w");
+			fwrite($archivo," ".$datosConvertidos);
+			fclose($archivo);
+		   }
