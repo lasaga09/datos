@@ -1,0 +1,5 @@
+**muchos a muchos**
+ toppings = models.ManyToManyField(Topping)
+ 
+ **uno a muchos**
+   author = models.ForeignKey(Author, on_delete=models.CASCADE)
