@@ -3,3 +3,8 @@
  
  **uno a muchos**
    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+
+
+***recorrer un muchs a muchos ***
+
+v in a.vacunas.all
