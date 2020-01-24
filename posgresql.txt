@@ -1,0 +1,74 @@
+crear bd => create database nombrebd;
+eliminar bd =>drop database if exists "juan";
+
+tabla:
+create => create table persona();
+update = update persona set dni='12345678' where dni is null;
+
+operadores logicos:
+!=    =>diferente
+=    =>igual
+>    =>mayor
+<    =>menor
+<=  >=  =>menorigual mayorigual
+and => y
+
+-- comentarios
+/*  */
+
+
+alter:
+add columna a tabla
+alter table persona add column edad varchar(2);
+
+rename:renombrar campo de la tabla
+alter table persona add column edad varchar(2);
+
+eliminar campo table
+alter table persona add column edad varchar(2);
+
+alter type
+alter table persona add column edad varchar(2);
+
+pk
+alter table persona add primary key (idpersona);
+
+autoincremet
+id serial primary key
+
+eliminar datos y resetear autoincrement
+truncate table persona restart identity
+
+
+valores default
+telefono varchar(20) default 'Desconocido'
+
+calculadas:
+select nombre, salario ,(salario + 1000)as bono from planilla;
+
+order by
+select * from persona order by idpersona desc;
+
+
+like
+select * from persona where nombre like '%a%';
+
+
+count
+select count(*) from persona;
+
+sum
+select sum(salario)as total from planilla;
+
+min,max
+select min(salario) from planilla;
+select max(salario) from planilla;
+select nombre , min(salario) from planilla group by nombre;
+
+avg(promedio)
+select avg(salario)from planilla;
+select nombre, avg(salario)from planilla group by nombre;
+
+having:
+es un where pero en grupos
+
