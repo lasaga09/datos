@@ -1,3 +1,13 @@
+CREATE USER emilio WITH PASSWORD 'password-del-usuario-emilio';
+GRANT ALL PRIVILEGES ON DATABASE facturas to emilio;
+
+conectar:
+PSQL -D FACTURAS -U EMILIO
+
+
+CREATE USER EMILIO WITH PASSWORD 'PASSWORD-DEL-USUARIO-EMILIO';
+GRANT ALL PRIVILEGES ON DATABASE FACTURAS TO EMILIO;
+
 crear bd => create database nombrebd;
 eliminar bd =>drop database if exists "juan";
 
