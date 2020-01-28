@@ -1,0 +1,3 @@
+condicion:
+Categoria.objects.filter(status=True)
+
