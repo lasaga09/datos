@@ -1,3 +1,6 @@
-condicion:
+condicion where:
 Categoria.objects.filter(status=True)
+
+condicion o:
+
 
