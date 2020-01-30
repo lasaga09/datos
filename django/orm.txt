@@ -1,6 +1,68 @@
 condicion where:
 Categoria.objects.filter(status=True)
 
-condicion o:
+condicion or:
+Categoria.objects.filter(description__startswith='G') | Categoria.objects.filter(description__startswith='T')
+Categoria.objects.filter(Q(description__startswith='G')| Q(description__startswith='T'))
+
+condicion and:
+Categoria.objects.filter(description__startswith='S',status=True)
+qs= Categoria.objects.filter(description__startswith='S') & Categoria.objects.filter(status=True)
+Categoria.objects.filter(Q(description__startswith='S') & Q(status=True))
+
+
+like(que inicie con g):
+Categoria.objects.filter(description__startswith='G')
+
+mayor y menor:
+Categoria.objects.filter(id__gt=2)
+Categoria.objects.filter(id__lt=2)
+
+not:
+Categoria.objects.exclude(Q(id=2))
+Categoria.objects.filter(~Q(id=2))
+
+union:
+qs1=Categoria.objects.exclude(Q(id=2))
+qs2=Categoria.objects.filter(id__lt=2)
+qs1.union(qs2)
+
+subquery:
+from django.db.models import Subquery
+qs = SubCategoria.objects.filter(status=True)
+Categoria.objects.filter(id__in=Subquery(qs.values('categoria_id')))
+
+join:
+SubCategoria.objects.filter(categoria__description='SOPORTE') 
+SubCategoria.objects.select_related('categoria')
+
+agrupar registros:
+from django.db.models import Avg,Sum,Max,Min,Count
+ Categoria.objects.all().aggregate(Sum('id'))
+ Categoria.objects.all().count()
+ 
+ 
+ insertion multiple:
+ Categoria.objects.bulk_create([Categoria(descripiton='ss'),Categoria(description='dfsd')])
+ 
+ 
+ 
+ signals:
+ from django.db.signals import post_save, post_delete
+ from django.dispatch import receiver
+ 
+ @receiver(post_save , sender=Categoria)
+ def categoria_saved(sender, **kwargs):
+  -----
+  
+  
+  order by:
+  Categoria.objects.all().order_by('id') asc
+   Categoria.objects.all().order_by('-id')des
+  
+
+
+
+
 
 
