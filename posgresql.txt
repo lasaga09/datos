@@ -15,6 +15,15 @@ tabla:
 create => create table persona();
 update = update persona set dni='12345678' where dni is null;
 
+foreignkey:
+ALTER TABLE producto ADD CONSTRAINT constraint_fk
+FOREIGN KEY (categoria)
+REFERENCES categoria(idcategoria)
+ON DELETE CASCADE
+
+FOREIGN KEY (so_id) REFERENCES so_headers (id)
+ON DELETE CASCADE
+
 operadores logicos:
 !=    =>diferente
 =    =>igual
