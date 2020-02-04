@@ -29,6 +29,9 @@ function listar(parm){
 		        "data":{"params":parm}
 
 		},
+		'createdRow': function( row, data, dataIndex ) {
+		$(row).attr('idtipolavado', data.idtipo_lavado);
+		},
 		"columns":[
 			{"data":"descripcion"},
 			{"data":"precio"},
@@ -66,7 +69,8 @@ var obtenerData = function(tbody,table){
 		},
 		
 		
-		
+	********accedeer al atributo personalizado en e tr**
+	var id = $(this).parents("tr").attr("idtipolavado");
 
 var  lenguajeDataTable = {
 	
