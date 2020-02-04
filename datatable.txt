@@ -1,0 +1,79 @@
+
+
+
+
+html:
+<div class="table-responsive col-sm-12">		
+				<table id="dt_cliente" class="table table-bordered table-hover" cellspacing="0" width="100%">
+					<thead>
+						<tr>								
+							<th>Descripcion</th>
+							<th>Precio</th>
+							<th>T/Vehiculo</th>
+							<th></th>											
+						</tr>
+					</thead>					
+				</table>
+			</div>		
+
+
+
+
+function listar(){
+	var table = $("#dt_cliente").DataTable({
+		"destroy":true,/*para inicializar*/
+		"ajax":{
+			"method":"GET",
+			"url":"tlavadolist"
+		},
+		"columns":[
+			{"data":"descripcion"},
+			{"data":"precio"},
+			{"data":"id_tipo_vehiculo"},
+			{"defaultContent":"<button class='btn' id='jstb'>X</button>"}
+		],
+		"language":lenguajeDataTable	
+
+    });
+    obtenerData("#dt_cliente tbody",table);
+}
+
+var obtenerData = function(tbody,table){
+	$(tbody).on('click', '#jstb', function(event) {
+		event.preventDefault();
+		var data = table.row($(this).parents("tr")).data();
+		console.log(data.codigo);
+		/* Act on the event */
+	});
+}
+
+var  lenguajeDataTable = {
+	
+    "sProcessing":     "Procesando...",
+                "sLengthMenu":     "Mostrar _MENU_ registros",
+                "sZeroRecords":    "No se encontraron resultados",
+                "sEmptyTable":     "Ningún dato disponible en esta tabla =(",
+                "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix":    "",
+                "sSearch":         "Buscar:",
+                "sUrl":            "",
+                "sInfoThousands":  ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst":    "Primero",
+                    "sLast":     "Último",
+                    "sNext":     "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "copy": "Copiar",
+                    "colvis": "Visibilidad"
+                }
+
+}
