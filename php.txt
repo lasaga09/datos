@@ -84,3 +84,9 @@ echo $porciones[1]; // porción2
 			fwrite($archivo," ".$datosConvertidos);
 			fclose($archivo);
 		   }
+		   
+		   
+		   
+***********fecha******
+$now   = new \DateTime();
+	$fecha = $now->format('Y-m-d h:i:s a');
