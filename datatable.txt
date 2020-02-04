@@ -19,12 +19,15 @@ html:
 
 
 
-function listar(){
+function listar(parm){
 	var table = $("#dt_cliente").DataTable({
 		"destroy":true,/*para inicializar*/
+		 "processing": true,
 		"ajax":{
 			"method":"GET",
-			"url":"tlavadolist"
+			"url":"tlavadolist",
+		        "data":{"params":parm}
+
 		},
 		"columns":[
 			{"data":"descripcion"},
@@ -46,6 +49,24 @@ var obtenerData = function(tbody,table){
 		/* Act on the event */
 	});
 }
+
+
+****personalizar colums*******
+{"data":"tipo","render":function(data, type, row,td){
+
+			if(type === 'display'){
+                   if(row.tipo === 0){
+                 return "<span style='fontWeight = 700' class='text-primary'>Estacionamiento</span>";
+                 }else{
+                  return "<span class='text-info'>Baño</span>";
+                   }
+                }else{
+                return data;
+                }
+		},
+		
+		
+		
 
 var  lenguajeDataTable = {
 	
