@@ -1,0 +1,22 @@
+*****focus***
+$(function () {
+  $('#ModalProducto').on('shown.bs.modal', function (e) {
+    $('.focus').focus();
+  })
+});
+
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+
+
+
+
+***desactivar***
+ data-backdrop="static
+ 
+ 
+ $('#myModal').modal({
+  keyboard: false
+  backdrop:true
+})
