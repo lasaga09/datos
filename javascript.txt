@@ -3,6 +3,19 @@ myElemento.classList.remove('nombreclase'); =eliminar una clase
 myElemento.classList.contains('nombreclase'); = verificar si un elemento tiene clase
   var id=this.getAttribute("idcate"); === capturar el atributo de html
 
+//abrir nueva ventana
+function abrirpopup(url,ancho,alto){
+	
+	//Ajustar horizontalmente
+	var x=(screen.width/2)-(ancho/2);
+	//Ajustar verticalmente
+	var y=(screen.height/2)-(alto/2);
+	window.open(url, 'popup', 'width=' + ancho + ', height=' + alto + ', left=' + x + ', top=' + y +'');
+}
+
+
+
+
 
 //ajax javascript
 var xhttp = new XMLHttpRequest();
