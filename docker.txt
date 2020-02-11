@@ -1,0 +1,47 @@
+*****Docker****
+tags:====son como las versiones de las imagens
+
+buscar una imagen:
+docker search nombre
+
+instalar imagen:
+docker pull nombre
+
+listar imganes:
+docker images
+
+listar y ver estado container:
+docker ps -a
+
+eliminar imagenes:
+docker rmi idimagen
+
+
+
+
+
+****container***
+crear a container:
+docker run -i -t imagen bash
+
+crear a container con nombre:
+docker run  --name NOMBRE -it imagen 
+
+salir de container guardando estado run:
+ctrl+p+q
+
+detener container:
+docker stop idcontainer
+
+iniciar container:
+docker start idcontainer
+
+ingresar terminal de container:
+docker attach idcontainer
+
+eliminar container:
+docker rm idcontainer
+
+crear una imagen desde un contenedor:
+docker commit idcontainer newnombreimagen
+
