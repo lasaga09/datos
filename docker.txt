@@ -45,3 +45,8 @@ docker rm idcontainer
 crear una imagen desde un contenedor:
 docker commit idcontainer newnombreimagen
 
+
+
+ejecutar un dokerfile:
+docker build rutadelfile
+
