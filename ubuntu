@@ -30,3 +30,16 @@ en virtualhost etc/apache2/sites-enabled/000-default.conf
         AllowOverride All
         Require all granted
 </Directory>
+
+
+
+******glassfish*********
+apt-get install unzip
+wget http://download.java.net/glassfish/4.1.1/release/glassfish-4.1.1.zip
+unzip glassfish-4.1.1.zip -d /opt
+
+asadmin change-admin-password
+asadmin enable-secure-admin
+asadmin stop-domain
+asadmin start-domain
+
