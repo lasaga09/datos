@@ -90,3 +90,10 @@ echo $porciones[1]; // porción2
 ***********fecha******
 $now   = new \DateTime();
 	$fecha = $now->format('Y-m-d h:i:s a');
+
+
+
+****activar phppdo***
+sudo apt-get install php7.0-mysql
+-activar drivers;
+sudo phpenmod pdo_mysql
