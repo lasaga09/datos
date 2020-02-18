@@ -94,5 +94,9 @@ FLUSH PRIVILEGES;
 
 
 
+***instalar phpadmin***
+apt-get install libapache2-mod-php php-mbstring php7.0-mbstring php-gettext
+apt-get install -y phpmyadmin
+
 
 
