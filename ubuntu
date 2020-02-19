@@ -35,6 +35,7 @@ en virtualhost etc/apache2/sites-enabled/000-default.conf
 
 ******glassfish*********
 apt-get install unzip
+apt install openjdk-8-jdk
 wget http://download.java.net/glassfish/4.1.1/release/glassfish-4.1.1.zip
 unzip glassfish-4.1.1.zip -d /opt
 
