@@ -45,13 +45,6 @@ asadmin stop-domain
 asadmin start-domain
 
 
-
-
-
-
-
-
-
 *****varias versiones php***
 sudo apt update 
 sudo apt install apache2 libapache2-mod-fastcgi 
@@ -84,7 +77,7 @@ sudo vim /etc/apache2/sites-available/php56.example.com.conf
     ServerName php56.example.com
     DocumentRoot /var/www/php56
     <Directory /var/www/php56>
-        Options -Indexes +FollowSymLinks +MultiViews
+        Options Indexes FollowSymLinks MultiViews
         AllowOverride All
         Require all granted
     </Directory>
@@ -100,7 +93,7 @@ sudo vim /etc/apache2/sites-available/php56.example.com.conf
     ServerName php72.example.com
     DocumentRoot /var/www/php72
     <Directory /var/www/php72>
-        Options -Indexes +FollowSymLinks +MultiViews
+        Options Indexes FollowSymLinks MultiViews
         AllowOverride All
         Require all granted
     </Directory>
@@ -112,6 +105,9 @@ sudo vim /etc/apache2/sites-available/php56.example.com.conf
 -activar las conf de los virtualhost
 sudo a2ensite php56.example.com
 sudo a2ensite php72.example.com
+
+-Activar ModRewrite:
+sudo a2enmod rewrite
 
 -reiniciar apache
 sudo systemctl restart apache2
