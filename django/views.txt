@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.core.paginator import Paginator
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.generic import View,TemplateView,ListView,CreateView,UpdateView,DeleteView
+from django.contrib.auth.mixins import PermissionRequiredMixin
 
 from django.urls import reverse_lazy
 from .forms import AutorForm,LibroForm
@@ -12,7 +13,8 @@ from .models import Autor,Libro
 class Inicio(TemplateView):
 	template_name = 'index.html'
 
-class ListadoAutor(ListView):
+class ListadoAutorPermissionRequiredMixin,ListView):
+        permission_required = 'app.add_category'
 	model = Autor 
 	context_object_name = 'autores'
 	paginate_by = 5
@@ -43,7 +45,10 @@ from django.shortcuts import render,get_object_or_404
 from .models import Post,Categoria
 from django.db.models import Q
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required,permission_required
 
+@login_required(login_url='/dashboard/')
+@permission_required('app.view_home',login_url='app:login')
 def home(request):
 	buscar = request.GET.get("buscar")
 	posts = Post.objects.filter(estado = True)
