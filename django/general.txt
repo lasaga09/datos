@@ -1,3 +1,4 @@
+************+iniciar project**************************************************************************
 --crear un proyecto
  django-admin startproject mysite
 
@@ -12,3 +13,33 @@ python manage.py migrate app
 
 --run
 python manage.py runserver 127.0.0.1:5000
+
+***************************************************************************************************+
+
+
+link:
+https://ccbv.co.uk/
+
+
+**************permisos en plantilla *************+**
+{{if perms.app.add_model}}
+
+
+***********************+carga de imagenes **********************carpeta default media
+  image = models.ImageField(upload_to='img')
+  
+ --settings.py--
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+--url--
+from django.conf.urls.static import static
+from django.conf import settings
+urlpatterns = [....
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+--view--
+{% for img in your_object %}
+<img src="{{ img.image.url }}" >
+{% endfor %}
+********************************************************************************************+
