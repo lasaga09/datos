@@ -16,6 +16,20 @@ python manage.py runserver 127.0.0.1:5000
 
 ***************************************************************************************************+
 
+*******************************setting*******************************+
+#templates
+'DIRS': [os.path.join(BASE_DIR, 'templates'),],
+
+
+#para static
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+# para el login y logout
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login/'
+*************************************************************************************
+
 
 link:
 https://ccbv.co.uk/
