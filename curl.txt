@@ -1,0 +1,60 @@
+curl:
+Usando ftp con curl
+
+Para explorar un servidor ftp, usa el siguiente comando:
+$ curl ftp://test.linuxtechlab.com –user username:password
+
+Para descargar un archivo desde el servidor ftp, usa el siguiente comando:
+$ curl ftp://test.linuxtechlab.com/test.tar.gz –user username:password -o test.tar.gz
+
+Para cargar un archivo al servidor ftp usando el comando curl, usa lo siguiente:
+$ curl -T test.zip ftp:/test.linuxtechlab.com/test_directory/ –user username:password
+------------------------------------------------------------------------------------------------------------------
+
+Reanudar un archivo pausado
+
+También podemos pausar y reanudar una descarga con el comando curl. Para hacer esto, primero comenzaremos la descarga:
+$ curl -O http://linuxtechlab.com/test1.tar.gz
+
+Que pausará la descarga usando ‘ctrl + C’ y para reanudar la descarga, usa el siguiente comando:
+$ curl -C – -O http://linuxtechlab.com/test1.tar.gz
+Aquí, la opción ‘-C‘ se usa para reanudar la descarga.
+------------------------------------------------------------------------------------------------------------------------------
+
+Enviar un email
+
+Podemos usar el comando curl para enviar correos electrónicos. El comando completo para enviar un correo electrónico es:
+
+$ curl –url “smtps://smtp.linuxtechlab.com:465” –ssl-reqd –mail-from “dan@linuxtechlab.com” –mail-rcpt “susan@readlinux.com” –upload-file mailcontent.txt –user “dan@linuxtechlab.com:password” –insecure
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Limitar la velocidad de descarga
+
+Para limitar la velocidad a la que se descarga un archivo, para evitar el bloqueo de la red o por algún otro motivo, utiliza el comando curl con la opción ‘-limit-rate‘:
+
+$ curl –limit-rate 200k -O http://linuxtechlab.com/test.tar.gz
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+login:
+$ curl -u user:passwd http://linuxtechlab.com
+
+verificar certificado ssl:
+$ curl –cacert ltchlb.crt https://linuxtechlab.com
+
+HTTP:
+GET=curl http://example.com/
+POST o PUT = curl http://example.com/users/1 -XPUT
+
+data = curl http://example.com/users -dy "first_name=Bruce&last_name=Wayne"
+
+token:
+curl -i -H 'Authorization:Basic dXNlcm5hbWU6cGFzc3dvcmQ=' http://localhost:8080/
+
+curl --location --request POST 'https://api.bestrate.org/api/auth/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"email":"test@test.com",
+	"password":"123456"
+}'
