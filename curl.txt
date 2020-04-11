@@ -50,7 +50,7 @@ POST o PUT = curl http://example.com/users/1 -XPUT
 data = curl http://example.com/users -dy "first_name=Bruce&last_name=Wayne"
 
 token:
-curl -i -H 'Authorization:Basic dXNlcm5hbWU6cGFzc3dvcmQ=' http://localhost:8080/
+curl -i -H "Authorization: Token dXNlcm5hbWU6cGFzc3dvcmQ=" http://localhost:8080/
 
 curl --location --request POST 'https://api.bestrate.org/api/auth/login' \
 --header 'Content-Type: application/json' \
@@ -58,3 +58,8 @@ curl --location --request POST 'https://api.bestrate.org/api/auth/login' \
 	"email":"test@test.com",
 	"password":"123456"
 }'
+
+
+HTTTPIE:
+login
+ http http://127.0.0.1:8000/api/v3/login/ username=hugo password=hugo123
