@@ -1,3 +1,9 @@
+SHELL:
+\l = listado de bds
+\q = cerrar shell
+\dt = listado de tablas
+
+
 CREATE USER emilio WITH PASSWORD 'password-del-usuario-emilio';
 GRANT ALL PRIVILEGES ON DATABASE facturas to emilio;
 
