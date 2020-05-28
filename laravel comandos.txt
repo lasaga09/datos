@@ -21,6 +21,8 @@ php artisan route:list ->para saver las rutas definidas
 
 
 --schema
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
  Schema::defaultStringLength(191);
 
 
