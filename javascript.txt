@@ -308,6 +308,8 @@ delete(datoslist[i]['code']);
 --capturar radio
 document.querySelector('input[name=estadoconsulta]:checked').value;
 
+-- operador ternario
+edad == ""?dataerror.push('*campo edad vacio'):datos["edad"]=edad;
 
 
 
