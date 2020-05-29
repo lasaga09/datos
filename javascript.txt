@@ -305,7 +305,8 @@ localStorage.setItem('listadata',JSON.stringify(lista));
 delete(datoslist[i]['code']);
 
 
-
+--capturar radio
+document.querySelector('input[name=estadoconsulta]:checked').value;
 
 
 
