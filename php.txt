@@ -45,6 +45,9 @@ echo $result;
 
 
 
+--operador ternario
+
+sentencia booleana ? valor si la sentencia es cierta : valor si es falsa
 
 
 
