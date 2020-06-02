@@ -246,5 +246,7 @@ fk:
 
 fecha x defecto
  $table->timestamp('fecha_creacion')->useCurrent();
-       
+  
+  defecto null o vacio:
+  ->nullable($value = true)
        
