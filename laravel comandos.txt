@@ -256,3 +256,16 @@ Seguimiento::orderBy('idseguimiento', 'DESC')->get()
 
 
 --------------DATABASES----------
+
+
+
+-------deploy en production----
+
+APP_ENV=production
+APP_DEBUG=false
+
+composer install
+sudo chown -R www-data: storage
+sudo chmod -R 755 storage
+
+php artisan key:generate
