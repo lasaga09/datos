@@ -249,4 +249,10 @@ fecha x defecto
   
   defecto null o vacio:
   ->nullable($value = true)
-       
+
+
+-----------------ORM-----------------
+Seguimiento::orderBy('idseguimiento', 'DESC')->get()
+
+
+--------------DATABASES----------
