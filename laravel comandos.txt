@@ -206,3 +206,45 @@ $.ajax({
     **seeder
     en run del seedeer 
        factory(Post::class)->times(100)->create();
+       
+       
+   -----------------------------------------------------------------------
+datos por defecto :
+
+php artisan make:seeder ProfessionSeeder
+ 
+
+class ProfessionSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('professions')->insert([
+            'title' => 'Desarrollador back-end',
+        ]);
+    }
+}
+
+
+--registramos el seeder
+ 
+class DatabaseSeeder extends Seeder
+{
+    public function run()
+    {
+        $this->call(ProfessionSeeder::class);
+    }
+}
+
+--ejecutamos seeder
+php artisan db:seed
+
+-----------------------------------------------------------------------------
+***MIGRACIONES**
+fk:           
+ $table->unsignedBigInteger('id_usuario');
+  $table->foreign('id_usuario')->references('id')->on('users');
+
+fecha x defecto
+ $table->timestamp('fecha_creacion')->useCurrent();
+       
+       
