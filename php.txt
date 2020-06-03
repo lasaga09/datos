@@ -100,3 +100,13 @@ $now   = new \DateTime();
 sudo apt-get install php7.0-mysql
 -activar drivers;
 sudo phpenmod pdo_mysql
+
+
+
+----------array----
+$d =[];
+
+array_push($data, $valor);
+
+*multidimesional
+$dti = ["tipo"=> $v["tipo"],["meses"=>$cani],["t"=>$cont]];
