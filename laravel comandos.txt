@@ -26,6 +26,14 @@ use Illuminate\Support\Facades\Schema;
  Schema::defaultStringLength(191);
 
 
+
+----------fechas ------
+$postres = DB::table('postres')
+                ->whereDate('fecha_creacion', '2018-08-19')
+                ->get();
+		
+whereMonth,whereDay,whereYear,whereTime
+
 ---save img
 
  if($request->hasFile('imagen')){
