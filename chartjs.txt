@@ -1,0 +1,39 @@
+---grafico con dos lineas--
+
+function GraficoCovid(ctx,cont,recup,ti,tr){
+**puedes usar for,if etc**
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'],
+        datasets: [{
+            label: 'CONTAGIADOS ('+ti+')',
+            data: cont,
+            borderColor :"#F21D1D",
+            borderWidth: 2
+        },{
+
+     label: 'RECUPERADOS ('+tr+')',
+            data: recup,
+            borderColor:"#1ECF37",
+            borderWidth: 2
+
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+}
+
+
+
+
+
+
