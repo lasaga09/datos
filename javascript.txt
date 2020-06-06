@@ -14,6 +14,10 @@ function abrirpopup(url,ancho,alto){
 }
 
 
+-- array :   
+data = [], data.push()
+--objeto:
+data ={},data[1]=89
 
 
 
