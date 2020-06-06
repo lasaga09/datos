@@ -34,6 +34,27 @@ var myChart = new Chart(ctx, {
 
 
 
+--position--
+    options: {
+    	legend: {
+                position: 'bottom',
+              },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                }
+            }],
+             xAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    maxRotation: 90,
+         			minRotation: 90
+                }
+            }]
+        }
+    }
+
 
 
 
