@@ -110,3 +110,6 @@ array_push($data, $valor);
 
 *multidimesional
 $dti = ["tipo"=> $v["tipo"],["meses"=>$cani],["t"=>$cont]];
+
+--object std class--
+{$data["ids"]{'1'}[0]->idconsulta}
