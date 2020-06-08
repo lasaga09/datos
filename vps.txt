@@ -26,6 +26,16 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password
 FLUSH PRIVILEGES;
 mysql -u root -p
 
+
+
+***********creacion de usuario y bd con mysql **********
+CREATE USER 'nuevousuario'@'localhost' IDENTIFIED BY 'contraseña';
+CREATE DATABASE IF NOT EXISTS `nksistemas`;
+GRANT ALL PRIVILEGES ON * . * TO 'nuevousuario'@'localhost';
+GRANT ALL PRIVILEGES ON `bd`.* TO 'usuario'@'localhost';
+FLUSH PRIVILEGES;
+
+
 **creacion bd**
 CREATE DATABASE travel_list;
 GRANT ALL ON travel_list.* TO 'travel_user'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
@@ -149,3 +159,9 @@ apt-get purge 'php*'
       sudo nano /etc/sysctl.conf  vm.vfs_cache_pressure=55
 
 ****************************+
+
+
+
+***instalar phpadmin***
+apt-get install libapache2-mod-php php-mbstring php7.0-mbstring php-gettext
+apt-get install -y phpmyadmin
