@@ -15,6 +15,7 @@ sudo apt update
 sudo apt install nginx
 sudo systemctl status nginx
 sudo ufw allow 'Nginx HTTP'
+sudo ufw allow 'ssh'
 
 myslq:
 sudo apt install mysql-server
@@ -33,7 +34,7 @@ GRANT ALL ON travel_list.* TO 'travel_user'@'localhost' IDENTIFIED BY 'password'
 
 php:
 sudo apt install php-fpm php-mysql (sino instala usar = sudo add-apt-repository universe)
-sudo nano /etc/nginx/sites-available/example.com
+sudo nano /etc/nginx/sites-available/example.com ===crear conf
 server {
         listen 80;
         root /var/www/html;
@@ -53,9 +54,10 @@ server {
                 deny all;
         }
 }
+activar conf:
 sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
 sudo unlink /etc/nginx/sites-enabled/default 
-sudo nginx -t
+sudo nginx -t ==verificar confi
 sudo systemctl reload nginx
 sudo nano /var/www/html/info.php
 <?php
@@ -74,10 +76,9 @@ php -m
 *************++LARAVEL++***************
 sudo apt install composer
 sudo apt install php-zip
-sudo chown -R www-data.www-data /storage
- sudo chown -R www-data.www-data /bootstrap/cache
+sudo chown -R www-data /storage
+ sudo chown -R www-data /bootstrap/cache
  
-Fichero /etc/nginx/sites-available/travel_list 
  server {
     listen 80;
     server_name server_domain_or_IP;
@@ -112,12 +113,6 @@ Fichero /etc/nginx/sites-available/travel_list
     }
 }
 
--acticar conf
-sudo ln -s /etc/nginx/sites-available/travel_list /etc/nginx/sites-enabled/
--verificar
-sudo nginx -t
---reset nginx
-sudo systemctl reload nginx
 
 ****************************************+
 
