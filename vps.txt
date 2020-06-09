@@ -165,3 +165,9 @@ apt-get purge 'php*'
 ***instalar phpadmin***
 apt-get install libapache2-mod-php php-mbstring php7.0-mbstring php-gettext
 apt-get install -y phpmyadmin
+sudo ln -s /usr/share/phpmyadmin /var/www/html
+sudo systemctl restart nginx 
+
+--delete--
+sudo apt-get remove phpmyadmin
+sudo apt-get purge phpmyadmin
