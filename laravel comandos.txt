@@ -266,6 +266,23 @@ Seguimiento::orderBy('idseguimiento', 'DESC')->get()
 --------------DATABASES----------
 
 
+---- begin---
+
+	DB::beginTransaction();
+	try {
+	
+	DB::commit();
+  
+	} catch (\Exception $e) {
+         DB::rollback();
+  }
+
+
+------
+
+
+
+
 
 -------deploy en production----
 
