@@ -129,3 +129,9 @@ var  lenguajeDataTable = {
 		 $(this).css("background-color","#27F8DD");
 
 		} );
+		
+ 
+$('#tableSg tr').click(function(e) {
+    $('#tableSg tr').removeClass('highlighted');
+    $(this).addClass('highlighted');
+});
