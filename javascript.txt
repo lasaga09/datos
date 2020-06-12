@@ -323,3 +323,7 @@ expresiones regulares
 https://uniwebsidad.com/libros/javascript/capitulo-7/validacion
 
 https://regexr.com/
+
+
+---envio whatsap--
+	<a  target="_blank" href="https://api.whatsapp.com/send?phone=+51941840858&text=dfdfsdf">sdfsdf</a>
