@@ -1,15 +1,15 @@
 
 git init ====iniciar git
-git config --global user.name "Tu nombre aquÌ"=config git usuario
+git config --global user.name "Tu nombre aqu√≠"=config git usuario
 git config --global user.email ejemplo@example.com
 git status ===ver stado
 git add .   ===guardar archivos all
 git add NOMBREDELARCHIVO === x archivo
-git rm . ====Si queremos eliminar los archivos que acabamos de aÒadir para ser guardados lo podemos hacer con
-git commit -m "Nombre"===Con estos comandos hemos aÒadido o hemos quitado archivos pero a˙n no han sido guardados
+git rm . ====Si queremos eliminar los archivos que acabamos de a√±adir para ser guardados lo podemos hacer con
+git commit -m "Nombre"===Con estos comandos hemos a√±adido o hemos quitado archivos pero a√∫n no han sido guardados
 git log  ==Para imprimir todos los commits que hemos realizado 
-git reset --hard IDENTIFICADOR ===a cadena de n˙meros y letras que aparece al lado de la palabra ìcommitî es el identificador que podemos usar para revertir los cambios y volver atr·s a ese punto
-git diff ==si quires ver los cambios que has realizado desde el ˙ltimo commit
+git reset --hard IDENTIFICADOR ===a cadena de n√∫meros y letras que aparece al lado de la palabra ‚Äúcommit‚Äù es el identificador que podemos usar para revertir los cambios y volver atr√°s a ese punto
+git diff ==si quires ver los cambios que has realizado desde el √∫ltimo commit
 Para posicionarnos en una rama escribe:
 git checkout nombre_de_la_rama
 git brach==ver las ramas
@@ -17,7 +17,7 @@ git branch -d rama == eliminar rama despues de fusionar
 
 
 
-# InformaciÛn detallada de los cambios
+# Informaci√≥n detallada de los cambios
 ---git blame <archivo>
 
 
@@ -35,7 +35,7 @@ Tras hacer commit de cambios nuevos, podemos subirlos al repositorio remoto:
 ---git push origin master
 
 
-Para aÒadir la direcciÛn de un repositorio remoto a origin, lo podemos hacer asÌ:
+Para a√±adir la direcci√≥n de un repositorio remoto a origin, lo podemos hacer as√≠:
 ---git remote add origin https://github.com/user/repo.git
 
 Eliminar remote origin
@@ -59,8 +59,8 @@ deshacer modificacion
 --- git checkout nombre_del_archivo
 
 
-Para combinar ramas, es decir, git va a tratar de hacer una fusiÛn de los cambios de ambas ramas,
-si llega a una lÌnea que se ha cambiado en los dos sitios a la vez al no saber que cambio es el que el usuario quiere saltar· un conflicto de git. Para arreglarlo tienes que decidir que cambio quieres conservar y volver a pushear para hacer el merge:
+Para combinar ramas, es decir, git va a tratar de hacer una fusi√≥n de los cambios de ambas ramas,
+si llega a una l√≠nea que se ha cambiado en los dos sitios a la vez al no saber que cambio es el que el usuario quiere saltar√° un conflicto de git. Para arreglarlo tienes que decidir que cambio quieres conservar y volver a pushear para hacer el merge:
 ---git merge hotfix
 
 rama en la que nos encontremos. 
@@ -68,4 +68,11 @@ rama en la que nos encontremos.
 
 
 
-escribir git remote -v para ver quÈ / dÛnde se configuran los controles remotos. Si cometiÛ un error antes, puede escribir git remote rm originpara borrarlo e intentarlo de nuevo.
+escribir git remote -v para ver qu√© / d√≥nde se configuran los controles remotos. Si cometi√≥ un error antes, puede escribir git remote rm originpara borrarlo e intentarlo de nuevo.
+
+
+
+---cofig--
+$ git credential-manager uninstall
+
+$ git credential-manager install
