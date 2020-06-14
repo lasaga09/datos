@@ -1,0 +1,31 @@
+---laravel---
+
+
+--axios---
+
+
+
+---vue--
+<!-- sintaxis completa -->
+<a v-on:click="doSomething"></a>
+<!-- atajo -->
+<a @click="doSomething"></a>
+
+<!-- la propagación del evento 'click' será detenida -->
+<a v-on:click.stop="doThis"></a>
+
+<!-- el evento 'submit' no recargará la página -->
+<form v-on:submit.prevent="onSubmit"></form>
+
+<!-- los modificadores pueden encadenarse -->
+<a v-on:click.stop.prevent="doThat"></a>
+
+<!-- solo el modificador -->
+<form v-on:submit.prevent></form>
+
+<!-- usa el modo captura cuando agregas _listener_ de eventos -->
+<div v-on:click.capture="doThis">...</div>
+
+<!-- solo dispara la función controladora si event.target es este elemento -->
+<!-- quiere decir, no un elemento hijo -->
+<div v-on:click.self="doThat">...</div>
