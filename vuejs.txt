@@ -138,3 +138,5 @@ const app = new Vue({
 		$('#table').DataTable();
 });
 
+---sas --
+@import '~datatables/media/css/jquery.dataTables.min.css';
