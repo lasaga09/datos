@@ -106,3 +106,35 @@
 
 	};
 </script>
+
+
+
+----app.js--
+
+require('./bootstrap');
+
+import Vue from 'vue';
+import VueAlertify from 'vue-alertify';
+ 
+Vue.use(VueAlertify);
+
+/*window.Vue = require('vue');*/
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('notas', require('./components/NotasComponent.vue').default);
+Vue.component('categories', require('./components/CategoryComponent.vue').default);
+
+
+const app = new Vue({
+    el: '#app',
+});
+
+
+
+
+---datatables--
+  import datatables from 'datatables';
+  datatablemy(){
+	$(function(){
+		$('#table').DataTable();
+});
+
