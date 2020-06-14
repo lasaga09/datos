@@ -11,21 +11,98 @@
 <!-- atajo -->
 <a @click="doSomething"></a>
 
-<!-- la propagación del evento 'click' será detenida -->
-<a v-on:click.stop="doThis"></a>
-
 <!-- el evento 'submit' no recargará la página -->
 <form v-on:submit.prevent="onSubmit"></form>
 
-<!-- los modificadores pueden encadenarse -->
-<a v-on:click.stop.prevent="doThat"></a>
 
-<!-- solo el modificador -->
-<form v-on:submit.prevent></form>
+<!-- solo ejecuta vm.submit() cuando keyCode es 13 -->
+<input v-on:keyup.13="submit">
 
-<!-- usa el modo captura cuando agregas _listener_ de eventos -->
-<div v-on:click.capture="doThis">...</div>
+<input v-on:keyup.enter="submit">
+<!-- también funciona en la forma corta -->
+<input @keyup.enter="submit">
+.enter.tab.delete (captura tanto las teclas “Delete” como “Backspace”).esc.space.up.down.left.right
 
-<!-- solo dispara la función controladora si event.target es este elemento -->
-<!-- quiere decir, no un elemento hijo -->
-<div v-on:click.self="doThat">...</div>
+--if--
+ <div v-if="editform">
+ <div v-else="editform">
+ 
+ --for--
+ v-for="(item, index) in notas" :key="index"
+ 
+ 
+ 
+ 
+ 
+ ---crud--
+ <script>
+	export default{
+		data(){
+			return {
+				notas:[],
+				nota:{name:'',description:''},
+				editform : false,
+			}
+		},
+		created(){
+			this.listado();
+		},
+		methods:{
+			add(){
+				
+				if(this.nota.name.trim() === '' || this.nota.description.trim() === ''){
+					  return;
+				}
+				const data  = {
+					name:this.nota.name,
+					description:this.nota.description
+					}
+
+				this.nota.name='';
+				this.nota.description='';
+
+					axios.post('/notas', data)
+					.then(rs =>{
+						this.notas.push(rs.data);
+					});
+			},
+			deleteNotas(item,index){
+				
+				axios.delete('/notas/'+item.id)
+				.then(()=>{
+					this.notas.splice(index,1);
+				});
+			},
+
+			EditNotas(item){
+				this.editform = true;
+				this.nota.name = item.name;
+				this.nota.description = item.description;
+				this.nota.id = item.id;
+			
+			},
+			updateNotas(nota){
+				const data  = {
+					name:this.nota.name,
+					description:this.nota.description
+					}
+					axios.put('/notas/'+nota.id, data)
+					.then(rs =>{
+						this.nota.name = '';
+						this.nota.description = '';
+						this.editform = false;
+						this.listado();
+						
+
+					});
+			},
+			listado(){
+				axios.get('/notas')
+				.then(rs=>{
+				this.notas = rs.data;
+				});
+			}
+		}
+
+	};
+</script>
