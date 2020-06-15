@@ -204,7 +204,7 @@ $.ajax({
 
 
 ---crear datos aleatorios con factory y seeder
-**factory(name,text,email,cellphone)
+**factory(name,text,email,cellphone)Str::random(10),rand(5, 300)
    return [
           'title' => $faker->name,
         'description' => $faker->sentence(10,false)
