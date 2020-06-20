@@ -113,3 +113,21 @@ $dti = ["tipo"=> $v["tipo"],["meses"=>$cani],["t"=>$cont]];
 
 --object std class--
 {$data["ids"]{'1'}[0]->idconsulta}
+
+
+---carrito de compras---
+$result = array();
+foreach($original as $t) {
+	$repeat=false;
+	for($i=0;$i<count($result);$i++)
+	{
+		if($result[$i]['dni']==$t['dni'])
+		{
+			$result[$i]['items']+=$t['items'];
+			$repeat=true;
+			break;
+		}
+	}
+	if($repeat==false)
+		$result[] = array('dni' => $t['dni'], 'items' => $t['items']);
+}
