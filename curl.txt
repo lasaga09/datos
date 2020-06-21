@@ -63,3 +63,6 @@ curl --location --request POST 'https://api.bestrate.org/api/auth/login' \
 HTTTPIE:
 login
  http http://127.0.0.1:8000/api/v3/login/ username=hugo password=hugo123
+ 
+ ---solicitud get para cron--
+ wget -O- http://preforma.masterplan.pe/email/notificar >> /dev/null
