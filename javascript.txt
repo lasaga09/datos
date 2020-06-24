@@ -309,6 +309,34 @@ localStorage.setItem('listadata',JSON.stringify(lista));
 delete(datoslist[i]['code']);
 
 
+----solo correo--
+
+function validarEmail(valor,ms) {
+  if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(valor)){
+   
+  ms.style.color = '#229F42';
+  ms.textContent = "correo válido";
+  } else {
+     ms.style.color = '#EA5A5A';
+      ms.textContent = "correo inválido";
+     }
+}
+
+
+
+----solo texto--
+var regex = new RegExp("^[a-zA-Z ]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+  if (!regex.test(key)) {
+    event.preventDefault();
+    return false;
+  }
+
+
+
+
+
+
 --capturar radio
 document.querySelector('input[name=estadoconsulta]:checked').value;
 
