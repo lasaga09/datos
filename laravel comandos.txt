@@ -280,7 +280,9 @@ Seguimiento::orderBy('idseguimiento', 'DESC')->get()
 
 ------
 
-
+---auth--
+blade:{{ Auth::user()->name }}
+controller:auth()->user()->id;
 
 
 
