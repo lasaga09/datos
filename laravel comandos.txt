@@ -285,6 +285,8 @@ blade:{{ Auth::user()->name }}
 controller:auth()->user()->id;
 
 
+---message--
+return back()->with('status', 'successfully inserted');
 
 -------deploy en production----
 
