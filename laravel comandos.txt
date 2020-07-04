@@ -288,6 +288,27 @@ controller:auth()->user()->id;
 ---message--
 return back()->with('status', 'successfully inserted');
 
+
+---validate ajax---
+$validator = \Validator::make($request->all(), [
+            'email' => 'required',
+            'cuidad' => 'required',
+            'pais' => 'required|email',
+
+        ]);
+        if ($validator->passes()) {
+      return response()->json(['success'=>'Added new records.']);
+        }
+      return response()->json(['error'=>$validator->errors()->all()]);
+      
+      
+---validar blade--
+ $validatedData = $request->validate([
+        'email' => 'required|max:255',
+        'cuidad' => 'required|max:5',
+        'pais' =>'required'
+    ]);
+
 -------deploy en production----
 
 APP_ENV=production
