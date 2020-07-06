@@ -54,6 +54,7 @@ var ficha = document.getElementById("sectorqr");
 
 -- limitar caracteres input
 placa.addEventListener("input",function(){
+this.value = val.replace(/\D|\-/,'');
 	 if (this.value.length > 7) 
      this.value = this.value.slice(0,7);
 })
