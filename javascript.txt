@@ -344,6 +344,32 @@ document.querySelector('input[name=estadoconsulta]:checked').value;
 edad == ""?dataerror.push('*campo edad vacio'):datos["edad"]=edad;
 
 
+---get--
+function isParameterByName(name) {
+    let regex = new RegExp('[?&]' + name + '=');
+    return regex.test(window.location.href);
+}		
+
+if(isParameterByName("id")){
+	console.log("si")
+	let resultado = getParameterByName('id');
+	console.log(resultado)
+}else{
+	console.log("no")
+}	
+
+
+function getParameterByName(name, url=window.location.href) {
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+
+
 
 -- links
 
