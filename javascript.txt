@@ -368,6 +368,8 @@ function getParameterByName(name, url=window.location.href) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+---eliminar parms url---
+	window.history.pushState({}, document.title, "/" + "directorio-empresas");
 
 
 
