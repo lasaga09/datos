@@ -308,6 +308,16 @@ $validator = \Validator::make($request->all(), [
         'cuidad' => 'required|max:5',
         'pais' =>'required'
     ]);
+    
+    
+    ---email---
+     $subject = "Asunto del correo";
+        $for = "asysfull@gmail.com";
+        Mail::send('email',$request->all(), function($msj) use($subject,$for){
+            $msj->from("asysfull@gmail.com","NombreQueApareceráComoEmisor");
+            $msj->subject($subject);
+            $msj->to($for);
+        });
 
 -------deploy en production----
 
