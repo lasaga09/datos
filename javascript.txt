@@ -380,6 +380,8 @@ function getParameterByName(name, url=window.location.href) {
 window.onscroll = function() {
 document.body.scrollTop = 200;
       document.documentElement.scrollTop = 200;
+        console.log("Vertical: " + window.scrollY);
+  console.log("Horizontal: " + window.scrollX);
 }
 
 
