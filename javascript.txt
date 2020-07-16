@@ -376,6 +376,12 @@ function getParameterByName(name, url=window.location.href) {
 	window.history.pushState({}, document.title, "/" + "directorio-empresas");
 
 
+--scroll--
+window.onscroll = function() {
+document.body.scrollTop = 200;
+      document.documentElement.scrollTop = 200;
+}
+
 
 -- links
 
