@@ -319,6 +319,23 @@ $validator = \Validator::make($request->all(), [
             $msj->to($for);
         });
 
+
+
+---orwhere--
+$em = DB::table("advertisers")
+          ->where(function($q) use($array){
+            $q->orWhere("advertisers.name","=", $array[0]);
+            $q->orWhere("advertisers.country","=", $array[2]);
+            $q->orWhere("advertisers.city","=", $array[1]);
+          })
+        ->join("users","advertisers.user_id","=","users.id")
+        ->join("logo_advertisers","advertisers.id","=","logo_advertisers.advertiser_id")
+        ->where("users.status", 1)
+        ->get()
+        ->toArray();
+	
+	
+	
 -------deploy en production----
 
 APP_ENV=production
