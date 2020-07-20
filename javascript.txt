@@ -385,6 +385,59 @@ document.body.scrollTop = 200;
 }
 
 
+
+
+----subida logo completa--
+window.addEventListener('load', init, false);
+
+function init() {
+  var inputFile = document.getElementById('logo');
+  inputFile.addEventListener('change', readImage, false);
+}
+
+function readImage() {
+ var reader = new FileReader();
+ var file = document.getElementById('logo').files[0];
+  if(file.type == "image/jpg" || file.type == "image/jpeg" || file.type == "image/png" || file.type == "image/gif"){
+  var sizeMax = Math.round(file.size / 1024);
+      if(sizeMax <= 1024){
+           
+          reader.readAsDataURL(file);
+          reader.addEventListener("load", function() {
+            var image = new Image();
+            image.src = reader.result;
+            image.addEventListener("load", function() {
+             if(image.width >= 800){
+                document.getElementById("textlogo").value=file.name;
+                var img = document.getElementById('vimg');
+                var imgshow = document.getElementById('imgshow');
+                imgshow.src= reader.result;
+                img.src= reader.result;
+
+             }else{
+               
+               document.getElementById("vtlogo").textContent='ancho min logo => 800px';
+             }
+              
+
+              });
+          });
+
+      }else{
+       document.getElementById("vtlogo").textContent='size inválido';
+      }
+   
+  }else{
+        document.body.scrollTop = 200;
+        document.documentElement.scrollTop = 200;
+        document.getElementById("vtlogo").textContent='Formato invalido';
+ }
+
+
+
+}
+
+
 -- links
 
 expresiones regulares
