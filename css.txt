@@ -77,3 +77,69 @@ button, input[type="submit"], input[type="reset"] {
     width:auto;
     height:auto;
 }
+
+
+--bordes animadas---
+<h1>BORDES ANIMADOS</h1>
+<div class="container">
+  <div class="item uno">
+  Left to Right
+  </div>
+  <div class="item dos">
+  Right to Left
+  </div>
+  <div class="item tres">
+  Center to Sides
+  </div>
+</div>
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: seagreen;
+}
+h1 {
+  text-align: center;
+  color: #fff;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2em;
+}
+.item {
+  background-color: rgba(0,0,0,0.4);
+  line-height: 4;
+  padding: 0 2em;
+  margin:1.5em;
+  color: #fff;
+  position: relative;
+}
+.item:before {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  background-color: #fff;
+  transition: all .3s;
+}
+.item:hover:before {
+  width: 100%;
+}
+
+.uno:before {
+  left: 0;
+}
+.dos:before {
+  right: 0;
+}
+.tres:before {
+  left: 50%;
+}
+.tres:hover:before {
+  left:0;
+}
