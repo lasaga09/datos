@@ -135,3 +135,77 @@ $('#tableSg tr').click(function(e) {
     $('#tableSg tr').removeClass('highlighted');
     $(this).addClass('highlighted');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function listar(){
+	var table = $("#tableong").DataTable({
+		"language": {
+            "url": "https://cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+        },
+		responsive: true,
+		"destroy":true,/*para inicializar*/
+		"ajax":{
+			"method":"GET",
+			"url":"ongs/list",
+			"dataSrc": ""
+		},
+		
+		"columns":[
+			{"data":"id"},
+			{"data":"name"},
+			{"data":"like"},
+			{"data":"amount"},
+			{"data":"status","render":function(data, type, row,td){
+				 if(row.status === 1){
+                 return "<span style='fontWeight = 700' class='text-success'>activo</span>";
+                 }else{
+                  return "<span  style='fontWeight = 700' class='text-danger'>desactivado</span>";
+                 }
+                 return data;
+			}},
+			 
+ 		{
+            "data": null,
+            render:function(data, type, row,td)
+            {
+
+             var tds ='<td style="text-align: center;" class="text-center">';
+             tds+='<button onclick="show('+row.id+')" class="btn .editOng" data-toggle="modal"  data-target="#edit"><i class="fa fa-edit"></i></button>';
+               if(row.status == 1){
+               	 tds+='<button  class="btn" onclick="status('+row.id+','+row.status+')" type="button"><i class="fa fa-ban"> </button>';
+               	}else{
+               		 tds+='<button  class="btn" onclick="status('+row.id+','+row.status+')" type="button"><i class="fa fa-check-circle"> </button>';
+               	}
+              return tds;
+            },
+            "targets": -1
+        }
+
+
+		],
+		"order": [[1, 'asc']]
+    });
+
+}
