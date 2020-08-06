@@ -70,7 +70,9 @@ rama en la que nos encontremos.
 
 escribir git remote -v para ver qué / dónde se configuran los controles remotos. Si cometió un error antes, puede escribir git remote rm originpara borrarlo e intentarlo de nuevo.
 
-
+---forsar pull--
+git reset --hard
+git pull
 
 ---cofig--
 $ git credential-manager uninstall
