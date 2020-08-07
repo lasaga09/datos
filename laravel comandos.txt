@@ -334,7 +334,19 @@ $em = DB::table("advertisers")
         ->get()
         ->toArray();
 	
-	
+
+
+----insert masivo---
+ $data = DB::table("users")->where("level","!=",1)->select("id")->get();
+         $d = [];
+         foreach ($data as  $v) {
+             $not = new NotificacionUser();
+             $not->user_id = $v->id;
+             $not->notificacion_id = $idN;
+             $d[]=$not->attributesToArray();
+          
+         }
+         NotificacionUser::insert($d);
 	
 -------deploy en production----
 
