@@ -352,6 +352,14 @@ $em = DB::table("advertisers")
 ---------where array--
  $q->whereIn("users.department",$array[4]);
 	
+	
+	
+-------unlik---
+$image_path = public_path().'/imgages/products/mi_imagen.jpg';
+unlink($image_path);
+    \File::delete(public_path('upload/bio.png'));
+
+----
 -------deploy en production----
 
 APP_ENV=production
