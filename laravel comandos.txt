@@ -36,6 +36,9 @@ whereMonth,whereDay,whereYear,whereTime
 
 ---save img
 
+$file->getClientOriginalExtension()==tipo de extension
+$request->getSchemeAndHttpHost() == hostname
+
  if($request->hasFile('imagen')){
             $file=$request->file('imagen');
             $name=time().$file->getClientOriginalName();
