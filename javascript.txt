@@ -438,6 +438,19 @@ function readImage() {
 }
 
 
+---files--
+var formData = new FormData();
+var imagefile = document.querySelector('#imagen');
+ formData.append("image", imagefile.files[0]);
+      axios.post('eventos/add', formData,{
+		      headers: {
+         		'Content-Type': 'multipart/form-data'
+      		 }
+		}).then((rs) => { 
+
+		});
+
+
 -- links
 
 expresiones regulares
