@@ -1,2 +1,32 @@
 laravel :
 * * * * * php /ruta-de-tu-proyecto/artisan schedule:run >> /dev/null 2>&1
+
+**********+UBUNTU************
+crontab -e === crear
+crontab -l === listar
+
+cada 5min:
+*/5 * * * * /home/ramesh/backup.sh
+
+cada 5horas
+0 */5 * * * /home/ramesh/backup.sh
+
+cada 5 dia de la semana
+0 0 * * 5 /home/ramesh/backup.sh
+
+cada 5 meses
+0 0 1 5,10 * /home/ramesh/backup.sh
+
+
+
+como funciona :
+* * * * * /bin/ejecutar/script.sh
+Los 5 asteriscos
+De izquierda a derecha, los asteriscos representan:
+Minutos: de 0 a 59.
+Horas: de 0 a 23.
+Día del mes: de 1 a 31.
+Mes: de 1 a 12.
+Día de la semana: de 0 a 6, siendo 0 el domingo.
+
+
