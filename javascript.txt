@@ -14,12 +14,18 @@ function abrirpopup(url,ancho,alto){
 }
 
 
--- array :   
+------------------ array :   
 data = [], data.push()
 --objeto:
 data ={},data[1]=89
 
+obtener indice de un array:
+array.indexOf(e.value)
 
+eliminar un data de array x indice:
+array.splice(1,1);
+
+-------------------------
 
 //ajax javascript
 var xhttp = new XMLHttpRequest();
