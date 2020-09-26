@@ -179,6 +179,8 @@ $.ajax({
 
 
 //queris where
+columna json:
+$query->whereJsonContains('users', [['user_id' => 1]])
   $datos = Cliente::find($id);
    /*$datos = Cliente::where('idcliente', $request->id)->get();*/
 	
