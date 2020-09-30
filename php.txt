@@ -131,3 +131,11 @@ foreach($original as $t) {
 	if($repeat==false)
 		$result[] = array('dni' => $t['dni'], 'items' => $t['items']);
 }
+
+
+
+---array valors duplicados--
+      $fa=[];
+        foreach($favorite as $v){
+            $fa[$v->id]=$v;
+        }
