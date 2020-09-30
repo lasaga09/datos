@@ -131,3 +131,9 @@ Pegue el siguiente código haciendo la modificación adecuada
     AllowOverride All
     Require all granted
 </Directory>
+
+
+--upload_max_filesize--
+/etc/php/7.2/cli/php.ini y /etc/php/7.2/apache2/php.ini
+upload_max_filesize = 10M
+post_max_size = 10M
