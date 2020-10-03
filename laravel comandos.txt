@@ -127,6 +127,10 @@ $datos = Usuario::select('usuarios.idusuario','usuarios.nombre','usuarios.usuari
 
 
 
+---ultimos registros--
+$users = Users::latest()
+     ->take(5)
+     ->get()
 
 
 ----db...
