@@ -139,3 +139,15 @@ foreach($original as $t) {
         foreach($favorite as $v){
             $fa[$v->id]=$v;
         }
+	
+
+ $dt = json_decode($da,true);
+                  foreach ($dt as $v) {
+                     if(array_search($v["title"], array_column($data, 'title')) !== false) {
+                      //siexistenearray
+                     }else {
+		     //noexiste
+                       array_push($data, $v);
+                     } 
+                    
+                  }
