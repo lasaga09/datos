@@ -216,3 +216,20 @@ function listar(){
     } ).draw();
 
 }
+
+
+
+
+
+
+// pintar td
+var oTable = $('table.data-table').DataTable({ 
+	rowCallback: function(row, data, index){
+  	if(data[3]> 11.7){
+    	$(row).find('td:eq(3)').css('color', 'red');
+    }
+    if(data[2].toUpperCase() == 'EE'){
+    	$(row).find('td:eq(2)').css('color', 'blue');
+    }
+  }
+});
