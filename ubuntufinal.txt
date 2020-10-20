@@ -1,0 +1,45 @@
+----supervisor---
+sudo apt install supervisor
+
+sudo /etc/supervisor/conf.d/nombre.conf
+[program:ws_send]
+command=/usr/bin/php /var/www/html/chamo/artisan websockets:serve
+autostart=true
+autorestart=true
+
+sudo supervisorctl update
+sudo supervisorctl start ws_send
+-----------------------------------
+
+
+permisos:
+sudo chown -R www-data storage/
+sudo chown -R www-data boostrap/cache/
+
+
+
+
+desactivar uso de version:
+sudo a2dismod php7.4
+
+activar uso de version:
+sudo a2enmod php7.3
+
+sudo service apache2 restart
+sudo update-alternatives –set php /usr/bin/php7.3
+
+
+
+sudo chown -R www-data: www-data /var/ www/laravel/
+permisos:
+sudo chown -R www-data storage/
+sudo chown -R www-data boostrap/cache/
+
+
+
+
+
+
+
+
+
