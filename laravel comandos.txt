@@ -214,6 +214,14 @@ $query->whereJsonContains('users', [['user_id' => 1]])
 
 ---crear datos aleatorios con factory y seeder
 **factory(name,text,email,cellphone)Str::random(10),rand(5, 300)
+ atributos:
+ e164PhoneNumber     
+ address                             
+ lastName                                  
+ city                                
+ country                             
+ date($format = 'Y-m-d', $max = 'now')
+ time($format = 'H:i:s', $max = 'now')
    return [
           'title' => $faker->name,
         'description' => $faker->sentence(10,false)
@@ -223,6 +231,8 @@ $query->whereJsonContains('users', [['user_id' => 1]])
     **seeder
     en run del seedeer 
        factory(Post::class)->times(100)->create();
+       laravel 8:
+        \App\Models\Client::factory()->count(50)->create();
        
        
    -----------------------------------------------------------------------
