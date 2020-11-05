@@ -140,6 +140,10 @@ foreach($original as $t) {
             $fa[$v->id]=$v;
         }
 	
+ $new = array_unique($datasend, SORT_REGULAR);
+ 
+ 
+	
 
  $dt = json_decode($da,true);
                   foreach ($dt as $v) {
