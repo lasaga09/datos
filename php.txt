@@ -155,3 +155,28 @@ foreach($original as $t) {
                      } 
                     
                   }
+
+--sumar fechas dias--
+$fecha_actual = date("d-m-Y");
+//sumo 1 día
+echo date("d-m-Y",strtotime($fecha_actual."+ 1 days")); 
+//resto 1 día
+echo date("d-m-Y",strtotime($fecha_actual."- 1 days")); 
+
+$fecha_actual = date("d-m-Y");
+//sumo 1 semana
+echo date("d-m-Y",strtotime($fecha_actual."+ 1 week")); 
+//resto 1 semana
+echo date("d-m-Y",strtotime($fecha_actual."- 1 week"));
+
+$fecha_actual = date("d-m-Y");
+//sumo 1 mes
+echo date("d-m-Y",strtotime($fecha_actual."+ 1 month")); 
+//resto 1 mes
+echo date("d-m-Y",strtotime($fecha_actual."- 1 month"));
+
+$fecha_actual = date("d-m-Y");
+//sumo 1 año
+echo date("d-m-Y",strtotime($fecha_actual."+ 1 year"));
+//resto 1 año
+echo date("d-m-Y",strtotime($fecha_actual."- 1 year"));
