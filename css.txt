@@ -180,3 +180,8 @@ div.avatar {
       <i class="fas fa-eye form-control-feedback" ></i>
     <input type="password" class="form-control input-bus" id="passuser">
  </div>
+
+//eliminar ojito de google 
+   input::-ms-reveal {
+    display: none;
+}
