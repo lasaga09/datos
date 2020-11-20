@@ -459,7 +459,22 @@ var imagefile = document.querySelector('#imagen');
 ---object a array--
 let data = Object.entries(rs.data["favorite"]);
 
+************************************************
+-- promise
 
+    return callApi('http://localhost:8000/api/results',parameters).then(rs => {
+       console.log(rs.data)
+       
+      }).catch (error => {
+        // do something
+      })
+
+ function callApi(url,parameters) {
+      return axios.post(url,parameters);
+  }
+
+
+********************************************
 -- links
 
 expresiones regulares
