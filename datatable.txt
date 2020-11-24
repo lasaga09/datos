@@ -233,3 +233,11 @@ var oTable = $('table.data-table').DataTable({
     }
   }
 });
+
+
+
+----ocultar datatable--
+      $('#tablefiltrowong').parents('div.dataTables_wrapper').first().show();
+      
+--destruir o inicialiar--
+  "bDestroy": true,
