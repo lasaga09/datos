@@ -180,3 +180,11 @@ $fecha_actual = date("d-m-Y");
 echo date("d-m-Y",strtotime($fecha_actual."+ 1 year"));
 //resto 1 año
 echo date("d-m-Y",strtotime($fecha_actual."- 1 year"));
+
+
+
+--- tiempo agotado--
+public function __construct()
+{
+    set_time_limit(8000000);
+}
