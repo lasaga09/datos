@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="/cdn-cgi/apps/head/5Sc1MYwFsk6T8hF66eE8IwIgllE.js"></script><link rel="profile" href="https://gmpg.org/xfn/11" />
+<link rel="pingback" href="https://www.linuxbabe.com/xmlrpc.php" />
+
+<title>How to Install phpMyAdmin with Apache (LAMP) on Ubuntu 20.04</title>
+<meta name="description" content="This tutorial will be showing you how to install phpMyAdmin with Apache, MariaDB, PHP7.4 (LAMP stack) on Ubuntu 20.04 LTS. phpMyAdmin is a free and open-source web-based database management tool" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<link rel="canonical" href="https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Install phpMyAdmin with Apache (LAMP) on Ubuntu 20.04" />
+<meta property="og:description" content="This tutorial will be showing you how to install phpMyAdmin with Apache, MariaDB, PHP7.4 (LAMP stack) on Ubuntu 20.04 LTS. phpMyAdmin is a free and open-source web-based database management tool" />
+<meta property="og:url" content="https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04" />
+<meta property="og:site_name" content="LinuxBabe" />
+<meta property="article:publisher" content="https://www.facebook.com/linuxbabe" />
+<meta property="article:published_time" content="2020-04-30T10:02:59+00:00" />
+<meta property="article:modified_time" content="2020-12-24T11:06:29+00:00" />
+<meta property="og:image" content="https://www.linuxbabe.com/wp-content/uploads/2020/04/How-to-Install-phpMyAdmin-with-Apache-LAMP-on-Ubuntu-20.04.png" />
+<meta property="og:image:width" content="698" />
+<meta property="og:image:height" content="389" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@linuxbabe" />
+<meta name="twitter:site" content="@linuxbabe" />
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Xiao Guoan (Admin)">
+<meta name="twitter:label2" content="Est. reading time">
+<meta name="twitter:data2" content="7 minutes">
+<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.linuxbabe.com/#website","url":"https://www.linuxbabe.com/","name":"LinuxBabe","description":"Linux Sysadmin | Desktop Linux | Raspberry Pi","potentialAction":[{"@type":"SearchAction","target":"https://www.linuxbabe.com/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04#primaryimage","inLanguage":"en-US","url":"https://www.linuxbabe.com/wp-content/uploads/2020/04/How-to-Install-phpMyAdmin-with-Apache-LAMP-on-Ubuntu-20.04.png","width":698,"height":389,"caption":"How to Install phpMyAdmin with Apache (LAMP) on Ubuntu 20.04"},{"@type":"WebPage","@id":"https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04#webpage","url":"https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04","name":"How to Install phpMyAdmin with Apache (LAMP) on Ubuntu 20.04","isPartOf":{"@id":"https://www.linuxbabe.com/#website"},"primaryImageOfPage":{"@id":"https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04#primaryimage"},"datePublished":"2020-04-30T10:02:59+00:00","dateModified":"2020-12-24T11:06:29+00:00","author":{"@id":"https://www.linuxbabe.com/#/schema/person/c9aa2c2f31b0e41654b74b6ed7fb0ba9"},"description":"This tutorial will be showing you how to install phpMyAdmin with Apache, MariaDB, PHP7.4 (LAMP stack) on Ubuntu 20.04 LTS. phpMyAdmin is a free and open-source web-based database management tool","breadcrumb":{"@id":"https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04"]}]},{"@type":"BreadcrumbList","@id":"https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://www.linuxbabe.com/","url":"https://www.linuxbabe.com/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04","url":"https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04","name":"How to Install phpMyAdmin with Apache (LAMP) on Ubuntu 20.04"}}]},{"@type":"Person","@id":"https://www.linuxbabe.com/#/schema/person/c9aa2c2f31b0e41654b74b6ed7fb0ba9","name":"Xiao Guoan (Admin)","image":{"@type":"ImageObject","@id":"https://www.linuxbabe.com/#personlogo","inLanguage":"en-US","url":"https://secure.gravatar.com/avatar/2ae86b48a4a7ba3576bbb5a59a4d07d0?s=96&d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&r=g","caption":"Xiao Guoan (Admin)"},"description":"If my answer helped you, please consider supporting this site.","sameAs":["https://www.linuxbabe.com"]}]}</script>
+
+<link rel='dns-prefetch' href='//www.linuxbabe.com' />
+<link rel='dns-prefetch' href='//www.google.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='dns-prefetch' href='//m9m6e2w5.stackpathcdn.com' />
+<link rel='dns-prefetch' href='//cdn.shareaholic.net' />
+<link rel='dns-prefetch' href='//www.shareaholic.net' />
+<link rel='dns-prefetch' href='//analytics.shareaholic.com' />
+<link rel='dns-prefetch' href='//recs.shareaholic.com' />
+<link rel='dns-prefetch' href='//go.shareaholic.com' />
+<link rel='dns-prefetch' href='//partner.shareaholic.com' />
+<link rel="alternate" type="application/rss+xml" title="LinuxBabe &raquo; Feed" href="https://www.linuxbabe.com/feed" />
+<link rel="alternate" type="application/rss+xml" title="LinuxBabe &raquo; Comments Feed" href="https://www.linuxbabe.com/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="LinuxBabe &raquo; How to Install phpMyAdmin with Apache (LAMP) on Ubuntu 20.04 Comments Feed" href="https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04/feed" />
+
+<link rel='preload' href='//cdn.shareaholic.net/assets/pub/shareaholic.js' as='script' />
+<script data-no-minify='1' data-cfasync='false'>
+_SHR_SETTINGS = {"endpoints":{"local_recs_url":"https:\/\/www.linuxbabe.com\/wp-admin\/admin-ajax.php?action=shareaholic_permalink_related","ajax_url":"https:\/\/www.linuxbabe.com\/wp-admin\/admin-ajax.php","share_counts_url":"https:\/\/www.linuxbabe.com\/wp-admin\/admin-ajax.php?action=shareaholic_share_counts_api"},"site_id":"3308531406f1e9a7f36ab21ef174a1d6","url_components":{"year":"2020","monthnum":"04","day":"30","hour":"18","minute":"02","second":"59","post_id":"19942","postname":"install-phpmyadmin-apache-lamp-ubuntu-20-04","category":"ubuntu"}};
+</script>
+<script data-no-minify='1' data-cfasync='false' src='//cdn.shareaholic.net/assets/pub/shareaholic.js' data-shr-siteid='3308531406f1e9a7f36ab21ef174a1d6' async></script>
+
+<meta name='shareaholic:site_name' content='LinuxBabe' />
+<meta name='shareaholic:language' content='en-US' />
+<meta name='shareaholic:url' content='https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04' />
+<meta name='shareaholic:keywords' content='tag:phpmyadmin, cat:ubuntu, type:post' />
+<meta name='shareaholic:article_published_time' content='2020-04-30T18:02:59+08:00' />
+<meta name='shareaholic:article_modified_time' content='2020-12-24T19:06:29+08:00' />
+<meta name='shareaholic:shareable_page' content='true' />
+<meta name='shareaholic:article_author_name' content='Xiao Guoan (Admin)' />
+<meta name='shareaholic:site_id' content='3308531406f1e9a7f36ab21ef174a1d6' />
+<meta name='shareaholic:wp_version' content='9.6.1' />
+<meta name='shareaholic:image' content='https://www.linuxbabe.com/wp-content/uploads/2020/04/How-to-Install-phpMyAdmin-with-Apache-LAMP-on-Ubuntu-20.04-640x357.png' />
+
+<link rel='stylesheet' id='wp-block-library-css' href='https://www.linuxbabe.com/wp-includes/css/dist/block-library/style.min.css?ver=5.6.2' type='text/css' media='all' />
+<style id='wp-block-library-inline-css' type='text/css'>
+.has-text-align-justify{text-align:justify;}
+</style>
+<link rel='stylesheet' id='wpzoom-social-icons-block-style-css' href='https://www.linuxbabe.com/wp-content/plugins/social-icons-widget-by-wpzoom/block/dist/blocks.style.build.css?ver=1611200004' type='text/css' media='all' />
+<link rel='stylesheet' id='widgetopts-styles-css' href='https://www.linuxbabe.com/wp-content/plugins/widget-options/assets/css/widget-options.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wpsf_wpsf-css' href='https://www.linuxbabe.com/wp-content/plugins/wp-spam-fighter/css/wpsf.css?ver=0.5.1' type='text/css' media='all' />
+<link rel='stylesheet' id='yasrcss-css' href='https://www.linuxbabe.com/wp-content/plugins/yet-another-stars-rating/includes/css/yasr.css?ver=2.6.1' type='text/css' media='all' />
+<style id='yasrcss-inline-css' type='text/css'>
+
+        .yasr-star-rating {
+            background-image: url("https://www.linuxbabe.com/wp-content/plugins/yet-another-stars-rating/includes/img/star_2.svg");
+        }
+        .yasr-star-rating .yasr-star-value {
+            background: url("https://www.linuxbabe.com/wp-content/plugins/yet-another-stars-rating/includes/img/star_3.svg") ;
+        }
+    
+</style>
+<link rel='stylesheet' id='dashicons-css' href='https://www.linuxbabe.com/wp-includes/css/dashicons.min.css?ver=5.6.2' type='text/css' media='all' />
+<link rel='stylesheet' id='yasrcssdarkscheme-css' href='https://www.linuxbabe.com/wp-content/plugins/yet-another-stars-rating/includes/css/yasr-table-dark.css?ver=2.6.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wordpress-popular-posts-css-css' href='https://www.linuxbabe.com/wp-content/plugins/wordpress-popular-posts/assets/css/wpp.css?ver=5.2.4' type='text/css' media='all' />
+<link rel='stylesheet' id='parent-style-css' href='https://www.linuxbabe.com/wp-content/themes/optimizer/style.css?ver=5.6.2' type='text/css' media='all' />
+<link rel='stylesheet' id='child-style-css' href='https://www.linuxbabe.com/wp-content/themes/optimizer-child/style.css?ver=5.6.2' type='text/css' media='all' />
+<link rel='stylesheet' id='optimizer-style-css' href='https://www.linuxbabe.com/wp-content/themes/optimizer-child/style.css?ver=5.6.2' type='text/css' media='all' />
+<link rel='stylesheet' id='optimizer-style-core-css' href='https://www.linuxbabe.com/wp-content/themes/optimizer/style_core.css?ver=5.6.2' type='text/css' media='all' />
+<link rel='stylesheet' id='optimizer-icons-css' href='https://www.linuxbabe.com/wp-content/themes/optimizer/assets/fonts/font-awesome.css?ver=5.6.2' type='text/css' media='all' />
+<link crossorigin="anonymous" rel='stylesheet' id='optimizer_google_fonts-css' href='//fonts.googleapis.com/css?family=Fira+Sans%3Aregular%2Citalic%2C700%26subset%3Dlatin%2C' type='text/css' media='screen' />
+<link rel='stylesheet' id='wpzoom-social-icons-socicon-css' href='https://www.linuxbabe.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/css/wpzoom-socicon.css?ver=1611200004' type='text/css' media='all' />
+<link rel='stylesheet' id='wpzoom-social-icons-genericons-css' href='https://www.linuxbabe.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/css/genericons.css?ver=1611200004' type='text/css' media='all' />
+<link rel='stylesheet' id='wpzoom-social-icons-academicons-css' href='https://www.linuxbabe.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/css/academicons.min.css?ver=1611200004' type='text/css' media='all' />
+<link rel='stylesheet' id='wpzoom-social-icons-font-awesome-3-css' href='https://www.linuxbabe.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/css/font-awesome-3.min.css?ver=1611200004' type='text/css' media='all' />
+<link rel='stylesheet' id='wpzoom-social-icons-styles-css' href='https://www.linuxbabe.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/css/wpzoom-social-icons-styles.css?ver=1611200004' type='text/css' media='all' />
+<link rel='stylesheet' id='dco-comment-attachment-css' href='https://www.linuxbabe.com/wp-content/plugins/dco-comment-attachment/assets/dco-comment-attachment.css?ver=2.1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='popup-maker-site-css' href='//www.linuxbabe.com/wp-content/uploads/pum/pum-site-styles.css?generated=1610535482&#038;ver=1.15.0' type='text/css' media='all' />
+<link rel="preload" as="font" id='wpzoom-social-icons-font-academicons-ttf-css' href='https://www.linuxbabe.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/font/academicons.ttf?v=1.8.6' type='text/css' type="font/ttf" crossorigin />
+<link rel="preload" as="font" id='wpzoom-social-icons-font-academicons-woff-css' href='https://www.linuxbabe.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/font/academicons.woff?v=1.8.6' type='text/css' type="font/woff" crossorigin />
+<link rel="preload" as="font" id='wpzoom-social-icons-font-fontawesome-3-ttf-css' href='https://www.linuxbabe.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/font/fontawesome-webfont.ttf?v=4.7.0' type='text/css' type="font/ttf" crossorigin />
+<link rel="preload" as="font" id='wpzoom-social-icons-font-fontawesome-3-woff-css' href='https://www.linuxbabe.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/font/fontawesome-webfont.woff?v=4.7.0' type='text/css' type="font/woff" crossorigin />
+<link rel="preload" as="font" id='wpzoom-social-icons-font-fontawesome-3-woff2-css' href='https://www.linuxbabe.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/font/fontawesome-webfont.woff2?v=4.7.0' type='text/css' type="font/woff2" crossorigin />
+<link rel="preload" as="font" id='wpzoom-social-icons-font-genericons-ttf-css' href='https://www.linuxbabe.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/font/Genericons.ttf' type='text/css' type="font/ttf" crossorigin />
+<link rel="preload" as="font" id='wpzoom-social-icons-font-genericons-woff-css' href='https://www.linuxbabe.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/font/Genericons.woff' type='text/css' type="font/woff" crossorigin />
+<link rel="preload" as="font" id='wpzoom-social-icons-font-socicon-ttf-css' href='https://www.linuxbabe.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/font/socicon.ttf' type='text/css' type="font/ttf" crossorigin />
+<link rel="preload" as="font" id='wpzoom-social-icons-font-socicon-woff-css' href='https://www.linuxbabe.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/font/socicon.woff' type='text/css' type="font/woff" crossorigin />
+<link rel='stylesheet' id='jetpack_css-css' href='https://www.linuxbabe.com/wp-content/plugins/jetpack/css/jetpack.css?ver=9.4' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<script type='text/javascript' id='jquery-migrate-js-after'>
+jQuery(document).ready(function(){   jQuery(".so-panel.widget").each(function (){   jQuery(this).attr("id", jQuery(this).find(".so_widget_id").attr("data-panel-id"))  });  });
+</script>
+<script type='text/javascript' src='https://www.google.com/recaptcha/api.js?ver=5.6.2' id='recaptcha-js'></script>
+<script type='application/json' id='wpp-json'>
+{"sampling_active":0,"sampling_rate":100,"ajax_url":"https:\/\/www.linuxbabe.com\/wp-json\/wordpress-popular-posts\/v1\/popular-posts","ID":19942,"token":"47a57fcc1a","lang":0,"debug":0}
+</script>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-content/plugins/wordpress-popular-posts/assets/js/wpp.min.js?ver=5.2.4' id='wpp-js-js'></script>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-content/themes/optimizer/assets/js/optimizer.js?ver=1' id='optimizer_js-js'></script>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-content/themes/optimizer-child/assets/js/other.js?ver=1' id='optimizer_child_otherjs-js'></script>
+<link rel="https://api.w.org/" href="https://www.linuxbabe.com/wp-json/" /><link rel="alternate" type="application/json" href="https://www.linuxbabe.com/wp-json/wp/v2/posts/19942" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.linuxbabe.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.linuxbabe.com/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 5.6.2" />
+<link rel='shortlink' href='https://www.linuxbabe.com/?p=19942' />
+<link rel="alternate" type="application/json+oembed" href="https://www.linuxbabe.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.linuxbabe.com%2Fubuntu%2Finstall-phpmyadmin-apache-lamp-ubuntu-20-04" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.linuxbabe.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.linuxbabe.com%2Fubuntu%2Finstall-phpmyadmin-apache-lamp-ubuntu-20-04&#038;format=xml" />
+<style type='text/css'>img#wpstats{display:none}</style><style type="text/css">
+
+/*Fixed Background*/
+
+	/*BOXED LAYOUT*/
+	.site_boxed .layer_wrapper, body.home.site_boxed #slidera {width: 85%;float: left;margin: 0 7.5%;
+	background: #ffffff;}
+	.site_boxed .stat_bg, .site_boxed .stat_bg_overlay{width: 85%;}
+	.site_boxed .social_buttons{background: #ffffff;}
+	.site_boxed .center {width: 95%;margin: 0 auto;}
+	.site_boxed .head_top .center{ width:95%!important;}
+
+
+
+/*Site Content Text Style*/
+body, input, textarea{ 
+	font-family:Fira Sans; 	font-size:16px; }
+
+.single_metainfo, .single_post .single_metainfo a, a:link, a:visited, .single_post_content .tabs li a{ color:#000000;}
+
+.page_head, .author_div{ background:#EEEFF5; color:#555555;}
+.page_head .postitle{color:#555555;}	
+.page_head .layerbread a{color:#555555;}	
+
+/*LINK COLOR*/
+.org_comment a, .thn_post_wrap a:link, .thn_post_wrap a:visited, .lts_lightbox_content a:link, .lts_lightbox_content a:visited, .athor_desc a:link, .athor_desc a:visited{color:#1e73be;}
+.org_comment a:hover, .thn_post_wrap a:link:hover, .lts_lightbox_content a:link:hover, .lts_lightbox_content a:visited:hover, .athor_desc a:link:hover, .athor_desc a:visited:hover{color:#21abce;}
+
+/*-----------------------------Static Slider Content box width------------------------------------*/
+.stat_content_inner .center{width:85%;}
+.stat_content_inner{bottom:33%; color:#ffffff;}
+
+
+/*STATIC SLIDE CTA BUTTONS COLORS*/
+.static_cta1.cta_hollow, .static_cta1.cta_hollow_big{ background:transparent!important; color:#ffffff;}
+.static_cta1.cta_flat, .static_cta1.cta_flat_big, .static_cta1.cta_rounded, .static_cta1.cta_rounded_big, .static_cta1.cta_hollow:hover, .static_cta1.cta_hollow_big:hover{ background:#36abfc!important; color:#ffffff; border-color:#36abfc!important;}
+
+.static_cta2.cta_hollow, .static_cta2.cta_hollow_big{ background:transparent; color:#ffffff;}
+.static_cta2.cta_flat, .static_cta2.cta_flat_big, .static_cta2.cta_rounded, .static_cta2.cta_rounded_big, .static_cta2.cta_hollow:hover, .static_cta2.cta_hollow_big:hover{ background:#36abfc!important; color:#ffffff;border-color:#36abfc!important;}
+
+
+/*-----------------------------COLORS------------------------------------*/
+		/*Header Color*/
+		.header{ position:relative!important; background:#5e2750;}
+				
+				
+				.home.has_trans_header .header_wrap {float: left; position:relative;width: 100%;}
+		.home.has_trans_header .header{position: absolute!important;z-index: 999;}
+
+
+		/*Boxed Header should have boxed width*/
+		body.home.site_boxed .header_wrap.layer_wrapper{width: 85%;float: left;margin: 0 7.5%;}
+		
+		.home.has_trans_header .header, .home.has_trans_header.page.page-template-page-frontpage_template .header{ background:transparent!important; background-image:none;}
+				.home.has_trans_header.page .header{background:#5e2750!important;}
+		@media screen and (max-width: 480px){
+		.home.has_trans_header .header{ background:#5e2750!important;}
+		}
+		
+
+
+		/*LOGO*/
+				.logo h2, .logo h1, .logo h2 a, .logo h1 a{ 
+			font-family:'Fira Sans'; 			font-size:27px;			color:#dddddd;
+		}
+		body.has_trans_header.home .header .logo h2, body.has_trans_header.home .header .logo h1, body.has_trans_header.home .header .logo h2 a, body.has_trans_header.home .header .logo h1 a, body.has_trans_header.home span.desc{ color:#fff;}
+		#simple-menu{color:#dddddd;}
+		body.home.has_trans_header #simple-menu{color:#fff;}
+		span.desc{color:#dddddd;}
+
+		/*MENU Text Color*/
+		#topmenu ul li a{color:#dddddd;}
+		body.has_trans_header.home #topmenu ul li a, body.has_trans_header.home .head_soc .social_bookmarks.bookmark_simple a{ color:#fff;}
+		#topmenu ul li.menu_hover a{border-color:#ffffff;}
+		#topmenu ul li.menu_hover>a, body.has_trans_header.home #topmenu ul li.menu_hover>a{color:#ffffff;}
+		#topmenu ul li.current-menu-item>a{color:#228b22;}
+		#topmenu ul li ul{border-color:#ffffff transparent transparent transparent;}
+		#topmenu ul.menu>li:hover:after{background-color:#ffffff;}
+		
+		#topmenu ul li ul li a:hover{ background:#36abfc; color:#FFFFFF;}
+		.head_soc .social_bookmarks a{color:#dddddd;}
+		.head_soc .social_bookmarks.bookmark_hexagon a:before {border-bottom-color: rgba(221,221,221, 0.3)!important;}
+		.head_soc .social_bookmarks.bookmark_hexagon a i {background:rgba(221,221,221, 0.3)!important;}
+		.head_soc .social_bookmarks.bookmark_hexagon a:after { border-top-color:rgba(221,221,221, 0.3)!important;}
+		
+
+		/*BASE Color*/
+		.widget_border, .heading_border, #wp-calendar #today, .thn_post_wrap .more-link:hover, .moretag:hover, .search_term #searchsubmit, .error_msg #searchsubmit, #searchsubmit, .optimizer_pagenav a:hover, .nav-box a:hover .left_arro, .nav-box a:hover .right_arro, .pace .pace-progress, .homeposts_title .menu_border, .pad_menutitle, span.widget_border, .ast_login_widget #loginform #wp-submit, .prog_wrap, .lts_layout1 a.image, .lts_layout2 a.image, .lts_layout3 a.image, .rel_tab:hover .related_img, .wpcf7-submit, .woo-slider #post_slider li.sale .woo_sale, .nivoinner .slide_button_wrap .lts_button, #accordion .slide_button_wrap .lts_button, .img_hover, p.form-submit #submit, .optimposts .type-product a.button.add_to_cart_button{background:#36abfc;} 
+		
+		.share_active, .comm_auth a, .logged-in-as a, .citeping a, .lay3 h2 a:hover, .lay4 h2 a:hover, .lay5 .postitle a:hover, .nivo-caption p a, .acord_text p a, .org_comment a, .org_ping a, .contact_submit input:hover, .widget_calendar td a, .ast_biotxt a, .ast_bio .ast_biotxt h3, .lts_layout2 .listing-item h2 a:hover, .lts_layout3 .listing-item h2 a:hover, .lts_layout4 .listing-item h2 a:hover, .lts_layout5 .listing-item h2 a:hover, .rel_tab:hover .rel_hover, .post-password-form input[type~=submit], .bio_head h3, .blog_mo a:hover, .ast_navigation a:hover, .lts_layout4 .blog_mo a:hover{color:#36abfc;}
+		#home_widgets .widget .thn_wgt_tt, #sidebar .widget .thn_wgt_tt, #footer .widget .thn_wgt_tt, .astwt_iframe a, .ast_bio .ast_biotxt h3, .ast_bio .ast_biotxt a, .nav-box a span, .lay2 h2.postitle:hover a{color:#36abfc;}
+		.pace .pace-activity{border-top-color: #36abfc!important;border-left-color: #36abfc!important;}
+		.pace .pace-progress-inner{box-shadow: 0 0 10px #36abfc, 0 0 5px #36abfc;
+		  -webkit-box-shadow: 0 0 10px #36abfc, 0 0 5px #36abfc;
+		  -moz-box-shadow: 0 0 10px #36abfc, 0 0 5px #36abfc;}
+		
+		.fotorama__thumb-border, .ast_navigation a:hover{ border-color:#36abfc!important;}
+		
+		
+		/*Text Color on BASE COLOR Element*/
+		.icon_round a, #wp-calendar #today, .moretag:hover, .search_term #searchsubmit, .error_msg #searchsubmit, .optimizer_pagenav a:hover, .ast_login_widget #loginform #wp-submit, #searchsubmit, .prog_wrap, .rel_tab .related_img i, .lay1 h2.postitle a, .nivoinner .slide_button_wrap .lts_button, #accordion .slide_button_wrap .lts_button, .lts_layout1 .icon_wrap a, .lts_layout2 .icon_wrap a, .lts_layout3 .icon_wrap a, .lts_layout1 .icon_wrap a:hover{color:#FFFFFF;}
+		.thn_post_wrap .listing-item .moretag:hover, body .lts_layout1 .listing-item .title, .lts_layout2 .img_wrap .optimizer_plus, .img_hover .icon_wrap a, body .thn_post_wrap .lts_layout1 .icon_wrap a, .wpcf7-submit, .woo-slider #post_slider li.sale .woo_sale, p.form-submit #submit, .optimposts .type-product a.button.add_to_cart_button{color:#FFFFFF;}
+
+
+
+
+/*Sidebar Widget Background Color */
+#sidebar .widget{ background:#f7f7f7;}
+/*Widget Title Color */
+#sidebar .widget .widgettitle, #sidebar .widget .widgettitle a{color:#666666;}
+#sidebar .widget li a, #sidebar .widget, #sidebar .widget .widget_wrap{ color:#333333;}
+#sidebar .widget .widgettitle, #sidebar .widget .widgettitle a{font-size:20px;}
+
+
+
+#footer .widgets .widgettitle, #copyright a{color:#eeeeee;}
+
+/*FOOTER WIDGET COLORS*/
+#footer{background: #001829;}
+#footer .widgets .widget a, #footer .widgets{color:#999999;}
+/*COPYRIGHT COLORS*/
+#copyright{background: #001829;}
+#copyright a, #copyright{color: #999999;}
+.foot_soc .social_bookmarks a{color:#999999;}
+.foot_soc .social_bookmarks.bookmark_hexagon a:before {border-bottom-color: rgba(153,153,153, 0.3);}
+.foot_soc .social_bookmarks.bookmark_hexagon a i {background:rgba(153,153,153, 0.3);}
+.foot_soc .social_bookmarks.bookmark_hexagon a:after { border-top-color:rgba(153,153,153, 0.3);}
+
+
+
+/*-------------------------------------TYPOGRAPHY--------------------------------------*/
+
+/*Post Titles, headings and Menu Font*/
+h1, h2, h3, h4, h5, h6, #topmenu ul li a, .postitle, .product_title{ font-family:Fira Sans;  }
+
+
+#topmenu ul li a{font-size:15px;}
+#topmenu ul li {line-height: 15px;}
+
+/*Body Text Color*/
+body, .home_cat a, .contact_submit input, .comment-form-comment textarea{ color:#000000;}
+.single_post_content .tabs li a{ color:#000000;}
+.thn_post_wrap .listing-item .moretag{ color:#000000;}
+	
+	
+
+/*Post Title */
+.postitle, .postitle a, .nav-box a, h3#comments, h3#comments_ping, .comment-reply-title, .related_h3, .nocomments, .lts_layout2 .listing-item h2 a, .lts_layout3 .listing-item h2 a, .lts_layout4 .listing-item h2 a, .author_inner h5, .product_title, .woocommerce-tabs h2, .related.products h2, .optimposts .type-product h2.postitle a, .woocommerce ul.products li.product h3{ text-decoration:none; color:#333333;}
+
+/*Woocommerce*/
+.optimposts .type-product a.button.add_to_cart_button:hover{background-color:#FFFFFF;color:#36abfc;} 
+.optimposts .lay2_wrap .type-product span.price, .optimposts .lay3_wrap .type-product span.price, .optimposts .lay4_wrap  .type-product span.price, .optimposts .lay4_wrap  .type-product a.button.add_to_cart_button{color:#333333;}
+.optimposts .lay2_wrap .type-product a.button.add_to_cart_button:before, .optimposts .lay3_wrap .type-product a.button.add_to_cart_button:before{color:#333333;}
+.optimposts .lay2_wrap .type-product a.button.add_to_cart_button:hover:before, .optimposts .lay3_wrap .type-product a.button.add_to_cart_button:hover:before, .optimposts .lay4_wrap  .type-product h2.postitle a{color:#36abfc;}
+
+
+
+@media screen and (max-width: 480px){
+body.home.has_trans_header .header .logo h1 a{ color:#dddddd!important;}
+body.home.has_trans_header .header #simple-menu{color:#dddddd!important;}
+}
+
+/*USER'S CUSTOM CSS---------------------------------------------------------*/
+/* background color for whole site */
+
+#sidebar .widget li a, #sidebar .widget, #sidebar .widget .widget_wrap {
+    background-color: #f9f9f9;
+}
+.wpp-thumbnail {
+    margin:0 12px 0 0;
+}
+
+body {
+    background-color: #f9f9f9
+}
+
+.editor-note {
+    border: black 1px ;
+    padding: 5px 18px;
+    background-color: bisque;
+   display:inline-block;
+   margin:0;
+}
+
+#sidebar .widget {
+    margin-bottom:0;
+}
+
+pre {
+    font-size: 16px;
+   font-family: 'Roboto Mono', monospace;
+word-break:break-all;
+overflow:auto;
+white-space:pre-wrap}
+
+.thn_post_wrap code, .org_comment code {
+       background-color:#dedede;
+       font-size:15px;
+     font-family: 'Roboto Mono', monospace;
+       padding:1px;
+}
+
+.single_wrap{width:68%}
+#sidebar{float:left}
+#.single_wrap{float:right}
+.centerrec {text-align:center}
+
+#sidebar .widget .widgettitle {
+        color:#a4286a;
+}
+
+/* mailchimp email */
+#optin {
+
+padding: 8px 15px;
+text-align: center;
+width:98%;
+}
+#optin input {
+background: #fff;
+border: 1px solid #ccc;
+font-size: 15px;
+margin-bottom: 10px;
+padding: 8px 10px;
+border-radius: 3px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+box-shadow: 0 2px 2px #ddd;
+-moz-box-shadow: 0 2px 2px #ddd;
+-webkit-box-shadow: 0 2px 2px #ddd
+}
+#optin input.name { background: #fff url(images/name.png) no-repeat 10px center; padding-left: 35px }
+#optin input.email { background: #fff  no-repeat 10px center; padding-left: 8px;padding-right:0 }
+#optin input[type="submit"] {
+background: #217b30  repeat-x top;
+border: 1px solid #137725;
+color: #fff;
+cursor: pointer;
+font-size: 18px;
+font-weight: bold;
+padding: 8px 0;
+text-shadow: -1px -1px #1c5d28;
+width: 100%
+}
+#optin input[type="submit"]:hover { color: #c6ffd1 }
+.required{background-color:#eee}
+.page_head{min-height:50px}
+.page_head .pagetitle_wrap{margin:20px auto}
+iframe{max-width:100%}
+
+.post_foot {
+   padding:5px 0;
+}
+/* Comment Section */
+.comments_template {
+  margin-top:0;
+}
+.comm_auth {
+     color: #a4286a;
+    font-size: 15px;
+}
+.comm_auth a {
+   color:#a4286a;
+}
+.comment-body {
+       padding:0;
+       border-top: none;
+}
+.comm_reply {
+    opacity:1;
+}
+.fa-reply {
+    font-size: 11px;
+}
+
+.ast_pagenav, .comments_template .navigation {
+   margin-top:20px;
+}
+.comment-form-comment {
+   margin-top:0;
+   margin-bottom:10px;
+}
+#reply-title {
+    margin:10px 0;
+}
+.comment-form-comment textarea {
+   width:96%;
+   padding:2%;
+  min-height:100px;
+  background-color:#fffffe;
+}
+.logged-in .comment-form-comment textarea {
+   width:96%;
+}
+.org_comment {
+   font-size: 15px;
+}
+.org_comment  p {
+    margin: 8px 0;
+}
+
+.org_comment pre {
+    font-size: 15px;
+    padding: 8px 10px;
+}
+.org_comment a {
+    color:#1e73be;
+    border-bottom: solid 1px #1e73be;
+}
+select#subscribe-reloaded {
+    padding: 5px;
+}
+#commentform a {
+    color: #a4286a;
+}
+p.form-submit #submit {
+   background-color: #001829;
+   padding: 15px 4%;
+}
+
+.comm_wrap {
+   margin-bottom:10px;
+}
+#reply-title small a {
+   font-size:14px;
+}
+
+p.comment-form-cookies-consent {
+    width: 100%;
+}
+
+input#wp-comment-cookies-consent {
+    width: 1%;
+}
+
+p.comment-form-subscriptions {
+    width: 100%;
+}
+
+input#subscribe-reloaded {
+    width: 1%;
+}
+
+p.form-submit {
+    width: 15%;
+    float: right;
+}
+
+/* End of Comment Section */
+#footer #searchform #s {
+    width:80%;
+}
+
+/* disable pace activity */
+.pace .pace-activity {
+        display: none;
+}
+
+/* ad code */
+div#ezoic-pub-ad-placeholder-106 {
+    text-align:center;
+}
+/*.after-post-title {
+    margin: 0 auto;
+    width: 30%;
+}*/
+.before-comment {
+    text-align:center;
+}
+.top-of-page {
+    margin: 0 auto;
+    width: 70%;
+}
+
+/* billboard */
+div#ezoic-pub-ad-placeholder-103 {
+    text-align: center;
+}
+span.widget_border {
+  width:0;
+  height:0;
+  margin-bottom:0;
+}
+#reply-title {
+  margin:0;
+}
+.commentlist li ul li{
+  list-style-type: disc;
+}
+.commentlist #respond {
+  margin-top:0;
+}
+.commentlist .depth-3 {
+   width:100%;
+}
+#hide shareaholic attribution
+.shareaholic-recommendations-attribution-container {
+   display:none;
+}
+.ng-scope.shareaholic-recommendations-attribution {
+   display:none;
+}
+.to_top {
+      background: rgba(0, 0, 0, 0.8);
+      opacity:0.6;
+}
+.textwidget &gt; p {
+    display: none;
+}
+
+#sidebar .widget_wrap {
+    padding: 10px 10%;
+}
+
+.thn_post_wrap a:link, .thn_post_wrap a:visited, .lts_lightbox_content a:link, .lts_lightbox_content a:visited, .athor_desc a:link, .athor_desc a:visited {
+       border-bottom: solid 1px #1e73be;
+}/*---------------------------------------------------------*/
+</style>
+<!--[if IE]>
+<style type="text/css">
+.text_block_wrap, .home .lay1, .home .lay2, .home .lay3, .home .lay4, .home .lay5, .home_testi .looper, #footer .widgets{opacity:1!important;}
+#topmenu ul li a{display: block;padding: 20px; background:url(#);}
+</style>
+<![endif]-->
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style><style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #f9f9f9; }
+</style>
+<link rel="amphtml" href="https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04/amp"><link rel="icon" href="https://www.linuxbabe.com/wp-content/uploads/2018/06/cropped-linuxbabe-blog-logo-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.linuxbabe.com/wp-content/uploads/2018/06/cropped-linuxbabe-blog-logo-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.linuxbabe.com/wp-content/uploads/2018/06/cropped-linuxbabe-blog-logo-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.linuxbabe.com/wp-content/uploads/2018/06/cropped-linuxbabe-blog-logo-270x270.png" />
+</head>
+<body class="post-template-default single single-post postid-19942 single-format-standard custom-background site_full has_trans_header not_frontpage">
+
+<div class="header_wrap layer_wrapper">
+
+<div class="header">
+<div class="center">
+<div class="head_inner">
+
+<div class="logo hide_sitetagline">
+<h2><a href="https://www.linuxbabe.com/">LinuxBabe</a></h2>
+<span class="desc">Linux Sysadmin | Desktop Linux | Raspberry Pi</span>
+</div>
+
+
+
+<a id="simple-menu" href="#sidr"><i class="fa-bars"></i></a>
+
+<div id="topmenu" class="">
+<div class="menu-header"><ul id="menu-main-menu" class="menu"><li id="menu-item-6200" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6200"><a href="#">Distros</a>
+<ul class="sub-menu">
+<li id="menu-item-8270" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8270"><a href="https://www.linuxbabe.com/category/debian">Debian</a></li>
+<li id="menu-item-3525" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-3525"><a href="https://www.linuxbabe.com/category/ubuntu">Ubuntu</a></li>
+<li id="menu-item-19533" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-19533"><a href="https://www.linuxbabe.com/category/centos">CentOS</a></li>
+<li id="menu-item-7062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7062"><a href="https://www.linuxbabe.com/category/opensuse">openSUSE</a></li>
+<li id="menu-item-4006" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4006"><a href="https://www.linuxbabe.com/category/arch">Arch</a></li>
+<li id="menu-item-3666" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3666"><a href="https://www.linuxbabe.com/category/fedora">Fedora</a></li>
+</ul>
+</li>
+<li id="menu-item-148" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-148"><a href="#">Sysadmin</a>
+<ul class="sub-menu">
+<li id="menu-item-814" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-814"><a href="https://www.linuxbabe.com/tag/web-performance">WebPerformance</a></li>
+<li id="menu-item-270" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-270"><a href="https://www.linuxbabe.com/category/linux-server">Linux Server</a></li>
+<li id="menu-item-272" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-272"><a href="https://www.linuxbabe.com/category/nginx">Nginx</a></li>
+<li id="menu-item-271" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-271"><a href="https://www.linuxbabe.com/category/mariadb">MariaDB</a></li>
+<li id="menu-item-3387" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3387"><a href="https://www.linuxbabe.com/category/mail-server">Mail Server</a></li>
+<li id="menu-item-9090" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9090"><a href="https://www.linuxbabe.com/tag/backup">Backup</a></li>
+<li id="menu-item-9056" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9056"><a href="https://www.linuxbabe.com/tag/vpn">VPN Server</a></li>
+<li id="menu-item-3251" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3251"><a href="https://www.linuxbabe.com/category/monitoring">Server Monitoring</a></li>
+<li id="menu-item-8204" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8204"><a href="https://www.linuxbabe.com/tag/security">Security</a></li>
+</ul>
+</li>
+<li id="menu-item-2105" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-2105"><a href="https://www.linuxbabe.com/category/desktop-linux">Desktop Apps</a>
+<ul class="sub-menu">
+<li id="menu-item-4194" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4194"><a href="https://www.linuxbabe.com/category/themes">Themes</a></li>
+<li id="menu-item-3346" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3346"><a href="https://www.linuxbabe.com/category/games">Games</a></li>
+<li id="menu-item-3375" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3375"><a href="https://www.linuxbabe.com/category/multimedia">Multimedia</a></li>
+<li id="menu-item-3555" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3555"><a href="https://www.linuxbabe.com/category/softphone">Soft phone</a></li>
+<li id="menu-item-3583" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3583"><a href="https://www.linuxbabe.com/category/cloud-storage">Cloud Storage</a></li>
+<li id="menu-item-6498" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6498"><a href="https://www.linuxbabe.com/tag/instant-messenger">Instant Messenger</a></li>
+<li id="menu-item-6244" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6244"><a href="https://www.linuxbabe.com/tag/finance">Finance</a></li>
+</ul>
+</li>
+<li id="menu-item-6196" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6196"><a href="https://www.linuxbabe.com/tag/self-hosted">Self Hosted</a></li>
+<li id="menu-item-21119" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21119"><a href="https://newsletter.linuxbabe.com/subscription/wkeY5d6pg">Email Subscription</a></li>
+<li id="menu-item-11328" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11328"><a href="https://www.linuxbabe.com/donation">Buy me a beer</a></li>
+<li id="menu-item-20682" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20682"><a href="https://community.linuxbabe.com">Community</a></li>
+</ul></div> 
+<div class="head_soc">
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="post_wrap layer_wrapper">
+<div id="content">
+<div class="center">
+
+<div class="single_wrap">
+<div class="single_post">
+<div class="post-19942 post type-post status-publish format-standard has-post-thumbnail hentry category-ubuntu tag-phpmyadmin" id="post-19942">
+
+
+
+<div class="single_post_content">
+<h1 class="postitle entry-title">How to Install phpMyAdmin with Apache (LAMP) on Ubuntu 20.04</h1>
+
+<div class="single_metainfo ">
+
+<i class="fa-calendar"></i><a class="comm_date post-date updated">Last Updated: December 24th, 2020</a>
+
+<i class="fa-user"></i><a class='vcard author post-author' href="https://www.linuxbabe.com/author/xiao-guoan"><span class='fn author'>Xiao Guoan (Admin)</span></a>
+
+<i class="fa-comments-o"></i><div class="meta_comm"><a href="https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04#comments">10 Comments</a></div> 
+<i class="fa-th-list"></i><div class="catag_list"><a href="https://www.linuxbabe.com/category/ubuntu" rel="category tag">Ubuntu</a></div>
+</div>
+
+
+<div class="thn_post_wrap">
+<p>This tutorial will be showing you how to install phpMyAdmin with Apache, MariaDB, PHP7.4 (LAMP stack) on Ubuntu 20.04 LTS. phpMyAdmin is a free and open-source web-based database management tool written in PHP. It provides a graphical web interface for users to manage MySQL or MariaDB database.</p>
+<p>phpMyAdmin allows administrators to:</p>
+<ul>
+<li>browse through databases and tables;</li>
+<li>create, copy, rename, alter and drop databases;</li>
+<li>create, copy, rename, alter and drop tables;</li>
+<li>perform table maintenance;</li>
+<li>add, edit and drop fields;</li>
+<li>execute any SQL-statement, even multiple queries;</li>
+<li>create, alter and drop indexes;</li>
+<li>load text files into tables;</li>
+<li>create and read dumps of tables or databases;</li>
+<li>export data to SQL, CSV, XML, Word, Excel, PDF and LaTeX formats;</li>
+<li>administer multiple servers;</li>
+<li>manage MySQL users and privileges;</li>
+<li>check server settings and runtime information with configuration hints;</li>
+<li>check referential integrity in MyISAM tables;</li>
+<li>create complex queries using Query-by-example (QBE), automatically</li>
+<li>connecting required tables;</li>
+<li>create PDF graphics of database layout;</li>
+<li>search globally in a database or a subset of it;</li>
+<li>transform stored data into any format using a set of predefined functions, such as displaying BLOB-data as image or download-link;</li>
+<li>manage InnoDB tables and foreign keys;</li>
+</ul>
+<h2>Prerequisites</h2>
+<p>To follow this tutorial, you need a Ubuntu 20.04 OS running on your local computer or on a remote server.</p>
+<p>If you are looking for a VPS (Virtual Private Server), then you can create an account at Vultr via <a href="https://www.linuxbabe.com/vultr" target="_blank" rel="noopener nofollow noreferrer">my referral link</a> to get $50 free credit (for new users only). And if you need to set up phpMyAdmin with a domain name, I recommend buying domain names from <a href="https://www.linuxbabe.com/namecheap" target="_blank" rel="noopener nofollow noreferrer">NameCheap</a> because the price is low and they give whois privacy protection for free.</p>
+<p>It is assumed that you have already installed LAMP stack on Ubuntu 20.04. If not, please check out the following tutorial.</p>
+<ul>
+<li><a href="https://www.linuxbabe.com/ubuntu/install-lamp-stack-ubuntu-20-04-server-desktop" target="_blank" rel="noopener noreferrer">How to Install LAMP stack (Apache, MariaDB, PHP7.4) on Ubuntu 20.04 LTS</a></li>
+</ul>
+<p>With that out of the way, let’s get started with installing phpMyAdmin.</p>
+<h2>Step 1: Download and Install phpMyAdmin on Ubuntu 20.04</h2>
+<p>phpMyAdmin is included in Ubuntu 20.04 software repository. so we can easily install it with the command below.</p>
+<pre>sudo apt update
+sudo apt install phpmyadmin</pre>
+<p>The above command will install all necessary dependencies including PHP7 extensions. During the installation, it will prompt you to select a web server to configure. Hit the <code>space</code> bar to select apache2. (An asterisk indicates the item is selected). Then hit <code>Tab</code> key and <code>Enter</code> to confirm your choice.</p>
+<p><img loading="lazy" class="aligncenter wp-image-6994 size-full" src="https://www.linuxbabe.com/wp-content/uploads/2017/01/phpmyadmin-lamp.png" sizes="(max-width: 716px) 100vw, 716px" srcset="https://www.linuxbabe.com/wp-content/uploads/2017/01/phpmyadmin-lamp.png 716w, https://www.linuxbabe.com/wp-content/uploads/2017/01/phpmyadmin-lamp-400x162.png 400w, https://www.linuxbabe.com/wp-content/uploads/2017/01/phpmyadmin-lamp-661x268.png 661w, https://www.linuxbabe.com/wp-content/uploads/2017/01/phpmyadmin-lamp-300x122.png 300w" alt="phpmyadmin lamp" width="716" height="290" /></p>
+<p>In the next screen, select <code>Yes</code> to configure a database for phpMyAdmin with <code>dbconfig-common</code>.</p>
+<p><img loading="lazy" class="aligncenter size-full wp-image-6995" src="https://www.linuxbabe.com/wp-content/uploads/2017/01/phpmyadmin-apache-config.png" sizes="(max-width: 711px) 100vw, 711px" srcset="https://www.linuxbabe.com/wp-content/uploads/2017/01/phpmyadmin-apache-config.png 711w, https://www.linuxbabe.com/wp-content/uploads/2017/01/phpmyadmin-apache-config-400x204.png 400w, https://www.linuxbabe.com/wp-content/uploads/2017/01/phpmyadmin-apache-config-661x337.png 661w, https://www.linuxbabe.com/wp-content/uploads/2017/01/phpmyadmin-apache-config-300x153.png 300w" alt="phpmyadmin apache config" width="711" height="363" /></p>
+<p>Then set a password for the <code>phpmyadmin</code> user in MariaDB/MySQL.</p>
+<p><img loading="lazy" class="aligncenter wp-image-19943 size-full" src="https://www.linuxbabe.com/wp-content/uploads/2020/04/install-phpmyadmin-ubuntu-20.04-apache2.png" alt="install-phpmyadmin-ubuntu-20.04-apache2" width="711" height="231" srcset="https://www.linuxbabe.com/wp-content/uploads/2020/04/install-phpmyadmin-ubuntu-20.04-apache2.png 711w, https://www.linuxbabe.com/wp-content/uploads/2020/04/install-phpmyadmin-ubuntu-20.04-apache2-400x130.png 400w, https://www.linuxbabe.com/wp-content/uploads/2020/04/install-phpmyadmin-ubuntu-20.04-apache2-661x215.png 661w, https://www.linuxbabe.com/wp-content/uploads/2020/04/install-phpmyadmin-ubuntu-20.04-apache2-640x208.png 640w" sizes="(max-width: 711px) 100vw, 711px" /></p>
+<p>Once this step is done, a new database named <code>phpmyadmin</code> is created and the database user <code>phpmyadmin</code> has necessary privileges to manage this database. If you are curious as I am, you can log into MariaDB and check what privileges <code>phpmyadmin</code> user has been granted.</p>
+<p>You can use the following command to log into MariaDB server.</p>
+<pre>sudo mysql -u root</pre>
+<p>Then check the privileges of <code>phpmyadmin</code> user.</p>
+<pre>show grants for <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="493921392430282d2420270925262a282521263a3d">[email&#160;protected]</a>;</pre>
+<p>Output:</p>
+<p><img loading="lazy" class="aligncenter size-full wp-image-9899" src="https://www.linuxbabe.com/wp-content/uploads/2018/05/phpmyadmin-database-configuration.png" sizes="(max-width: 1070px) 100vw, 1070px" srcset="https://www.linuxbabe.com/wp-content/uploads/2018/05/phpmyadmin-database-configuration.png 1070w, https://www.linuxbabe.com/wp-content/uploads/2018/05/phpmyadmin-database-configuration-400x62.png 400w, https://www.linuxbabe.com/wp-content/uploads/2018/05/phpmyadmin-database-configuration-661x103.png 661w, https://www.linuxbabe.com/wp-content/uploads/2018/05/phpmyadmin-database-configuration-300x47.png 300w" alt="phpmyadmin database configuration" width="1070" height="167" /></p>
+<p>As you can see, user <code>phpmyadmin</code> has all privileges on database <code>phpmyadmin</code>. Now you can exit by executing:</p>
+<pre>exit;</pre>
+<p>Now run the following command to check if the <code>/etc/apache2/conf-enabled/phpmyadmin.conf</code> file exists.</p>
+<pre>file /etc/apache2/conf-enabled/phpmyadmin.conf</pre>
+<p>If there&#8217;s no error in the installation process, you should see the following command output.</p>
+<pre>/etc/apache2/conf-enabled/phpmyadmin.conf: symbolic link to ../conf-available/phpmyadmin.conf</pre>
+<p>If this file doesn&#8217;t exist on your server, it&#8217;s likely that you didn’t select Apache web server in the phpMyAdmin setup wizard. You can fix it with the following commands.</p>
+<pre>sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf
+
+sudo a2enconf phpmyadmin
+
+sudo systemctl reload apache2</pre>
+<h2>Step 2: Accessing phpMyAdmin from a Sub-directory</h2>
+<p>When installing phpMyAdmin, a configuration file is placed at <code>/etc/apache2/conf-enabled/phpmyadmin.conf</code>, which allows us to access phpMyAdmin via sub-directory. If you have installed other web applications like <a href="https://www.linuxbabe.com/ubuntu/install-wordpress-ubuntu-20-04-apache-mariadb-php7-4" target="_blank" rel="noopener noreferrer">WordPress</a> on the same Ubuntu 20.04 server, then simply add <code>/phpmyadmin</code> after your domain name in the browser address bar.</p>
+<pre><span style="color: #ff00ff;">example.com</span>/phpmyadmin</pre>
+<p><img loading="lazy" class="aligncenter size-full wp-image-6998" src="https://www.linuxbabe.com/wp-content/uploads/2017/01/phpmyadmin-ubuntu.png" alt="phpmyadmin ubuntu" width="939" height="630" srcset="https://www.linuxbabe.com/wp-content/uploads/2017/01/phpmyadmin-ubuntu.png 939w, https://www.linuxbabe.com/wp-content/uploads/2017/01/phpmyadmin-ubuntu-326x219.png 326w, https://www.linuxbabe.com/wp-content/uploads/2017/01/phpmyadmin-ubuntu-537x360.png 537w, https://www.linuxbabe.com/wp-content/uploads/2017/01/phpmyadmin-ubuntu-300x201.png 300w" sizes="(max-width: 939px) 100vw, 939px" /></p>
+<p>If phpMyAdmin is installed on your local Ubuntu computer, then you can access phpMyAdmin web interface by typing in the following text in the browser address bar.</p>
+<pre>localhost/phpmyadmin</pre>
+<p>If the connection is refused or failed to complete, there might be a firewall preventing HTTP requests. If you are using iptables firewall, then you need to run the following commands to open TCP port 80 and 443.</p>
+<pre>sudo iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+sudo iptables -I INPUT -p tcp --dport 443 -j ACCEPT</pre>
+<p>If you are using <a href="https://www.linuxbabe.com/security/ufw-firewall-debian-ubuntu-linux-mint-server" target="_blank" rel="noopener noreferrer">UFW firewall</a>, then run this command to open TCP port 80 and 443.</p>
+<pre>sudo ufw allow 80,443/tcp</pre>
+<p>Now You can use MariaDB/MySQL username and password to log into phpMyAdmin. If you can&#8217;t login as root, go to step 5 to troubleshoot this problem.</p>
+<h2>Step 3: Access phpMyAdmin From a Sub-domain</h2>
+<p>If your Ubuntu 20.04 server doesn&#8217;t have other Apache virtual host, then you may want to use a sub-domain to access phpMyAdmin web interface. This way, you can enable HTTPS to encrypt the traffic.</p>
+<p>First, we need to create an Apache virtual host for phpMyAdmin. The existing phpMyAdmin configuration snippet can be used as a template. Let&#8217;s copy it to a new file.</p>
+<pre>sudo cp /etc/apache2/conf-enabled/phpmyadmin.conf /etc/apache2/sites-available/phpmyadmin.conf</pre>
+<p>Then edit the new file with a command line text editor, such as Nano.</p>
+<pre>sudo nano /etc/apache2/sites-available/phpmyadmin.conf</pre>
+<p>This file lacks <code>&lt;VirtualHost&gt;</code> tags, so we need to add the following lines at the beginning of this file. Replace <code>pma.example.com</code> with your preferred sub-domain for phpMyAdmin. Don&#8217;t forget to <a href="https://www.linuxbabe.com/linux-server/create-dns-records-in-namecheap" target="_blank" rel="noopener noreferrer">create DNS A record</a> for this sub-domain.</p>
+<pre>&lt;VirtualHost *:80&gt;
+    ServerName <span style="color: #ff0000;">pma.example.com</span>
+    DocumentRoot /usr/share/phpmyadmin
+
+    ErrorLog ${APACHE_LOG_DIR}/pma.error.log
+    CustomLog ${APACHE_LOG_DIR}/pma.access.log combined</pre>
+<p>Add the following line at the end of this file to close the <code>&lt;VirtualHost&gt;</code> tag.</p>
+<pre>&lt;/VirtualHost&gt;</pre>
+<p><img loading="lazy" class="aligncenter size-full wp-image-21014" src="https://www.linuxbabe.com/wp-content/uploads/2020/04/Access-phpMyAdmin-From-a-Sub-domain-ubuntu-20.04.png" alt="Access phpMyAdmin From a Sub-domain ubuntu 20.04" width="806" height="634" srcset="https://www.linuxbabe.com/wp-content/uploads/2020/04/Access-phpMyAdmin-From-a-Sub-domain-ubuntu-20.04.png 806w, https://www.linuxbabe.com/wp-content/uploads/2020/04/Access-phpMyAdmin-From-a-Sub-domain-ubuntu-20.04-278x219.png 278w, https://www.linuxbabe.com/wp-content/uploads/2020/04/Access-phpMyAdmin-From-a-Sub-domain-ubuntu-20.04-458x360.png 458w, https://www.linuxbabe.com/wp-content/uploads/2020/04/Access-phpMyAdmin-From-a-Sub-domain-ubuntu-20.04-640x503.png 640w" sizes="(max-width: 806px) 100vw, 806px" /></p>
+<p>Save and close the file. (To save a file in Nano text editor, press <code>Ctrl+O</code>, then press Enter to confirm. To exit, press <code>Ctrl+X</code>.) Then enable this virtual host.</p>
+<pre>sudo a2ensite phpmyadmin.conf</pre>
+<p>Reload Apache web server for this change to take effect.</p>
+<pre>sudo systemctl reload apache2</pre>
+<p>Now you should be able to access phpMyAdmin web interface via</p>
+<pre>pma.example.com</pre>
+<p><img loading="lazy" class="aligncenter wp-image-19944 size-full" src="https://www.linuxbabe.com/wp-content/uploads/2020/04/how-to-install-phpmyadmin-in-ubuntu.png" alt="how-to-install-phpmyadmin-in-ubuntu" width="1011" height="617" srcset="https://www.linuxbabe.com/wp-content/uploads/2020/04/how-to-install-phpmyadmin-in-ubuntu.png 1011w, https://www.linuxbabe.com/wp-content/uploads/2020/04/how-to-install-phpmyadmin-in-ubuntu-359x219.png 359w, https://www.linuxbabe.com/wp-content/uploads/2020/04/how-to-install-phpmyadmin-in-ubuntu-590x360.png 590w, https://www.linuxbabe.com/wp-content/uploads/2020/04/how-to-install-phpmyadmin-in-ubuntu-640x391.png 640w" sizes="(max-width: 1011px) 100vw, 1011px" /></p>
+<p>Before entering user credentials in the login form, let’s enable HTTPS.</p>
+<h2>Step 4: Enable HTTPS on phpMyAdmin with Apache</h2>
+<p>To secure the phpMyadmin web interface, we can install a free Let’s Encrypt TLS certificate. Run the following command to install the Let’s Encrypt client (certbot) from Ubuntu 20.04 software repository.</p>
+<pre>sudo apt install certbot python3-certbot-apache</pre>
+<p><code>Python3-certbot-apache</code> is the Apache plugin for Certbot. Now run the following command to obtain and install TLS certificate.</p>
+<pre>sudo certbot --apache --agree-tos --redirect --hsts --staple-ocsp --must-staple -d <span style="color: #ff0000;">pma.example.com</span> --email <span style="color: #ff0000;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="acd5c3d9ecc9d4cdc1dcc0c982cfc3c1">[email&#160;protected]</a></span></pre>
+<p>Where:</p>
+<ul>
+<li><strong>–apache:</strong> Use the Apache authenticator and installer</li>
+<li><strong>–agree-tos</strong>: Agree to Let’s Encrypt terms of service</li>
+<li><strong>–redirect</strong>: Enforce HTTPS by adding 301 permanent redirect.</li>
+<li><strong>–hsts</strong>: Add the Strict-Transport-Security header to every HTTP response.</li>
+<li><strong>–staple-ocsp</strong>: Enables OCSP Stapling.</li>
+<li><strong>–must-staple</strong>: Adds the OCSP Must Staple extension to the certificate.</li>
+<li><strong>-d</strong> flag is followed by a list of domain names, separated by comma. You can add up to 100 domain names.</li>
+<li><strong>–email</strong>: Email used for registration and recovery contact.</li>
+</ul>
+<p>You will be asked if you want to receive emails from EFF(Electronic Frontier Foundation). After choosing Y or N, your TLS certificate will be automatically obtained and configured for you, which is indicated by the message below.</p>
+<p><img loading="lazy" class="aligncenter wp-image-19945 size-full" src="https://www.linuxbabe.com/wp-content/uploads/2020/04/ubuntu-20.04-phpmyadmin-apache-subdomain-config.png" alt="ubuntu-20.04-phpmyadmin-apache-subdomain-config" width="702" height="264" srcset="https://www.linuxbabe.com/wp-content/uploads/2020/04/ubuntu-20.04-phpmyadmin-apache-subdomain-config.png 702w, https://www.linuxbabe.com/wp-content/uploads/2020/04/ubuntu-20.04-phpmyadmin-apache-subdomain-config-400x150.png 400w, https://www.linuxbabe.com/wp-content/uploads/2020/04/ubuntu-20.04-phpmyadmin-apache-subdomain-config-661x249.png 661w, https://www.linuxbabe.com/wp-content/uploads/2020/04/ubuntu-20.04-phpmyadmin-apache-subdomain-config-640x241.png 640w" sizes="(max-width: 702px) 100vw, 702px" /></p>
+<h2>Step 5: Troubleshoot phpMyAdmin Login Error</h2>
+<p>If you try to login to phpMyAdmin with MariaDB root account, you may see the following error.</p>
+<pre>#1698 - Access denied for user 'root '@'localhost'</pre>
+<p>or</p>
+<pre>mysqli_real_connect(): (HY000/1698): Access denied for user 'root '@'localhost'</pre>
+<p>If you log in with user <code>phpmyadmin</code>, you won’t see the above error. However, user <code>phpmyadmin</code> can only be used to manage the <code>phpmyadmin</code> database. The cause of the error is that by default MariDB root user is authenticated via the unix_socket plugin, instead of using the <code>mysql_native_password</code> plugin. To solve this problem, we can create another admin user and grant all privileges to the new admin user.</p>
+<p>Log into MariaDB server from the command line.</p>
+<pre>sudo mysql -u root</pre>
+<p>Create an admin user with password authentication.</p>
+<pre>create user <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f293969f9b9cb29e9d91939e9a9d8186">[email&#160;protected]</a> identified by '<span style="color: #ff0000;">your-preferred-password</span>';</pre>
+<p>Grant all privileges on all databases.</p>
+<pre>grant all privileges on *.* to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b1d0d5dcd8dff1ddded2d0ddd9dec2c5">[email&#160;protected]</a> with grant option;</pre>
+<p>Flush privileges and exit;</p>
+<pre>flush privileges;
+
+exit;</pre>
+<p>Now you can log into phpMyAmin with the <code>admin</code> account and manage all databases.</p>
+<p><img loading="lazy" class="aligncenter size-full wp-image-18691" src="https://www.linuxbabe.com/wp-content/uploads/2019/07/mysqli_real_connect-HY0001698-Access-denied-for-user-root-@localhost.png" alt="mysqli_real_connect HY0001698 Access denied for user 'root '@'localhost'" width="1011" height="597" srcset="https://www.linuxbabe.com/wp-content/uploads/2019/07/mysqli_real_connect-HY0001698-Access-denied-for-user-root-@localhost.png 1011w, https://www.linuxbabe.com/wp-content/uploads/2019/07/mysqli_real_connect-HY0001698-Access-denied-for-user-root-@localhost-371x219.png 371w, https://www.linuxbabe.com/wp-content/uploads/2019/07/mysqli_real_connect-HY0001698-Access-denied-for-user-root-@localhost-610x360.png 610w, https://www.linuxbabe.com/wp-content/uploads/2019/07/mysqli_real_connect-HY0001698-Access-denied-for-user-root-@localhost-640x378.png 640w" sizes="(max-width: 1011px) 100vw, 1011px" /></p>
+<h2>Wrapping Up</h2>
+<p>I hope this tutorial helped you install phpMyAdmin with LAMP on Ubuntu 20.04. As always, if you found this post useful, then <a href="https://newsletter.linuxbabe.com/subscription/wkeY5d6pg" target="_blank" rel="noopener noreferrer">subscribe to our free newsletter</a> to get more tips and tricks. Take care 🙂</p>
+<div style="text-align:left" class="yasr-auto-insert-visitor"><div id='yasr_visitor_votes_19942' class='yasr-visitor-votes'><div class="yasr-custom-text-vv-before yasr-custom-text-vv-before-19942">Rate this tutorial</div><div id='yasr-visitor-votes-rater-a6637102a0d5f' class='yasr-rater-stars-vv' data-rater-postid='19942' data-rating='4.6' data-rater-starsize='32' data-rater-readonly='false' data-rater-nonce='6ab3d8e7fc' data-issingular='true' data-cpt='posts'>
+</div><span class="yasr-total-average-container" id="yasr-total-average-text-a6637102a0d5f"><span class='dashicons dashicons-chart-bar yasr-dashicons-visitor-stats' data-postid='19942' id='yasr-total-average-dashicon-19942'></span>[Total: <span id="yasr-vv-votes-number-container-a6637102a0d5f">5</span> Average: <span id="yasr-vv-average-container-a6637102a0d5f">4.6</span>]</span><div id='yasr-vv-loader-a6637102a0d5f' class='yasr-vv-container-loader'><div style="display:none;" id="yasr-below-stars-hidden-a6637102a0d5f"></div></div></div></div><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="application/ld+json">{"@context":"http:\/\/schema.org\/","@type":"BlogPosting","name":"How to Install phpMyAdmin with Apache (LAMP) on Ubuntu 20.04","description":"This tutorial will be showing you how to install phpMyAdmin with Apache, MariaDB, PHP7.4 (LAMP stack) on Ubuntu 20.04 LTS. phpMyAdmin is a free and open-source web-based database management tool written in PHP. It provides a graphical web interface for users to manage MySQL or MariaDB database. phpMyAdmin allows administrators to: browse through databases and...","image":{"@type":"ImageObject","url":"https:\/\/www.linuxbabe.com\/wp-content\/uploads\/2020\/04\/How-to-Install-phpMyAdmin-with-Apache-LAMP-on-Ubuntu-20.04.png","width":698,"height":389},"datePublished":"2020-04-30T18:02:59+08:00","headline":"How to Install phpMyAdmin with Apache (LAMP) on Ubuntu 20.04","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.linuxbabe.com\/ubuntu\/install-phpmyadmin-apache-lamp-ubuntu-20-04"},"author":{"@type":"Person","name":"Xiao Guoan (Admin)"},"publisher":{"@type":"Organization","name":"LinuxBabe","logo":{"@type":"ImageObject","url":"https:\/\/www.linuxbabe.com\/wp-content\/uploads\/2018\/06\/cropped-linuxbabe-blog-logo.png","width":512,"height":512}},"dateModified":"2020-12-24T19:06:29+08:00"}</script><div style='display:none;' class='shareaholic-canvas' data-app='recommendations' data-title='How to Install phpMyAdmin with Apache (LAMP) on Ubuntu 20.04' data-link='https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04' data-app-id-name='post_below_content'></div>
+</div>
+<div style="clear:both"></div>
+<div class="thn_post_wrap wp_link_pages">
+</div>
+
+
+<div class="post_foot">
+<div class="post_meta">
+<div class="post_tag">
+<div class="tag_list">
+<ul><li><i class="fa-tag"></i><a href="https://www.linuxbabe.com/tag/phpmyadmin" rel="tag">phpMyAdmin</a></li></ul> </div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="comments_template ">
+
+
+<h3 id="comments">
+10 Responses to &#8220;<a>How to Install phpMyAdmin with Apache (LAMP) on Ubuntu 20.04</a>&#8221;
+</h3>
+
+
+<ul class="commentlist">
+
+<li class="comment even thread-even depth-1" id="li-comment-62062">
+<div id="comment-62062" class="comment-body">
+<div class="comm_edit"></div>
+<div class="comment-author vcard">
+<div class="avatar"><img alt='' src='https://secure.gravatar.com/avatar/66824edec76faadb6f45df41d41c18f3?s=30&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g' srcset='https://secure.gravatar.com/avatar/66824edec76faadb6f45df41d41c18f3?s=60&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g 2x' class='avatar avatar-30 photo' height='30' width='30' loading='lazy' /></div>
+<div class="comm_auth">Colin</div>
+<a class="comm_date"><i class="fa-clock-o"></i>10 months ago</a>
+<div class="comm_reply">
+<i class="fa-reply"></i> <a rel='nofollow' class='comment-reply-link' href='#comment-62062' data-commentid="62062" data-postid="19942" data-belowelement="comment-62062" data-respondelement="respond" data-replyto="Reply to Colin" aria-label='Reply to Colin'>Reply</a> </div>
+</div>
+<div class="org_comment"><p>Another great tutorial!</p>
+</div>
+</div>
+</li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-66344">
+<div id="comment-66344" class="comment-body">
+<div class="comm_edit"></div>
+<div class="comment-author vcard">
+<div class="avatar"><img alt='' src='https://secure.gravatar.com/avatar/2ca5a71724ccd56a476b3e0812146932?s=30&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g' srcset='https://secure.gravatar.com/avatar/2ca5a71724ccd56a476b3e0812146932?s=60&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g 2x' class='avatar avatar-30 photo' height='30' width='30' loading='lazy' /></div>
+<div class="comm_auth">ignore_oem</div>
+<a class="comm_date"><i class="fa-clock-o"></i>9 months ago</a>
+<div class="comm_reply">
+<i class="fa-reply"></i> <a rel='nofollow' class='comment-reply-link' href='#comment-66344' data-commentid="66344" data-postid="19942" data-belowelement="comment-66344" data-respondelement="respond" data-replyto="Reply to ignore_oem" aria-label='Reply to ignore_oem'>Reply</a> </div>
+</div>
+<div class="org_comment"><p>thank u very much</p>
+</div>
+</div>
+</li>
+<li class="comment even thread-even depth-1" id="li-comment-68130">
+<div id="comment-68130" class="comment-body">
+<div class="comm_edit"></div>
+<div class="comment-author vcard">
+<div class="avatar"><img alt='' src='https://secure.gravatar.com/avatar/c3c062193bc0e3fce9bc4dc27a259a75?s=30&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g' srcset='https://secure.gravatar.com/avatar/c3c062193bc0e3fce9bc4dc27a259a75?s=60&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g 2x' class='avatar avatar-30 photo' height='30' width='30' loading='lazy' /></div>
+<div class="comm_auth">Jens</div>
+<a class="comm_date"><i class="fa-clock-o"></i>9 months ago</a>
+<div class="comm_reply">
+<i class="fa-reply"></i> <a rel='nofollow' class='comment-reply-link' href='#comment-68130' data-commentid="68130" data-postid="19942" data-belowelement="comment-68130" data-respondelement="respond" data-replyto="Reply to Jens" aria-label='Reply to Jens'>Reply</a> </div>
+</div>
+<div class="org_comment"><p>Hat alles so geklappt, wie beschrieben. Vielen Dank</p>
+</div>
+</div>
+</li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-83643">
+<div id="comment-83643" class="comment-body">
+<div class="comm_edit"></div>
+<div class="comment-author vcard">
+<div class="avatar"><img alt='' src='https://secure.gravatar.com/avatar/22131d43f10c062b9ab6ac10a012ef4f?s=30&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g' srcset='https://secure.gravatar.com/avatar/22131d43f10c062b9ab6ac10a012ef4f?s=60&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g 2x' class='avatar avatar-30 photo' height='30' width='30' loading='lazy' /></div>
+<div class="comm_auth">Steeve</div>
+<a class="comm_date"><i class="fa-clock-o"></i>7 months ago</a>
+<div class="comm_reply">
+<i class="fa-reply"></i> <a rel='nofollow' class='comment-reply-link' href='#comment-83643' data-commentid="83643" data-postid="19942" data-belowelement="comment-83643" data-respondelement="respond" data-replyto="Reply to Steeve" aria-label='Reply to Steeve'>Reply</a> </div>
+</div>
+<div class="org_comment"><p>Hi, </p>
+<p>Very good tutorial.<br />
+Do you have also done something about security of the LAMP Server ?</p>
+<p>Best regards,</p>
+</div>
+</div>
+</li>
+<li class="comment even thread-even depth-1" id="li-comment-92364">
+<div id="comment-92364" class="comment-body">
+<div class="comm_edit"></div>
+<div class="comment-author vcard">
+<div class="avatar"><img alt='' src='https://secure.gravatar.com/avatar/f035aad46220dbf394b7e444c2c05be5?s=30&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g' srcset='https://secure.gravatar.com/avatar/f035aad46220dbf394b7e444c2c05be5?s=60&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g 2x' class='avatar avatar-30 photo' height='30' width='30' loading='lazy' /></div>
+<div class="comm_auth">Denwar</div>
+<a class="comm_date"><i class="fa-clock-o"></i>6 months ago</a>
+<div class="comm_reply">
+<i class="fa-reply"></i> <a rel='nofollow' class='comment-reply-link' href='#comment-92364' data-commentid="92364" data-postid="19942" data-belowelement="comment-92364" data-respondelement="respond" data-replyto="Reply to Denwar" aria-label='Reply to Denwar'>Reply</a> </div>
+</div>
+<div class="org_comment"><p>How do we restrict access to /phpmyadmin to a local ip?</p>
+<p>I&#8217;ve tried modifying both the phpmyadmin.conf &amp; phpmyadmin-le-ssl.conf by adding:</p>
+<p> Require host localhost<br />
+Require ip 127.0.0.1<br />
+Require ip 192.168<br />
+Require ip 10</p>
+<p>Are you able to help out ??</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="li-comment-92365">
+ <div id="comment-92365" class="comment-body">
+<div class="comm_edit"></div>
+<div class="comment-author vcard">
+<div class="avatar"><img alt='' src='https://secure.gravatar.com/avatar/f035aad46220dbf394b7e444c2c05be5?s=30&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g' srcset='https://secure.gravatar.com/avatar/f035aad46220dbf394b7e444c2c05be5?s=60&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g 2x' class='avatar avatar-30 photo' height='30' width='30' loading='lazy' /></div>
+<div class="comm_auth">Denwar</div>
+<a class="comm_date"><i class="fa-clock-o"></i>6 months ago</a>
+<div class="comm_reply">
+<i class="fa-reply"></i> <a rel='nofollow' class='comment-reply-link' href='#comment-92365' data-commentid="92365" data-postid="19942" data-belowelement="comment-92365" data-respondelement="respond" data-replyto="Reply to Denwar" aria-label='Reply to Denwar'>Reply</a> </div>
+</div>
+<div class="org_comment"><p>The exact code I&#8217;ve added &#8211; </p>
+<p> Require host localhost<br />
+Require ip 127.0.0.1<br />
+Require ip 192.168<br />
+Require ip 10</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-3" id="li-comment-120916">
+<div id="comment-120916" class="comment-body">
+<div class="comm_edit"></div>
+<div class="comment-author vcard">
+<div class="avatar"><img alt='' src='https://secure.gravatar.com/avatar/eac5c6e527934a09084a6da17ecd0ded?s=30&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g' srcset='https://secure.gravatar.com/avatar/eac5c6e527934a09084a6da17ecd0ded?s=60&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g 2x' class='avatar avatar-30 photo' height='30' width='30' loading='lazy' /></div>
+<div class="comm_auth">Jake</div>
+<a class="comm_date"><i class="fa-clock-o"></i>3 months ago</a>
+<div class="comm_reply">
+<i class="fa-reply"></i> <a rel='nofollow' class='comment-reply-link' href='#comment-120916' data-commentid="120916" data-postid="19942" data-belowelement="comment-120916" data-respondelement="respond" data-replyto="Reply to Jake" aria-label='Reply to Jake'>Reply</a> </div>
+</div>
+<div class="org_comment"><p>Use the local ip address for the machine running phpmyadmin. For example use http://192.168.1.100/phpmyadmin from another system on your local network. localhost/phpmyadmin will only work on the machine that has phpmyadmin installed on it.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-4" id="li-comment-120917">
+<div id="comment-120917" class="comment-body">
+<div class="comm_edit"></div>
+<div class="comment-author vcard">
+<div class="avatar"><img alt='' src='https://secure.gravatar.com/avatar/eac5c6e527934a09084a6da17ecd0ded?s=30&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g' srcset='https://secure.gravatar.com/avatar/eac5c6e527934a09084a6da17ecd0ded?s=60&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g 2x' class='avatar avatar-30 photo' height='30' width='30' loading='lazy' /></div>
+<div class="comm_auth">Jake</div>
+<a class="comm_date"><i class="fa-clock-o"></i>3 months ago</a>
+<div class="comm_reply">
+</div>
+</div>
+<div class="org_comment"><p>Nevermind, I didn&#8217;t read your original post well enough. My apologies.</p>
+</div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="comment even thread-odd thread-alt depth-1" id="li-comment-102496">
+<div id="comment-102496" class="comment-body">
+<div class="comm_edit"></div>
+<div class="comment-author vcard">
+<div class="avatar"><img alt='' src='https://secure.gravatar.com/avatar/c7a1a5c1e14abeb453ae835f4fdea6f9?s=30&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g' srcset='https://secure.gravatar.com/avatar/c7a1a5c1e14abeb453ae835f4fdea6f9?s=60&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g 2x' class='avatar avatar-30 photo' height='30' width='30' loading='lazy' /></div>
+<div class="comm_auth">Rui</div>
+<a class="comm_date"><i class="fa-clock-o"></i>5 months ago</a>
+<div class="comm_reply">
+<i class="fa-reply"></i> <a rel='nofollow' class='comment-reply-link' href='#comment-102496' data-commentid="102496" data-postid="19942" data-belowelement="comment-102496" data-respondelement="respond" data-replyto="Reply to Rui" aria-label='Reply to Rui'>Reply</a> </div>
+</div>
+<div class="org_comment"><p>Hi,</p>
+<p>Excelent Tutorial, Congratulations!<br />
+How to create a DNS A record for this sub-domain (pma.example.com)</p>
+<p>Thank You</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment byuser comment-author-xiao-guoan bypostauthor odd alt depth-2" id="li-comment-102590">
+<div id="comment-102590" class="comment-body">
+<div class="comm_edit"></div>
+<div class="comment-author vcard">
+<div class="avatar"><img alt='' src='https://secure.gravatar.com/avatar/2ae86b48a4a7ba3576bbb5a59a4d07d0?s=30&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g' srcset='https://secure.gravatar.com/avatar/2ae86b48a4a7ba3576bbb5a59a4d07d0?s=60&#038;d=https%3A%2F%2Fwww.linuxbabe.com%2Fwp-content%2Fuploads%2F2018%2F06%2Flinuxbabe-comment-avatar-120x120.png&#038;r=g 2x' class='avatar avatar-30 photo' height='30' width='30' loading='lazy' /></div>
+<div class="comm_auth"><a href='https://www.linuxbabe.com' rel='external nofollow ugc' class='url'>Xiao Guoan (Admin)</a></div>
+<a class="comm_date"><i class="fa-clock-o"></i>5 months ago</a>
+<div class="comm_reply">
+<i class="fa-reply"></i> <a rel='nofollow' class='comment-reply-link' href='#comment-102590' data-commentid="102590" data-postid="19942" data-belowelement="comment-102590" data-respondelement="respond" data-replyto="Reply to Xiao Guoan (Admin)" aria-label='Reply to Xiao Guoan (Admin)'>Reply</a> </div>
+</div>
+<div class="org_comment"><p>You can read this tutorial: <a href="https://www.linuxbabe.com/linux-server/create-dns-records-in-namecheap" target="_blank" rel="noopener noreferrer">How to Create DNS Records in NameCheap</a></p>
+</div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="navigation">
+</div>
+
+
+
+<script type="text/javascript">
+                window.wpsf_timestamp_enabled = true;
+                window.wpsf_threshold = 10000;
+                window.wpsf_message = 'This site is protected by an anti-spam feature that requires {0} seconds to have elapsed between the page load and the form submission. \n\n Please close this alert window.  The form may be resubmitted successfully in {1} seconds.';
+
+                String.prototype.format = function (args) {
+                    var str = this;
+                    return str.replace(String.prototype.format.regex, function (item) {
+                        var intVal = parseInt(item.substring(1, item.length - 1));
+                        var replace;
+                        if (intVal >= 0) {
+                            replace = args[intVal];
+                        } else if (intVal === -1) {
+                            replace = "{";
+                        } else if (intVal === -2) {
+                            replace = "}";
+                        } else {
+                            replace = "";
+                        }
+                        return replace;
+                    });
+                };
+                String.prototype.format.regex = new RegExp("{-?[0-9]+}", "g");
+            </script>
+<div id="respond" class="comment-respond">
+<h3 id="reply-title" class="comment-reply-title">Leave a Comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://www.linuxbabe.com/wp-comments-post.php" method="post" id="commentform" class="comment-form"><div class="comment-policy">
+<ul>
+<li>Comments with links are moderated by admin before published.</li>
+<li>Your email address will not be published.</li>
+<li>Use <strong>&lt;pre&gt; ... &lt;/pre&gt;</strong> HTML tag to quote the output from your terminal/console.</li>
+<li>Please use the community (<a href="https://community.linuxbabe.com" target="_blank">https://community.linuxbabe.com</a>) for questions unrelated to this article.</li>
+<li>I don't have time to answer every question. <a href="https://www.linuxbabe.com/donation" target="_blank">Making a donation</a> would incentivize me to spend more time answering questions. </li>
+</ul>
+</div><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><div class="comm_wrap"><p class="comment-form-author"><input placeholder="Name" id="author" name="author" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-email"><input placeholder="Email" id="email" name="email" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-url"><input placeholder="Website" id="url" name="url" type="text" value="" size="30" /></p></div>
+<script type="text/javascript">
+                            window.wpsf_javascript_enabled = true;
+                        </script>
+<script type="text/javascript">
+                            window.wpsf_timestamp_enabled = true;
+                        </script>
+<textarea id="more_comment" aria-required="true" rows="8" cols="45" name="more_comment" style="display: none;"></textarea>
+<p class="comment-form-attachment">
+<label class="comment-form-attachment__label" for="attachment">
+Attachment </label>
+<input class="comment-form-attachment__input" id="attachment" name="attachment" type="file" />
+<span class="comment-form-attachment__file-size-notice">
+The maximum upload file size: 2 MB. </span>
+<span class="comment-form-attachment__file-types-notice">
+You can upload: <abbr title="jpg, jpeg, png">image</abbr>. </span>
+</p>
+<p class='comment-form-subscriptions'><label for='subscribe-reloaded'><input type='checkbox' name='subscribe-reloaded' id='subscribe-reloaded' value='replies' checked='checked' /> Receive notification via e-mail when someone replies to my comment.</label></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='19942' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p></form> </div>
+ </div>
+
+</div>
+</div>
+
+<div id="sidebar" class="home_sidebar ">
+<div class="widgets">
+<div id="search-2" class="widget widget_search" data-widget-id="search-2"><div class="widget_wrap"><form role="search" method="get" id="searchform" action="https://www.linuxbabe.com/">
+<div>
+<input placeholder="Search &hellip;" type="text" value="" name="s" id="s" />
+<input type="submit" id="searchsubmit" value="Search" />
+</div>
+</form><span class="widget_corner"></span></div></div><div id="google_translate_widget-2" class="widget widget_google_translate_widget" data-widget-id="google_translate_widget-2"><div class="widget_wrap"><div id="google_translate_element"></div><span class="widget_corner"></span></div></div><div id="media_image-7" class="widget widget_media_image" data-widget-id="media_image-7"><div class="widget_wrap"><a href="https://www.linuxbabe.com/linux-system-security-lpic-2" target="_blank" rel="noopener"><img width="300" height="600" src="https://www.linuxbabe.com/wp-content/uploads/2020/09/linux-system-security-course-lpic-2-pluralsight.jpg" class="image wp-image-20592  attachment-full size-full" alt="linux system security course lpic-2 pluralsight" loading="lazy" style="max-width: 100%; height: auto;" srcset="https://www.linuxbabe.com/wp-content/uploads/2020/09/linux-system-security-course-lpic-2-pluralsight.jpg 300w, https://www.linuxbabe.com/wp-content/uploads/2020/09/linux-system-security-course-lpic-2-pluralsight-110x219.jpg 110w, https://www.linuxbabe.com/wp-content/uploads/2020/09/linux-system-security-course-lpic-2-pluralsight-180x360.jpg 180w" sizes="(max-width: 300px) 100vw, 300px" /></a><span class="widget_corner"></span></div></div>
+<div id="wpp-2" class="widget popular-posts" data-widget-id="wpp-2"><div class="widget_wrap">
+<h3 class="widgettitle">Featured Tutorials</h3>
+
+<ul class="wpp-list wpp-list-with-thumbnails">
+<li>
+<a href="https://www.linuxbabe.com/ubuntu/install-nextcloud-ubuntu-20-04-apache-lamp-stack" target="_self"><img src="https://www.linuxbabe.com/wp-content/uploads/wordpress-popular-posts/19929-featured-95x95.png" width="95" height="95" alt="Install-NextCloud-on-Ubuntu-20.04-with-Apache-LAMP-Stack" class="wpp-thumbnail wpp_featured wpp_cached_thumb" loading="lazy" /></a>
+<a href="https://www.linuxbabe.com/ubuntu/install-nextcloud-ubuntu-20-04-apache-lamp-stack" class="wpp-post-title" target="_self">Install NextCloud on Ubuntu 20.04 with Apache (LAMP Stack)</a>
+</li>
+<li>
+<a href="https://www.linuxbabe.com/mail-server/secure-email-server-ubuntu-postfix-dovecot" target="_self"><img src="https://www.linuxbabe.com/wp-content/uploads/wordpress-popular-posts/5588-featured-95x95.jpg" width="95" height="95" alt="build your own secure email server with postfix" class="wpp-thumbnail wpp_featured wpp_cached_thumb" loading="lazy" /></a>
+<a href="https://www.linuxbabe.com/mail-server/secure-email-server-ubuntu-postfix-dovecot" class="wpp-post-title" target="_self">Part 2: Install Dovecot IMAP server on Ubuntu &#038; Enable TLS Encryption</a>
+</li>
+<li>
+<a href="https://www.linuxbabe.com/ubuntu/install-roundcube-webmail-ubuntu-20-04-apache-nginx" target="_self"><img src="https://www.linuxbabe.com/wp-content/uploads/wordpress-popular-posts/19899-featured-95x95.png" width="95" height="95" alt="Install Roundcube Webmail on Ubuntu 20.04" class="wpp-thumbnail wpp_featured wpp_cached_thumb" loading="lazy" /></a>
+<a href="https://www.linuxbabe.com/ubuntu/install-roundcube-webmail-ubuntu-20-04-apache-nginx" class="wpp-post-title" target="_self">Install Roundcube Webmail on Ubuntu 20.04 with Apache/Nginx</a>
+</li>
+<li>
+<a href="https://www.linuxbabe.com/mail-server/postfix-transport-map-relay-map-flexible-email-delivery" target="_self"><img src="https://www.linuxbabe.com/wp-content/uploads/wordpress-popular-posts/19516-featured-95x95.png" width="95" height="95" alt="Use Postfix Transport Map and Relay Map For Flexible Email Delivery" class="wpp-thumbnail wpp_featured wpp_cached_thumb" loading="lazy" /></a>
+<a href="https://www.linuxbabe.com/mail-server/postfix-transport-map-relay-map-flexible-email-delivery" class="wpp-post-title" target="_self">Use Postfix Transport Map and Relayhost Map For Flexible Email Delivery</a>
+</li>
+<li>
+<a href="https://www.linuxbabe.com/ubuntu/install-nextcloud-ubuntu-20-04-nginx-lemp-stack" target="_self"><img src="https://www.linuxbabe.com/wp-content/uploads/wordpress-popular-posts/19907-featured-95x95.png" width="95" height="95" alt="Install NextCloud on Ubuntu 20.04 with Nginx LEMP Stack" class="wpp-thumbnail wpp_featured wpp_cached_thumb" loading="lazy" /></a>
+<a href="https://www.linuxbabe.com/ubuntu/install-nextcloud-ubuntu-20-04-nginx-lemp-stack" class="wpp-post-title" target="_self">Install NextCloud on Ubuntu 20.04 with Nginx (LEMP Stack)</a>
+</li>
+<li>
+<a href="https://www.linuxbabe.com/mail-server/how-to-stop-your-emails-being-marked-as-spam" target="_self"><img src="https://www.linuxbabe.com/wp-content/uploads/wordpress-popular-posts/19217-featured-95x95.jpg" width="95" height="95" alt="how to stop my emails being marked as spam gmail" class="wpp-thumbnail wpp_featured wpp_cached_thumb" loading="lazy" /></a>
+<a href="https://www.linuxbabe.com/mail-server/how-to-stop-your-emails-being-marked-as-spam" class="wpp-post-title" target="_self">7 Effective Tips to Stop Your Emails Being Marked as Spam</a>
+</li>
+<li>
+<a href="https://www.linuxbabe.com/mail-server/how-to-set-up-a-backup-email-server-postfix-ubuntu" target="_self"><img src="https://www.linuxbabe.com/wp-content/uploads/wordpress-popular-posts/11155-featured-95x95.png" width="95" height="95" alt="postfix relay domains" class="wpp-thumbnail wpp_featured wpp_cached_thumb" loading="lazy" /></a>
+<a href="https://www.linuxbabe.com/mail-server/how-to-set-up-a-backup-email-server-postfix-ubuntu" class="wpp-post-title" target="_self">How to Set up a Backup Email Server with Postfix on Ubuntu (Complete Guide)</a>
+</li>
+<li>
+<a href="https://www.linuxbabe.com/mail-server/configure-postscreen-in-postfix-to-block-spambots" target="_self"><img src="https://www.linuxbabe.com/wp-content/uploads/wordpress-popular-posts/19583-featured-95x95.jpg" width="95" height="95" alt="Enable and Configure Postscreen in Postfix to Block Spambots" class="wpp-thumbnail wpp_featured wpp_cached_thumb" loading="lazy" /></a>
+<a href="https://www.linuxbabe.com/mail-server/configure-postscreen-in-postfix-to-block-spambots" class="wpp-post-title" target="_self">Enable and Configure Postscreen in Postfix to Block Spambots</a>
+</li>
+<li>
+<a href="https://www.linuxbabe.com/ubuntu/openstreetmap-tile-server-ubuntu-20-04-osm" target="_self"><img src="https://www.linuxbabe.com/wp-content/uploads/wordpress-popular-posts/20081-featured-95x95.png" width="95" height="95" alt="sm-tile-server-ubuntu-20.04-install" class="wpp-thumbnail wpp_featured wpp_cached_thumb" loading="lazy" /></a>
+<a href="https://www.linuxbabe.com/ubuntu/openstreetmap-tile-server-ubuntu-20-04-osm" class="wpp-post-title" target="_self">How to Set Up OpenStreetMap Tile Server on Ubuntu 20.04</a>
+</li>
+<li>
+<a href="https://www.linuxbabe.com/desktop-linux/how-to-install-and-use-atomic-wallet-on-linux" target="_self"><img src="https://www.linuxbabe.com/wp-content/uploads/wordpress-popular-posts/18912-featured-95x95.png" width="95" height="95" alt="atomic wallet linux" class="wpp-thumbnail wpp_featured wpp_cached_thumb" loading="lazy" /></a>
+<a href="https://www.linuxbabe.com/desktop-linux/how-to-install-and-use-atomic-wallet-on-linux" class="wpp-post-title" target="_self">How to Install and Use Atomic Wallet on Linux</a>
+</li>
+</ul>
+<span class="widget_corner"></span></div></div>
+<div id="media_image-6" class="widget widget_media_image" data-widget-id="media_image-6"><div class="widget_wrap"><h3 class="widgettitle">pCloud 65% Off Cloud Storage</h3><a href="https://www.linuxbabe.com/cloud-storage/install-pcloud-drive-ubuntu" target="_blank" rel="noopener"><img width="263" height="219" src="https://www.linuxbabe.com/wp-content/uploads/2019/11/pcloud-2TB-lifetime-263x219.jpg" class="image wp-image-19233  attachment-medium size-medium" alt="pcloud 2TB lifetime" loading="lazy" style="max-width: 100%; height: auto;" title="Single&#039;s Day 75% Off Cloud Storage" srcset="https://www.linuxbabe.com/wp-content/uploads/2019/11/pcloud-2TB-lifetime-263x219.jpg 263w, https://www.linuxbabe.com/wp-content/uploads/2019/11/pcloud-2TB-lifetime.jpg 300w" sizes="(max-width: 263px) 100vw, 263px" /></a><span class="widget_corner"></span></div></div><div id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget" data-widget-id="zoom-social-icons-widget-2"><div class="widget_wrap"><h3 class="widgettitle">Follow us</h3>
+<ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--round zoom-social-icons-list--no-labels">
+<li class="zoom-social_icons-list__item">
+<a class="zoom-social_icons-list__link" href="https://facebook.com/linuxbabe" target="_blank" rel="nofollow noopener noreferrer">
+<span class="screen-reader-text">facebook</span>
+<span class="zoom-social_icons-list-span social-icon socicon socicon-facebook" data-hover-rule="background-color" data-hover-color="#3b5998" style="background-color : #3b5998; font-size: 26px; padding:9px"></span>
+</a>
+</li>
+<li class="zoom-social_icons-list__item">
+<a class="zoom-social_icons-list__link" href="https://twitter.com/linuxbabe" target="_blank" rel="nofollow noopener noreferrer">
+<span class="screen-reader-text">twitter</span>
+<span class="zoom-social_icons-list-span social-icon socicon socicon-twitter" data-hover-rule="background-color" data-hover-color="#1da1f2" style="background-color : #1da1f2; font-size: 26px; padding:9px"></span>
+</a>
+</li>
+<li class="zoom-social_icons-list__item">
+<a class="zoom-social_icons-list__link" href="https://newsletter.linuxbabe.com/subscription/wkeY5d6pg" target="_blank" rel="nofollow noopener noreferrer">
+<span class="screen-reader-text">email-alt</span>
+<span class="zoom-social_icons-list-span social-icon dashicons dashicons-email-alt" data-hover-rule="background-color" data-hover-color="#1e73be" style="background-color : #1e73be; font-size: 26px; padding:9px"></span>
+</a>
+</li>
+<li class="zoom-social_icons-list__item">
+<a class="zoom-social_icons-list__link" href="https://www.linuxbabe.com/feed/" target="_blank" rel="nofollow noopener noreferrer">
+ <span class="screen-reader-text">rss</span>
+<span class="zoom-social_icons-list-span social-icon socicon socicon-rss" data-hover-rule="background-color" data-hover-color="#3E8DCC" style="background-color : #3E8DCC; font-size: 26px; padding:9px"></span>
+</a>
+</li>
+</ul>
+<span class="widget_corner"></span></div></div><div id="text-24" class="widget widget_text" data-widget-id="text-24"><div class="widget_wrap"><h3 class="widgettitle">Claim Your $50 Hosting Credit</h3> <div class="textwidget"><p><a href="https://www.linuxbabe.com/vps/vultr-coupon-code" target="_blank" rel="noopener"><img loading="lazy" src="https://www.linuxbabe.com/wp-content/uploads/2019/10/vultr-vps.png" width="300" height="250" /></a></p>
+</div>
+<span class="widget_corner"></span></div></div> </div>
+</div>
+
+</div>
+</div>
+</div>
+<a class="to_top "><i class="fa-angle-up fa-2x"></i></a>
+
+<div class="footer_wrap layer_wrapper ">
+<div id="footer">
+<div class="center">
+
+<div class="widgets">
+<ul>
+<li id="recent-posts-4" class="widget widget_recent_entries" data-widget-id="recent-posts-4"><div class="widget_wrap">
+<h3 class="widgettitle">Recent Posts</h3>
+<ul>
+<li>
+<a href="https://www.linuxbabe.com/linux-server/set-up-authoritative-dns-servers-webmin">How to Set Up Authoritative DNS Servers with Webmin</a>
+</li>
+<li>
+<a href="https://www.linuxbabe.com/linux-server/create-dns-records-at-cloudflare">How to Create DNS Records at Cloudflare</a>
+</li>
+<li>
+<a href="https://www.linuxbabe.com/redhat/install-webmin-centos-8-rhel-8-server">How to Install Webmin on CentOS 8/RHEL 8 Server</a>
+</li>
+<li>
+<a href="https://www.linuxbabe.com/ubuntu/install-webmin-ubuntu-20-04-server">How to Install Webmin on Ubuntu 20.04 Server</a>
+</li>
+<li>
+<a href="https://www.linuxbabe.com/desktop-linux/fix-cant-read-superblock-error">How to Fix &#8220;can&#8217;t read superblock&#8221; Error on Linux (ext4 &#038; Btrfs)</a>
+</li>
+</ul>
+</li><li id="search-3" class="widget widget_search" data-widget-id="search-3"><div class="widget_wrap"><form role="search" method="get" id="searchform" action="https://www.linuxbabe.com/">
+<div>
+<input placeholder="Search &hellip;" type="text" value="" name="s" id="s" />
+<input type="submit" id="searchsubmit" value="Search" />
+</div>
+</form></li><li id="yasr_recent_ratings_widget-2" class="widget widget_yasr_recent_ratings_widget" data-widget-id="yasr_recent_ratings_widget-2"><div class="widget_wrap"><h3 class="widgettitle">Recent Ratings</h3><table class="yasr-widget-recent-ratings-table"><tr>
+<td width="40%" class="yasr-widget-recent-ratings-td">Vote <span class="yasr-widget-recent-ratings-text yasr-widget-recent-ratings-vote">5</span>
+<span class="yasr-widget-recent-ratings-from-user"> from <span class="yasr-widget-recent-ratings-text yasr-widget-recent-ratings-user">anonymous</span>
+</span> on<span class="yasr-widget-recent-ratings-text yasr-widget-recent-ratings-title">
+<a href="https://www.linuxbabe.com/ubuntu/openstreetmap-tile-server-ubuntu-20-04-osm"> How to Set Up OpenStreetMap Tile Server on Ubuntu 20.04</a>
+</span></td>
+</tr><tr>
+<td width="40%" class="yasr-widget-recent-ratings-td">Vote <span class="yasr-widget-recent-ratings-text yasr-widget-recent-ratings-vote">5</span>
+<span class="yasr-widget-recent-ratings-from-user"> from <span class="yasr-widget-recent-ratings-text yasr-widget-recent-ratings-user">anonymous</span>
+ </span> on<span class="yasr-widget-recent-ratings-text yasr-widget-recent-ratings-title">
+<a href="https://www.linuxbabe.com/ubuntu/install-configure-openldap-server-ubuntu-16-04"> How to Install and Configure OpenLDAP Server on Ubuntu 16.04</a>
+</span></td>
+</tr><tr>
+<td width="40%" class="yasr-widget-recent-ratings-td">Vote <span class="yasr-widget-recent-ratings-text yasr-widget-recent-ratings-vote">5</span>
+<span class="yasr-widget-recent-ratings-from-user"> from <span class="yasr-widget-recent-ratings-text yasr-widget-recent-ratings-user">anonymous</span>
+</span> on<span class="yasr-widget-recent-ratings-text yasr-widget-recent-ratings-title">
+<a href="https://www.linuxbabe.com/virtualbox/how-to-install-virtualbox-guest-additions-on-elementary-os-2"> How To Install Virtualbox Guest Additions on Elementary OS</a>
+</span></td>
+</tr><tr>
+<td width="40%" class="yasr-widget-recent-ratings-td">Vote <span class="yasr-widget-recent-ratings-text yasr-widget-recent-ratings-vote">4</span>
+<span class="yasr-widget-recent-ratings-from-user"> from <span class="yasr-widget-recent-ratings-text yasr-widget-recent-ratings-user">anonymous</span>
+</span> on<span class="yasr-widget-recent-ratings-text yasr-widget-recent-ratings-title">
+<a href="https://www.linuxbabe.com/mail-server/secure-email-server-ubuntu-postfix-dovecot"> Part 2: Install Dovecot IMAP server on Ubuntu &#038; Enable TLS Encryption</a>
+</span></td>
+</tr><tr>
+<td width="40%" class="yasr-widget-recent-ratings-td">Vote <span class="yasr-widget-recent-ratings-text yasr-widget-recent-ratings-vote">5</span>
+<span class="yasr-widget-recent-ratings-from-user"> from <span class="yasr-widget-recent-ratings-text yasr-widget-recent-ratings-user">anonymous</span>
+</span> on<span class="yasr-widget-recent-ratings-text yasr-widget-recent-ratings-title">
+<a href="https://www.linuxbabe.com/mail-server/setup-basic-postfix-mail-sever-ubuntu"> Build Your Own Email Server on Ubuntu: Basic Postfix Setup</a>
+</span></td>
+</tr></table></li> </ul>
+</div>
+
+</div>
+
+<div id="copyright" class="soc_right">
+<div class="center">
+
+<div class="copytext"><p>© LinuxBabe.Com | Read The Friendly Manual</p></div>
+
+<div class="foot_right_wrap">
+
+<div id="footer_menu" class=""><div class="menu-footer"><ul id="menu-footer-navigation" class="menu"><li id="menu-item-5686" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-5686"><a href="https://www.linuxbabe.com">Home</a></li>
+<li id="menu-item-5685" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5685"><a href="https://www.linuxbabe.com/html-sitemap">HTML Sitemap</a></li>
+<li id="menu-item-10720" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10720"><a href="https://www.linuxbabe.com/donation">Donation</a></li>
+<li id="menu-item-19635" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19635"><a href="https://www.linuxbabe.com/about-me">About Me</a></li>
+<li id="menu-item-488" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-488"><a href="https://www.linuxbabe.com/contact-us">Contact Me</a></li>
+<li id="menu-item-449" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-449"><a href="https://www.linuxbabe.com/privacy-policy">Privacy Policy</a></li>
+<li id="menu-item-450" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-450"><a href="https://www.linuxbabe.com/terms-of-service">Terms &#038; Conditions</a></li>
+<li id="menu-item-451" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-451"><a href="https://www.linuxbabe.com/disclaimer">Disclaimer</a></li>
+</ul></div></div>
+
+
+<div class="foot_soc">
+<div class="social_bookmarks bookmark_simple bookmark_size_normal">
+<a target="_blank" class="ast_twt" href="https://www.facebook.com/linuxbabe/"><i class="fa-twitter"></i></a> <a target="_blank" class="ast_gplus" href="https://twitter.com/linuxbabe"><i class="fa-google-plus"></i></a>
+<a target="_blank" class="ast_rss" href="https://www.linuxbabe.com/feed"><i class="fa-rss"></i></a>
+</div></div>
+
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+<div id="pum-19301" class="pum pum-overlay pum-theme-19296 pum-theme-lightbox popmake-overlay auto_open click_open" data-popmake="{&quot;id&quot;:19301,&quot;slug&quot;:&quot;mailtrain&quot;,&quot;theme_id&quot;:19296,&quot;cookies&quot;:[{&quot;event&quot;:&quot;on_popup_open&quot;,&quot;settings&quot;:{&quot;name&quot;:&quot;pum-19301&quot;,&quot;key&quot;:&quot;&quot;,&quot;session&quot;:false,&quot;time&quot;:&quot;20 days&quot;,&quot;path&quot;:true}}],&quot;triggers&quot;:[{&quot;type&quot;:&quot;auto_open&quot;,&quot;settings&quot;:{&quot;cookie_name&quot;:[&quot;pum-19301&quot;],&quot;delay&quot;:&quot;15000&quot;}},{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:true,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:&quot;tiny&quot;,&quot;responsive_min_width&quot;:&quot;0%&quot;,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width&quot;:&quot;100%&quot;,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:&quot;640px&quot;,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:&quot;380px&quot;,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:&quot;center&quot;,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:&quot;100&quot;,&quot;position_left&quot;:&quot;0&quot;,&quot;position_bottom&quot;:&quot;0&quot;,&quot;position_right&quot;:&quot;0&quot;,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:&quot;fade&quot;,&quot;animation_speed&quot;:&quot;350&quot;,&quot;animation_origin&quot;:&quot;center top&quot;,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:&quot;1999999999&quot;},&quot;close&quot;:{&quot;text&quot;:&quot;&quot;,&quot;button_delay&quot;:&quot;0&quot;,&quot;overlay_click&quot;:false,&quot;esc_press&quot;:false,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}" role="dialog" aria-hidden="true">
+<div id="popmake-19301" class="pum-container popmake theme-19296 pum-responsive pum-responsive-tiny responsive size-tiny">
+<div class="pum-content popmake-content">
+<div data-mailtrain-subscription-widget="" data-url="https://newsletter.linuxbabe.com/subscription/wkeY5d6pg/widget"><a href="https://newsletter.linuxbabe.com/subscription/wkeY5d6pg">Subscribe to our list</a></div>
+<p><script src="https://newsletter.linuxbabe.com/subscription/widget.js"></script></p>
+</div>
+<button type="button" class="pum-close popmake-close" aria-label="Close">
+× </button>
+</div>
+</div>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-content/plugins/wp-spam-fighter/javascript/wp-spamfighter.js?ver=0.5.1' id='wpsf_wp-spam-fighter-js'></script>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-content/plugins/yet-another-stars-rating/includes/js/tippy.all.min.js?ver=3.6.0' id='tippy-js'></script>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-content/plugins/yet-another-stars-rating/includes/js/rater-js.js?ver=2.6.1' id='rater-js'></script>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=7.4.4' id='wp-polyfill-js'></script>
+<script type='text/javascript' id='wp-polyfill-js-after'>
+( 'fetch' in window ) || document.write( '<script src="https://www.linuxbabe.com/wp-includes/js/dist/vendor/wp-polyfill-fetch.min.js?ver=3.0.0"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="https://www.linuxbabe.com/wp-includes/js/dist/vendor/wp-polyfill-node-contains.min.js?ver=3.42.0"></scr' + 'ipt>' );( window.DOMRect ) || document.write( '<script src="https://www.linuxbabe.com/wp-includes/js/dist/vendor/wp-polyfill-dom-rect.min.js?ver=3.42.0"></scr' + 'ipt>' );( window.URL && window.URL.prototype && window.URLSearchParams ) || document.write( '<script src="https://www.linuxbabe.com/wp-includes/js/dist/vendor/wp-polyfill-url.min.js?ver=3.6.4"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="https://www.linuxbabe.com/wp-includes/js/dist/vendor/wp-polyfill-formdata.min.js?ver=3.0.12"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="https://www.linuxbabe.com/wp-includes/js/dist/vendor/wp-polyfill-element-closest.min.js?ver=2.0.2"></scr' + 'ipt>' );
+</script>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-includes/js/dist/i18n.min.js?ver=ac389435e7fd4ded01cf603f3aaba6a6' id='wp-i18n-js'></script>
+<script type='text/javascript' id='yasrfront-js-extra'>
+/* <![CDATA[ */
+var yasrCommonData = {"restEndpoint":"https:\/\/www.linuxbabe.com\/wp-json\/","ajaxurl":"https:\/\/www.linuxbabe.com\/wp-admin\/admin-ajax.php","visitorStatsEnabled":"yes","ajaxEnabled":"yes","loaderHtml":"<div id=\"loader-visitor-rating\" style=\"display: inline\">\u00a0  <img src=https:\/\/www.linuxbabe.com\/wp-content\/plugins\/yet-another-stars-rating\/includes\/img\/loader.gif title=\"yasr-loader\" alt=\"yasr-loader\">\n                                 <\/div>","nonce":"47a57fcc1a"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-content/plugins/yet-another-stars-rating/includes/js/yasr-front.js?ver=2.6.1' id='yasrfront-js'></script>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-includes/js/comment-reply.min.js?ver=5.6.2' id='comment-reply-js'></script>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-content/plugins/social-icons-widget-by-wpzoom/assets/js/social-icons-widget-frontend.js?ver=1611200004' id='zoom-social-icons-widget-frontend-js'></script>
+<script type='text/javascript' id='dco-comment-attachment-js-extra'>
+/* <![CDATA[ */
+var dco_ca = {"commenting_form_not_found":"The commenting form not found."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-content/plugins/dco-comment-attachment/assets/dco-comment-attachment.js?ver=2.1.0' id='dco-comment-attachment-js'></script>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1' id='jquery-ui-core-js'></script>
+<script type='text/javascript' id='popup-maker-site-js-extra'>
+/* <![CDATA[ */
+var pum_vars = {"version":"1.15.0","pm_dir_url":"https:\/\/www.linuxbabe.com\/wp-content\/plugins\/popup-maker\/","ajaxurl":"https:\/\/www.linuxbabe.com\/wp-admin\/admin-ajax.php","restapi":"https:\/\/www.linuxbabe.com\/wp-json\/pum\/v1","rest_nonce":null,"default_theme":"19295","debug_mode":"","disable_tracking":"","home_url":"\/","message_position":"top","core_sub_forms_enabled":"1","popups":[],"analytics_route":"analytics","analytics_api":"https:\/\/www.linuxbabe.com\/wp-json\/pum\/v1"};
+var ajaxurl = "https:\/\/www.linuxbabe.com\/wp-admin\/admin-ajax.php";
+var pum_sub_vars = {"ajaxurl":"https:\/\/www.linuxbabe.com\/wp-admin\/admin-ajax.php","message_position":"top"};
+var pum_popups = {"pum-19301":{"triggers":[{"type":"auto_open","settings":{"cookie_name":["pum-19301"],"delay":"15000"}}],"cookies":[{"event":"on_popup_open","settings":{"name":"pum-19301","key":"","session":false,"time":"20 days","path":true}}],"disable_on_mobile":true,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":"19296","size":"tiny","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":"350","animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center","position_top":"100","position_bottom":"0","position_left":"0","position_right":"0","position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":"1999999999","close_button_delay":"0","fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":"0","close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"lightbox","id":19301,"slug":"mailtrain"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='//www.linuxbabe.com/wp-content/uploads/pum/pum-site-scripts.js?defer&#038;generated=1610535482&#038;ver=1.15.0' id='popup-maker-site-js'></script>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-content/plugins/popup-maker/assets/js/vendor/mobile-detect.min.js?ver=1.3.3' id='mobile-detect-js'></script>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-includes/js/wp-embed.min.js?ver=5.6.2' id='wp-embed-js'></script>
+<script type='text/javascript' id='google-translate-init-js-extra'>
+/* <![CDATA[ */
+var _wp_google_translate_widget = {"lang":"en_US","layout":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.linuxbabe.com/wp-content/plugins/jetpack/_inc/build/widgets/google-translate/google-translate.min.js?ver=5.6.2' id='google-translate-init-js'></script>
+<script type='text/javascript' src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&#038;ver=5.6.2' id='google-translate-js'></script>
+<script src='https://stats.wp.com/e-202108.js' defer></script>
+<script>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:9.4',blog:'109478216',post:'19942',tz:'8',srv:'www.linuxbabe.com'} ]);
+	_stq.push([ 'clickTrackerInit', '109478216', '19942' ]);
+</script>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-60768269-3', 'auto');
+ ga('send', 'pageview');
+
+</script>
+
+<script type="text/javascript">
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.linuxbabe.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.linuxbabe.com/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+</body>
+</html>
