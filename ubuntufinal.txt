@@ -38,6 +38,26 @@ sudo chown -R www-data boostrap/cache/
 
 
 
+REMOVE phpmyadmin
+sudo apt-get purge phpmyadmin
+OR
+sudo apt-get remove phpmyadmin
+
+REMOVE php
+sudo apt-get purge php.*
+
+REMOVE apache2
+
+sudo service apache2 stop
+
+sudo apt-get remove apache2*
+
+sudo apt-get purge apache2 apache2-utils apache2.2-bin apache2-common
+sudo apt-get autoremove
+
+
+
+
 
 
 
