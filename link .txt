@@ -19,3 +19,9 @@ https://www.theappguruz.com/tag-tools/web/CSSAnimations/
 https://enjoycss.com/
 
 https://html-css-js.com/css/generator/
+
+
+
+INSTALACION LAMP--UBUNTU
+https://www.linuxbabe.com/ubuntu/install-lamp-stack-ubuntu-20-04-server-desktop
+https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04
