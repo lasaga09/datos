@@ -1,0 +1,56 @@
+Mongo db
+list all bds:
+db.getMongo().getDBNames() || show dbs
+
+-create db:
+	use namdb;
+-delete db;
+	db.namedb.drop()
+
+
+-create collection(tabla):
+	db.createCollection("namecollection")
+-inser collection(tabla):
+	db.namecollection.insert({
+	  "name":"amador,
+	 "id":23,})
+	el insertOne devuelve id
+	el insertMany = insertMultiple
+
+-list :
+	db.namecollection.find()
+
+-delete collection:
+	db.namecollection.drop()
+
+-delete data
+	db.namecollection.remove({})
+
+
+CURSOR:
+
+  db.cursor.find().count()
+db.cursor.find().limit(3)
+db.cursor.find().skip(12) == salta
+ db.cursor.find().sort({"coches":-1})  = ordena de mayor a menor
+
+QUERYS:
+db.persona.find({favoriteFruit:"banana"}) ==buscar
+db.persona.find({age:{"$gt":27}}).count()
+
+OPERADORES:
+$and == y
+$or = o
+$eq == igual
+$ne == diferente
+$gt == mayor q
+$gt == mayor o igual
+$It = menor qu
+$Ite == menor o igual
+
+$all = todos
+$size = coiciden con el size
+
+$in = coicidendencias
+$nin = sin coicidencias
+db.persona.find({"name.first": {"$in": ["Geneva","Pamela"]}}).count()
