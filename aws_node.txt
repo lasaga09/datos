@@ -1,4 +1,4 @@
-antes de eso instalar mvm algo asi
+antes de eso instalar nvm algo asi
 
 
 
@@ -6,7 +6,7 @@ antes de eso instalar mvm algo asi
 ---para que corra constante
 $ npm install pm2 -g
 pm2 start app.js
-pm2 startup
+pm2 startup systemd
 pm2 save
 
 pm2 show 0 [o el número de procesos PM2,  Para ver "gráficamente" tu proceso]
@@ -16,3 +16,11 @@ pm2 reload app.js [Para recargar el servicio]
 pm2 delete app.js [Para eliminar el servicio]
 pm2 logs [Para ver el log de todos los servicios]
 pm2 monit [Para monitorear tus servicios]
+
+------nextjs-------
+pm2 start --name <app name> npm -- start
+pm2 startup systemd
+
+pm2 delete <app name>
+pm2 stop <app name>
+pm2 restart <app name>
