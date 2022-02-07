@@ -78,3 +78,7 @@ git pull
 $ git credential-manager uninstall
 
 $ git credential-manager install
+
+
+-------limpiar cache gitignore---
+git rm -r --cached .
