@@ -72,6 +72,34 @@ DELIMITER;
 
 
 
+----sp cursor--
+DROP PROCEDURE IF EXISTS sp_up_forms_ha;
+DELIMITER ;;
+CREATE PROCEDURE sp_up_forms_ha()
+BEGIN
+  DECLARE CURSOR_FORM_ID INT;
+  DECLARE CURSOR_FORM_COD_JSON LONGTEXT;
+  DECLARE done INT DEFAULT FALSE;
+  DECLARE cursor_cod_json CURSOR FOR SELECT id, cod_json FROM forms WHERE fb_id = "" AND fbpage_id = "";
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+  OPEN cursor_cod_json;
+  loop_through_rows: LOOP
+    FETCH cursor_cod_json INTO CURSOR_FORM_ID,CURSOR_FORM_COD_JSON;
+    IF done THEN
+      LEAVE loop_through_rows;
+    END IF;
+		SET @newDt = '{"type":"select","label":"Horario preferido de contacto","className":"form-control","name":"horario_contacto","values":[{"label":"9 a 11 a.m.","value":"9 a 11 a.m.","selected":true},{"label":"11 a 2 p.m.","value":"11 a 2 p.m."},{"label":"2 a 6 p.m.","value":"2 a 6 p.m."}]}';
+		IF(CHAR_LENGTH(CURSOR_FORM_COD_JSON) > 0) THEN
+			SET @old = SUBSTRING(CURSOR_FORM_COD_JSON, 2, CHAR_LENGTH(CURSOR_FORM_COD_JSON)-2);
+			UPDATE forms SET cod_json = CONCAT('[', @old, ' ,', @newDt, ']') WHERE id = CURSOR_FORM_ID;
+		END IF;
+  END LOOP;
+  CLOSE cursor_cod_json;
+END;
+
+
+
+
 --------------------------------------------
 //innerjoin ingreso a producto
 SELECT i.idingreso, i.cantidad, p.nombre FROM   ingreso i inner join  productos p on i.id_producto=p.idproductos;
