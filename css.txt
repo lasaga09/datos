@@ -185,3 +185,35 @@ div.avatar {
    input::-ms-reveal {
     display: none;
 }
+
+------checkbox--
+input.form-check-input:focus {
+    border-color: #42BFFF !important;
+    outline: none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+input.form-check-input:checked {
+    background-color: #8bd3f7;
+}
+
+
+----input----
+input:focus,
+select:focus,
+select,
+input.form-control:focus,
+textarea.form-control:focus ,
+select.form-control:focus {
+
+    outline: none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    border-color: #444258 !important;
+}
+
