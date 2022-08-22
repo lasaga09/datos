@@ -100,6 +100,26 @@ END;
 
 
 
+-------sp
+DELIMITER $$
+DROP PROCEDURE IF EXISTS  sp_listMatches;
+CREATE PROCEDURE sp_listMatches()
+BEGIN
+     SELECT m.id, DATE_FORMAT(m.date, "%d/%m ")as date, TIME_FORMAT(m.hour, "%h:%i %p") as hour , l.name as "league",t.team as "team_one",tb.team as "team_two",t.logo,tb.logo as "logo_two",m.score_one,m.score_two,s.stage,p.city,p.station 
+        from matches m
+        INNER join leagues l on m.league_id=l.id
+        INNER join stages s on m.stage_id=s.id
+        INNER join places p on m.place_id=p.id
+        INNER join teams t on m.team_id=t.id
+        INNER join teams tb on m.teamd_id=tb.id 
+				where m.date >= CURDATE()
+				ORDER BY m.id desc;
+END$$
+DELIMITER ;
+
+
+
+
 --------------------------------------------
 //innerjoin ingreso a producto
 SELECT i.idingreso, i.cantidad, p.nombre FROM   ingreso i inner join  productos p on i.id_producto=p.idproductos;
