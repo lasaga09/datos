@@ -1,0 +1,25 @@
+--------------------------------------------------------------Dates-----
+DateTime now = DateTime.now();
+--format
+String formattedDate = DateFormat('yyyy-MM-dd – kk:mm').format(now);
+--add
+date.add(Duration(days: 5))
+
+-----------------------------------------------------------------
+
+
+--------------------------------------------------------------reverse-----
+
+String reverseStringUsingSplit(String input) {
+  var chars = input.split('');
+  return chars.reversed.join();
+}
+
+-----------------------------------------------------------------
+
+
+--------------------------------------------------------------replace-----
+
+String result = start.replaceAll("/", "-");
+
+-----------------------------------------------------------------
