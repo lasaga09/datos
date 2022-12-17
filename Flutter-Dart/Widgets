@@ -1,0 +1,29 @@
+----------------------------- showDatePicker--------------------------------
+final DateTime? date = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime.now().subtract(Duration(days: 1)),
+                          lastDate: DateTime(2100),
+                          builder: (context, child) =>
+                              InputCustoms.themeCalendar(context, child),
+                        );
+                        
+                        
+  static Theme themeCalendar(BuildContext context, child) {
+    return Theme(
+      data: Theme.of(context).copyWith(
+        colorScheme: ColorScheme.light(
+          primary: FitAppTheme.bgColor2, // <-- SEE HERE
+          onPrimary: Colors.black54, // <-- SEE HERE
+          onSurface: Colors.grey, // <-- SEE HERE
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            backgroundColor: FitAppTheme.white, // button text color
+          ),
+        ),
+      ),
+      child: child,
+    );
+  }
+----------------------------- showDatePicker--------------------------------
